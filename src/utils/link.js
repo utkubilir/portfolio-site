@@ -19,5 +19,9 @@ export function isUsableHref(href) {
     return value.length > 'mailto:'.length
   }
 
+  if (value.startsWith('tel:')) {
+    return /^tel:\+?[0-9]+$/.test(value)
+  }
+
   return value.startsWith('http://') || value.startsWith('https://')
 }
