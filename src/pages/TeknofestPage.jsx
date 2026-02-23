@@ -1,14 +1,13 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import uav1 from '../assets/teknofest/uav-1.jpg'
-import uav2 from '../assets/teknofest/uav-2.jpg'
-import uav3 from '../assets/teknofest/uav-3.jpg'
-import uav4 from '../assets/teknofest/uav-4.jpg'
+import bg1 from '../assets/teknofest/uav-1.svg'
+import bg2 from '../assets/teknofest/uav-2.svg'
+import bg3 from '../assets/teknofest/uav-3.svg'
 import Container from '../components/Container'
 import { projects } from '../data/projects'
 import { isUsableHref } from '../utils/link'
 
-const backgrounds = [uav1, uav2, uav3, uav4].filter(Boolean)
+const backgrounds = [bg1, bg2, bg3].filter(Boolean)
 
 function normalizeBgIndex(index) {
   if (backgrounds.length === 0) {
@@ -47,13 +46,13 @@ function TeknofestPage() {
         id: 'autonomy',
         title: 'Autonomy & Guidance',
         items: project?.detailSections?.autonomyGuidance ?? [],
-        bgIndex: 3,
+        bgIndex: 0,
       },
       {
         id: 'telemetry',
         title: 'Telemetry / Infrastructure',
         items: project?.detailSections?.telemetryInfrastructure ?? [],
-        bgIndex: 4,
+        bgIndex: 1,
       },
     ],
     [project],
@@ -235,7 +234,7 @@ function TeknofestPage() {
           {(project.roadmap ?? []).length > 0 ? (
             <section
               id="roadmap"
-              data-bg-index={normalizeBgIndex(5)}
+              data-bg-index={normalizeBgIndex(2)}
               className="scroll-mt-28 rounded-2xl border border-slate-200 bg-white/88 p-6 backdrop-blur-sm dark:border-slate-800 dark:bg-slate-900/88"
             >
               <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
@@ -264,7 +263,7 @@ function TeknofestPage() {
 
           <section
             id="links"
-            data-bg-index={normalizeBgIndex(6)}
+            data-bg-index={normalizeBgIndex(2)}
             className="scroll-mt-28"
           >
             <div className="flex flex-wrap items-center gap-3 text-sm">

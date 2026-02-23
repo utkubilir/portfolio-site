@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Close UAV silhouette on purple sky">
+  <defs>
+    <linearGradient id="sky2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7c3aed" />
+      <stop offset="50%" stop-color="#4338ca" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <radialGradient id="glow2" cx="72%" cy="34%" r="42%">
+      <stop offset="0%" stop-color="#f5d0fe" stop-opacity="0.24" />
+      <stop offset="100%" stop-color="#f5d0fe" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#sky2)" />
+  <circle cx="1120" cy="290" r="340" fill="url(#glow2)" />
+
+  <g transform="translate(980 450)">
+    <ellipse cx="0" cy="170" rx="360" ry="48" fill="#030712" fill-opacity="0.38" />
+    <rect x="-42" y="-64" width="84" height="214" rx="24" fill="#020617" />
+    <rect x="-470" y="-46" width="940" height="76" rx="36" fill="#0b1120" />
+    <rect x="-102" y="-106" width="204" height="42" rx="20" fill="#1e293b" />
+    <polygon points="0,-220 70,-106 -70,-106" fill="#0b1120" />
+    <polygon points="-470,-8 -560,24 -470,24" fill="#111827" />
+    <polygon points="470,-8 560,24 470,24" fill="#111827" />
+    <circle cx="-332" cy="-8" r="13" fill="#334155" />
+    <circle cx="332" cy="-8" r="13" fill="#334155" />
+  </g>
+</svg>
