@@ -1,6 +1,6 @@
 import Container from '../components/Container'
 import SectionHeader from '../components/SectionHeader'
-import { skillGroups } from '../data/skills'
+import { skills } from '../data/skills'
 
 function Skills() {
   return (
@@ -13,7 +13,7 @@ function Skills() {
         />
 
         <div className="grid gap-6 md:grid-cols-3">
-          {skillGroups.map((group) => (
+          {skills.map((group) => (
             <article
               key={group.category}
               className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900"

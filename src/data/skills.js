@@ -1,14 +1,14 @@
-export const skillGroups = [
+export const skills = [
   {
-    category: 'Frontend',
-    items: ['React', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Accessibility'],
+    category: 'Software',
+    items: ['Python', 'Java', 'Git', 'Linux', 'OOP', 'Debugging'],
   },
   {
-    category: 'Backend',
-    items: ['Node.js', 'Express', 'REST API', 'PostgreSQL', 'Authentication'],
+    category: 'Robotics / UAV',
+    items: ['ROS 2', 'PX4 SITL', 'Gazebo', 'Offboard control', 'Telemetry'],
   },
   {
     category: 'Tools',
-    items: ['Git', 'Docker', 'CI/CD', 'Jest', 'Figma'],
+    items: ['VS Code', 'Figma', 'Jira', 'Docker (basic)'],
   },
 ]

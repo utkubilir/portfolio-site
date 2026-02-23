@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
+import { profile } from './data/profile'
 import About from './sections/About'
 import Contact from './sections/Contact'
 import Experience from './sections/Experience'
@@ -52,6 +53,7 @@ function App() {
         navItems={navItems}
         isDark={isDark}
         onToggleTheme={() => setIsDark((previous) => !previous)}
+        brand={profile.name}
       />
 
       <main className="relative pb-16">
@@ -63,7 +65,7 @@ function App() {
         <Contact />
       </main>
 
-      <Footer />
+      <Footer name={profile.name} />
     </div>
   )
 }

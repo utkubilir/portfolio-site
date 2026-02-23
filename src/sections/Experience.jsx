@@ -1,6 +1,6 @@
 import Container from '../components/Container'
 import SectionHeader from '../components/SectionHeader'
-import { experiences } from '../data/experience'
+import { experience } from '../data/experience'
 
 function Experience() {
   return (
@@ -13,9 +13,9 @@ function Experience() {
         />
 
         <div className="space-y-4">
-          {experiences.map((item) => (
+          {experience.map((item) => (
             <article
-              key={`${item.company}-${item.role}`}
+              key={`${item.org}-${item.role}`}
               className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900"
             >
               <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
@@ -27,11 +27,19 @@ function Experience() {
                 </p>
               </div>
               <p className="mt-1 text-sm font-medium text-slate-700 dark:text-slate-300">
-                {item.company}
+                {item.org}
               </p>
-              <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
-                {item.description}
-              </p>
+              <ul className="mt-3 space-y-2">
+                {item.bullets.map((bullet) => (
+                  <li
+                    key={bullet}
+                    className="flex gap-2 text-sm leading-7 text-slate-600 dark:text-slate-300"
+                  >
+                    <span className="mt-2 inline-block h-1.5 w-1.5 rounded-full bg-cyan-500 dark:bg-cyan-300" />
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
             </article>
           ))}
         </div>

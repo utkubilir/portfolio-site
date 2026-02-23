@@ -1,7 +1,7 @@
 import Container from './Container'
 import ThemeToggle from './ThemeToggle'
 
-function Navbar({ navItems, isDark, onToggleTheme }) {
+function Navbar({ navItems, isDark, onToggleTheme, brand }) {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/85 backdrop-blur-lg dark:border-slate-800 dark:bg-slate-950/85">
       <Container className="flex items-center justify-between py-4">
@@ -9,7 +9,7 @@ function Navbar({ navItems, isDark, onToggleTheme }) {
           href="#hero"
           className="text-sm font-extrabold uppercase tracking-[0.22em] text-slate-900 dark:text-slate-100"
         >
-          Utku
+          {brand}
         </a>
 
         <nav className="hidden items-center gap-6 md:flex">

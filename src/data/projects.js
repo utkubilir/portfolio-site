@@ -1,29 +1,36 @@
 export const projects = [
   {
-    title: 'Project Alpha',
-    type: 'Web App',
-    summary:
-      'Placeholder project summary. Explain the problem, your solution, and measurable impact here.',
-    tags: ['React', 'Tailwind', 'API'],
-    liveUrl: 'https://example.com/project-alpha',
-    repoUrl: 'https://github.com/username/project-alpha',
+    featured: true,
+    title: 'ECOFUAV — TEKNOFEST Savaşan İHA',
+    description:
+      'Takım kaptanı olarak yarışma hazırlığını yürütüyor; simülasyon, otonomi ve entegrasyon süreçlerini uçtan uca koordine ediyorum.',
+    tech: ['PX4 SITL', 'Gazebo', 'ROS 2 (Jazzy)', 'C++/Python', 'Git', 'Linux'],
+    bullets: [
+      'Takım kaptanlığı: yazılım/elektronik/mekanik koordinasyonu, planlama ve teslimatlar',
+      'Simülasyon: PX4 SITL + Gazebo ile senaryo doğrulama ve test döngüleri',
+      'Otonomi: offboard kontrol ve angajman/kilitlenme senaryoları için mimari',
+      'Telemetri/altyapı: veri akışı, loglama ve yarışma sunucusu entegrasyon yaklaşımı',
+    ],
+    links: [
+      { label: 'GitHub', href: 'https://github.com/utkubilir' },
+      { label: 'Docs', href: '' },
+    ],
   },
   {
-    title: 'Project Beta',
-    type: 'Case Study',
-    summary:
-      'Placeholder case study text. Add constraints, decisions, and outcomes to tell the project story.',
-    tags: ['UX', 'Performance', 'Testing'],
-    liveUrl: 'https://example.com/project-beta',
-    repoUrl: 'https://github.com/username/project-beta',
+    title: 'Exam Timetable Planner',
+    description:
+      'JavaFX tabanlı sınav programı planlama aracı. UI/UX liderliği, CSV içe/dışa aktarma ve PDF export gibi özellikler.',
+    tech: ['Java', 'JavaFX', 'Maven', 'FXML'],
+    links: [
+      { label: 'GitHub', href: 'PROJE_GITHUB_LINKI' },
+      { label: 'Demo', href: 'PROJE_DEMO_LINKI' },
+    ],
   },
   {
-    title: 'Project Gamma',
-    type: 'Side Project',
-    summary:
-      'Placeholder side project summary. Mention stack choices and why this work is relevant.',
-    tags: ['TypeScript', 'Node.js', 'CI/CD'],
-    liveUrl: 'https://example.com/project-gamma',
-    repoUrl: 'https://github.com/username/project-gamma',
+    title: 'Distributed PX4/Gazebo Simulation',
+    description:
+      'Apple Silicon + Ubuntu VM ortamında dağıtık simülasyon; ağ/telemetri ve GUI-client senaryoları.',
+    tech: ['PX4', 'Gazebo', 'Networking'],
+    links: [{ label: 'Notlar', href: 'LINK' }],
   },
 ]

@@ -1,4 +1,5 @@
 import Container from '../components/Container'
+import { profile } from '../data/profile'
 
 function Hero() {
   return (
@@ -7,14 +8,16 @@ function Hero() {
         <div className="grid items-end gap-10 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="space-y-6">
             <p className="inline-flex rounded-full border border-cyan-200 bg-cyan-50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-700 dark:border-cyan-500/40 dark:bg-cyan-500/10 dark:text-cyan-200">
-              Frontend Engineer
+              {profile.location}
             </p>
             <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl dark:text-slate-100">
-              Building clean and high-impact web experiences.
+              {profile.name}
             </h1>
+            <p className="max-w-2xl text-base font-semibold leading-8 text-slate-700 sm:text-lg dark:text-slate-200">
+              {profile.title}
+            </p>
             <p className="max-w-2xl text-base leading-8 text-slate-600 sm:text-lg dark:text-slate-300">
-              Placeholder hero text. Replace this with your value proposition
-              and a concise summary of the work you want to be hired for.
+              {profile.summary}
             </p>
             <div className="flex flex-wrap gap-3">
               <a
@@ -42,15 +45,15 @@ function Hero() {
                   Current Role
                 </p>
                 <p className="mt-1 text-lg font-semibold text-slate-900 dark:text-slate-100">
-                  Your Title Here
+                  {profile.title}
                 </p>
               </div>
               <div className="rounded-2xl border border-slate-200 p-4 dark:border-slate-700">
                 <p className="text-xs uppercase text-slate-500 dark:text-slate-400">
-                  Focus
+                  Based In
                 </p>
                 <p className="mt-1 text-lg font-semibold text-slate-900 dark:text-slate-100">
-                  Product, Performance, UX
+                  {profile.location}
                 </p>
               </div>
             </div>

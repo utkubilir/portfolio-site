@@ -1,16 +1,21 @@
-export const experiences = [
+export const experience = [
   {
-    role: 'Frontend Developer',
-    company: 'Company Name',
-    period: '2023 - Present',
-    description:
-      'Placeholder experience text. Replace with achievements, responsibilities, and impact.',
+    role: 'Team Captain (ECOFUAV)',
+    org: 'TEKNOFEST Savaşan İHA',
+    period: '2025 – Present',
+    bullets: [
+      'Yazılım, elektronik ve mekanik alt ekip koordinasyonu',
+      'Simülasyon ortamında otonomi entegrasyonu (PX4/Gazebo/ROS 2)',
+      'Test ve teslimat süreçlerinin planlanması',
+    ],
   },
   {
-    role: 'Software Engineer Intern',
-    company: 'Company Name',
-    period: '2022 - 2023',
-    description:
-      'Placeholder internship summary. Mention project ownership, collaboration, and growth.',
+    role: 'Vice President / Board Roles',
+    org: 'İEÜ Folk Dance Club',
+    period: '2024 – Present',
+    bullets: [
+      'Etkinlik ve organizasyon koordinasyonu',
+      'Kulüp içi süreç yönetimi ve ekip çalışması',
+    ],
   },
 ]
