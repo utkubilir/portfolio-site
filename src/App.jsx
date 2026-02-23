@@ -1,30 +1,10 @@
 import { useEffect, useState } from 'react'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import { profile } from './data/profile'
-import Activities from './sections/Activities'
-import About from './sections/About'
-import Certificates from './sections/Certificates'
-import Contact from './sections/Contact'
-import Education from './sections/Education'
-import Experience from './sections/Experience'
-import Hero from './sections/Hero'
-import Languages from './sections/Languages'
-import Projects from './sections/Projects'
-import Skills from './sections/Skills'
-
-const navItems = [
-  { id: 'hero', label: 'Home' },
-  { id: 'about', label: 'About' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'education', label: 'Education' },
-  { id: 'certificates', label: 'Certificates' },
-  { id: 'activities', label: 'Activities' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'languages', label: 'Languages' },
-  { id: 'contact', label: 'Contact' },
-]
+import HomePage from './pages/HomePage'
+import TeknofestPage from './pages/TeknofestPage'
 
 function getInitialTheme() {
   if (typeof window === 'undefined') {
@@ -43,6 +23,24 @@ function getInitialTheme() {
 }
 
 function App() {
+  const location = useLocation()
+  const isHomeRoute = location.pathname === '/'
+
+  const navItems = isHomeRoute
+    ? [
+        { id: 'hero', label: 'Home', href: '#hero' },
+        { id: 'about', label: 'About', href: '#about' },
+        { id: 'projects', label: 'Projects', href: '#projects' },
+        { id: 'experience', label: 'Experience', href: '#experience' },
+        { id: 'education', label: 'Education', href: '#education' },
+        { id: 'certificates', label: 'Certificates', href: '#certificates' },
+        { id: 'activities', label: 'Activities', href: '#activities' },
+        { id: 'skills', label: 'Skills', href: '#skills' },
+        { id: 'languages', label: 'Languages', href: '#languages' },
+        { id: 'contact', label: 'Contact', href: '#contact' },
+      ]
+    : [{ id: 'home', label: 'Home', href: '/' }]
+
   const [isDark, setIsDark] = useState(getInitialTheme)
 
   useEffect(() => {
@@ -62,19 +60,14 @@ function App() {
         isDark={isDark}
         onToggleTheme={() => setIsDark((previous) => !previous)}
         brand={profile.name}
+        brandHref={isHomeRoute ? '#hero' : '/'}
       />
 
       <main className="relative pb-16">
-        <Hero />
-        <About />
-        <Projects />
-        <Experience />
-        <Education />
-        <Certificates />
-        <Activities />
-        <Skills />
-        <Languages />
-        <Contact />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/teknofest" element={<TeknofestPage />} />
+        </Routes>
       </main>
 
       <Footer name={profile.name} />

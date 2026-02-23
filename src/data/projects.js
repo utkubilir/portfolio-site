@@ -1,6 +1,7 @@
 export const projects = [
   {
     featured: true,
+    slug: 'teknofest',
     title: 'ECOFUAV — TEKNOFEST Savaşan İHA',
     role: 'Team Captain',
     period: '2025 - Present',
@@ -13,6 +14,45 @@ export const projects = [
       'Contributed to autonomy architecture for offboard control and engagement/lock-on scenarios.',
       'Planned perception and telemetry data flow for robust integration with competition infrastructure.',
       'Managed end-to-end testing rhythm and system-level readiness for competition phases.',
+    ],
+    detailSections: {
+      leadership: [
+        'Led multidisciplinary coordination across software, electronics, and mechanical tracks.',
+        'Defined roadmap milestones, work packages, and ownership for predictable delivery cycles.',
+        'Aligned integration priorities with competition constraints and team capacity.',
+      ],
+      simulationTesting: [
+        'Built and iterated PX4 SITL + Gazebo validation loops for mission scenario testing.',
+        'Used simulation-first feedback cycles to reduce integration risk before hardware testing.',
+        'Tracked test outcomes to guide sprint priorities and issue resolution.',
+      ],
+      autonomyGuidance: [
+        'Supported autonomy pipeline design for offboard control and engagement workflows.',
+        'Structured guidance logic decisions around reliability, traceability, and controllability.',
+        'Connected autonomy blocks with mission execution requirements and safety constraints.',
+      ],
+      telemetryInfrastructure: [
+        'Planned telemetry data flow and logging strategy for operational visibility.',
+        'Prepared integration approach for competition-side systems and communication interfaces.',
+        'Improved reproducibility by standardizing diagnostics and data capture points.',
+      ],
+    },
+    roadmap: [
+      {
+        phase: 'Phase 1',
+        title: 'Planning and Architecture',
+        description: 'Scope definition, technical decomposition, and baseline mission architecture.',
+      },
+      {
+        phase: 'Phase 2',
+        title: 'Simulation Validation',
+        description: 'Scenario verification with PX4/Gazebo and rapid iteration of control logic.',
+      },
+      {
+        phase: 'Phase 3',
+        title: 'Integration and Delivery',
+        description: 'System-level integration, performance checks, and competition readiness.',
+      },
     ],
     links: [
       { label: 'GitHub', href: 'https://github.com/utkubilir' },

@@ -1,4 +1,5 @@
 import Container from '../components/Container'
+import { Link } from 'react-router-dom'
 import SectionHeader from '../components/SectionHeader'
 import { projects } from '../data/projects'
 import { isUsableHref } from '../utils/link'
@@ -81,6 +82,13 @@ function Projects() {
                 </div>
 
                 <div className="flex flex-wrap items-center gap-3 text-sm">
+                  <Link
+                    to="/teknofest"
+                    className="rounded-full bg-slate-900 px-4 py-2 font-semibold text-white transition hover:bg-slate-700 dark:bg-cyan-400 dark:text-slate-950 dark:hover:bg-cyan-300"
+                  >
+                    Read more
+                  </Link>
+
                   {(featuredProject.links ?? []).map((link) => (
                     <ProjectLink
                       key={`${featuredProject.title}-${link.label}`}
