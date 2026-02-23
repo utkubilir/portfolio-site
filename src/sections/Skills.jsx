@@ -12,7 +12,7 @@ function Skills() {
           description="Organize your stack by category and use chips for quick scanning."
         />
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {skills.map((group) => (
             <article
               key={group.category}

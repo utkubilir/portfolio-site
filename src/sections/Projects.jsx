@@ -48,6 +48,9 @@ function Projects() {
                 <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100">
                   {featuredProject.title}
                 </h3>
+                <p className="mt-1 text-sm font-medium text-cyan-700 dark:text-cyan-300">
+                  {featuredProject.role} • {featuredProject.period}
+                </p>
                 <p className="mt-3 text-sm leading-7 text-slate-700 dark:text-slate-300">
                   {featuredProject.description}
                 </p>
@@ -100,9 +103,28 @@ function Projects() {
               <h3 className="mt-3 text-xl font-semibold text-slate-900 dark:text-slate-100">
                 {project.title}
               </h3>
+              {project.role && project.period ? (
+                <p className="mt-1 text-sm font-medium text-cyan-700 dark:text-cyan-300">
+                  {project.role} • {project.period}
+                </p>
+              ) : null}
               <p className="mt-3 flex-1 text-sm leading-7 text-slate-600 dark:text-slate-300">
                 {project.description}
               </p>
+
+              {(project.bullets ?? []).length > 0 ? (
+                <ul className="mt-3 space-y-2">
+                  {project.bullets.map((bullet) => (
+                    <li
+                      key={bullet}
+                      className="flex gap-2 text-sm leading-6 text-slate-600 dark:text-slate-300"
+                    >
+                      <span className="mt-2 inline-block h-1.5 w-1.5 rounded-full bg-cyan-500 dark:bg-cyan-300" />
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
 
               <div className="mt-4 flex flex-wrap gap-2">
                 {project.tech.map((techItem) => (

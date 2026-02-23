@@ -1,14 +1,33 @@
 export const skills = [
   {
-    category: 'Software',
-    items: ['Python', 'Java', 'Git', 'Linux', 'OOP', 'Debugging'],
+    category: 'Programming',
+    items: ['Java', 'Python', 'C', 'SQL (Intermediate)'],
   },
   {
-    category: 'Robotics / UAV',
-    items: ['ROS 2', 'PX4 SITL', 'Gazebo', 'Offboard control', 'Telemetry'],
+    category: 'Frameworks / Libraries',
+    items: ['JavaFX', 'OpenCV', 'YOLOv8', 'ROS 2'],
+  },
+  {
+    category: 'Simulation / Robotics',
+    items: ['Gazebo (Harmonic)', 'PX4 (SITL)'],
+  },
+  {
+    category: 'Databases',
+    items: ['MySQL', 'MySQL Workbench'],
   },
   {
     category: 'Tools',
-    items: ['VS Code', 'Figma', 'Jira', 'Docker (basic)'],
+    items: [
+      'Git',
+      'GitHub',
+      'Maven',
+      'IntelliJ IDEA',
+      'VS Code',
+      'Scene Builder',
+    ],
+  },
+  {
+    category: 'Project Management',
+    items: ['Jira', 'Trello'],
   },
 ]

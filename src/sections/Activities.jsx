@@ -1,21 +1,21 @@
 import Container from '../components/Container'
 import SectionHeader from '../components/SectionHeader'
-import { experience } from '../data/experience'
+import { activities } from '../data/activities'
 
-function Experience() {
+function Activities() {
   return (
-    <section id="experience" className="scroll-mt-28 py-14 sm:py-16">
+    <section id="activities" className="scroll-mt-28 py-14 sm:py-16">
       <Container className="space-y-8">
         <SectionHeader
-          eyebrow="Experience"
-          title="Professional timeline."
-          description="Hands-on internship and project contributions in computer vision and software."
+          eyebrow="Leadership"
+          title="Club and volunteer activities."
+          description="Chronological leadership and organizational responsibilities."
         />
 
         <div className="space-y-4">
-          {experience.map((item) => (
+          {activities.map((item) => (
             <article
-              key={`${item.org}-${item.role}`}
+              key={`${item.role}-${item.period}`}
               className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900"
             >
               <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
@@ -29,16 +29,7 @@ function Experience() {
               <p className="mt-1 text-sm font-medium text-slate-700 dark:text-slate-300">
                 {item.org}
               </p>
-              {item.type ? (
-                <p className="mt-1 text-xs uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
-                  {item.type}
-                </p>
-              ) : null}
-              {item.description ? (
-                <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
-                  {item.description}
-                </p>
-              ) : null}
+
               <ul className="mt-3 space-y-2">
                 {item.bullets.map((bullet) => (
                   <li
@@ -50,18 +41,6 @@ function Experience() {
                   </li>
                 ))}
               </ul>
-              {(item.tech ?? []).length > 0 ? (
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {item.tech.map((techItem) => (
-                    <span
-                      key={techItem}
-                      className="rounded-full border border-slate-300 px-3 py-1 text-xs text-slate-700 dark:border-slate-700 dark:text-slate-200"
-                    >
-                      {techItem}
-                    </span>
-                  ))}
-                </div>
-              ) : null}
             </article>
           ))}
         </div>
@@ -70,4 +49,4 @@ function Experience() {
   )
 }
 
-export default Experience
+export default Activities

@@ -2,10 +2,14 @@ import { useEffect, useState } from 'react'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import { profile } from './data/profile'
+import Activities from './sections/Activities'
 import About from './sections/About'
+import Certificates from './sections/Certificates'
 import Contact from './sections/Contact'
+import Education from './sections/Education'
 import Experience from './sections/Experience'
 import Hero from './sections/Hero'
+import Languages from './sections/Languages'
 import Projects from './sections/Projects'
 import Skills from './sections/Skills'
 
@@ -13,8 +17,12 @@ const navItems = [
   { id: 'hero', label: 'Home' },
   { id: 'about', label: 'About' },
   { id: 'projects', label: 'Projects' },
-  { id: 'skills', label: 'Skills' },
   { id: 'experience', label: 'Experience' },
+  { id: 'education', label: 'Education' },
+  { id: 'certificates', label: 'Certificates' },
+  { id: 'activities', label: 'Activities' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'languages', label: 'Languages' },
   { id: 'contact', label: 'Contact' },
 ]
 
@@ -60,8 +68,12 @@ function App() {
         <Hero />
         <About />
         <Projects />
-        <Skills />
         <Experience />
+        <Education />
+        <Certificates />
+        <Activities />
+        <Skills />
+        <Languages />
         <Contact />
       </main>
 

@@ -2,35 +2,38 @@ export const projects = [
   {
     featured: true,
     title: 'ECOFUAV — TEKNOFEST Savaşan İHA',
+    role: 'Team Captain',
+    period: '2025 - Present',
     description:
-      'Takım kaptanı olarak yarışma hazırlığını yürütüyor; simülasyon, otonomi ve entegrasyon süreçlerini uçtan uca koordine ediyorum.',
-    tech: ['PX4 SITL', 'Gazebo', 'ROS 2 (Jazzy)', 'C++/Python', 'Git', 'Linux'],
+      'Leading a multidisciplinary UAV competition team and driving roadmap, autonomy development, simulation validation, and end-to-end integration for mission-ready workflows.',
+    tech: ['PX4 SITL', 'Gazebo', 'ROS 2', 'C++/Python', 'Git', 'Linux'],
     bullets: [
-      'Takım kaptanlığı: yazılım/elektronik/mekanik koordinasyonu, planlama ve teslimatlar',
-      'Simülasyon: PX4 SITL + Gazebo ile senaryo doğrulama ve test döngüleri',
-      'Otonomi: offboard kontrol ve angajman/kilitlenme senaryoları için mimari',
-      'Telemetri/altyapı: veri akışı, loglama ve yarışma sunucusu entegrasyon yaklaşımı',
+      'Coordinated software, electronics, and mechanical sub-teams with clear milestones and delivery plans.',
+      'Validated mission scenarios with PX4 SITL + Gazebo simulation loops before field execution.',
+      'Contributed to autonomy architecture for offboard control and engagement/lock-on scenarios.',
+      'Planned perception and telemetry data flow for robust integration with competition infrastructure.',
+      'Managed end-to-end testing rhythm and system-level readiness for competition phases.',
     ],
     links: [
       { label: 'GitHub', href: 'https://github.com/utkubilir' },
-      { label: 'Docs', href: '' },
+      { label: 'Project Notes', href: '' },
     ],
   },
   {
     title: 'Exam Timetable Planner',
+    role: 'Team Project (JavaFX Desktop App)',
+    period: '2025 - 2026',
     description:
-      'JavaFX tabanlı sınav programı planlama aracı. UI/UX liderliği, CSV içe/dışa aktarma ve PDF export gibi özellikler.',
+      'Desktop timetable planning application with FXML/Scene Builder driven UI, reusable components, custom icons, and collaborative delivery flow.',
     tech: ['Java', 'JavaFX', 'Maven', 'FXML'],
     links: [
-      { label: 'GitHub', href: 'PROJE_GITHUB_LINKI' },
-      { label: 'Demo', href: 'PROJE_DEMO_LINKI' },
+      { label: 'GitHub', href: 'https://github.com/utkubilir' },
+      { label: 'Demo', href: '' },
     ],
-  },
-  {
-    title: 'Distributed PX4/Gazebo Simulation',
-    description:
-      'Apple Silicon + Ubuntu VM ortamında dağıtık simülasyon; ağ/telemetri ve GUI-client senaryoları.',
-    tech: ['PX4', 'Gazebo', 'Networking'],
-    links: [{ label: 'Notlar', href: 'LINK' }],
+    bullets: [
+      'Built the interface with FXML and Scene Builder for clear UX structure.',
+      'Applied CSS theming with dark mode support across reusable UI blocks.',
+      'Collaborated using Git/GitHub workflow and Jira/Trello task tracking.',
+    ],
   },
 ]

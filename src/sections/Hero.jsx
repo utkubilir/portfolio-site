@@ -1,7 +1,15 @@
 import Container from '../components/Container'
+import { contact } from '../data/contact'
+import { education } from '../data/education'
 import { profile } from '../data/profile'
 
 function Hero() {
+  const primaryEducation = education[0]
+  const educationLabel = primaryEducation?.degree ?? 'Education'
+  const educationDetails = primaryEducation
+    ? `${primaryEducation.institution} • ${primaryEducation.period}`
+    : ''
+
   return (
     <section id="hero" className="scroll-mt-28 py-20 sm:py-24">
       <Container>
@@ -42,19 +50,24 @@ function Hero() {
             <div className="mt-6 space-y-4">
               <div className="rounded-2xl border border-slate-200 p-4 dark:border-slate-700">
                 <p className="text-xs uppercase text-slate-500 dark:text-slate-400">
-                  Current Role
+                  Availability
                 </p>
                 <p className="mt-1 text-lg font-semibold text-slate-900 dark:text-slate-100">
-                  {profile.title}
+                  {contact.availability}
                 </p>
               </div>
               <div className="rounded-2xl border border-slate-200 p-4 dark:border-slate-700">
                 <p className="text-xs uppercase text-slate-500 dark:text-slate-400">
-                  Based In
+                  Education
                 </p>
                 <p className="mt-1 text-lg font-semibold text-slate-900 dark:text-slate-100">
-                  {profile.location}
+                  {educationLabel}
                 </p>
+                {educationDetails ? (
+                  <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
+                    {educationDetails}
+                  </p>
+                ) : null}
               </div>
             </div>
           </aside>

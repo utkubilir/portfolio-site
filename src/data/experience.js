@@ -1,21 +1,16 @@
 export const experience = [
   {
-    role: 'Team Captain (ECOFUAV)',
-    org: 'TEKNOFEST Savaşan İHA',
-    period: '2025 – Present',
+    role: 'Computer Vision Intern (Volunteer)',
+    org: 'A2InnoWave',
+    period: 'Jul 2025 - Aug 2025',
+    type: 'Internship',
+    description:
+      'Contributed to practical computer vision workflows and model experimentation for visual intelligence tasks.',
+    tech: ['OpenCV', 'YOLOv8', 'Python'],
     bullets: [
-      'Yazılım, elektronik ve mekanik alt ekip koordinasyonu',
-      'Simülasyon ortamında otonomi entegrasyonu (PX4/Gazebo/ROS 2)',
-      'Test ve teslimat süreçlerinin planlanması',
-    ],
-  },
-  {
-    role: 'Vice President / Board Roles',
-    org: 'İEÜ Folk Dance Club',
-    period: '2024 – Present',
-    bullets: [
-      'Etkinlik ve organizasyon koordinasyonu',
-      'Kulüp içi süreç yönetimi ve ekip çalışması',
+      'Worked with OpenCV and YOLOv8 pipelines for classification, detection, segmentation, and tracking scenarios.',
+      'Ran dataset and inference experiments to compare model behavior across real-world cases.',
+      'Documented findings and supported iteration cycles with clear communication to the team.',
     ],
   },
 ]

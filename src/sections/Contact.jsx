@@ -21,14 +21,27 @@ function Contact() {
 
   const contactCards = [
     {
-      id: 'email',
+      id: 'email-primary',
       icon: '@',
-      label: 'Email',
+      label: 'Primary Email',
       value: contact.email,
       href: emailHref,
       action: 'Write',
       copyValue: contact.email,
     },
+    ...(contact.secondaryEmail
+      ? [
+          {
+            id: 'email-academic',
+            icon: 'AC',
+            label: 'Academic Email',
+            value: contact.secondaryEmail,
+            href: `mailto:${contact.secondaryEmail}`,
+            action: 'Write',
+            copyValue: contact.secondaryEmail,
+          },
+        ]
+      : []),
     {
       id: 'phone',
       icon: 'PH',
@@ -158,8 +171,7 @@ function Contact() {
               Ready to connect?
             </h3>
             <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
-              Hi {profile.name}, I reviewed your portfolio and would like to
-              connect about an internship, project, or collaboration.
+              Hi {profile.name}, {contact.cta.preview}
             </p>
 
             {hasEmail ? (

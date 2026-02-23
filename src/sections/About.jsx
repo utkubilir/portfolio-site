@@ -3,12 +3,6 @@ import SectionHeader from '../components/SectionHeader'
 import { profile } from '../data/profile'
 
 function About() {
-  const highlights = [
-    { label: 'Name', value: profile.name },
-    { label: 'Focus', value: profile.title },
-    { label: 'Location', value: profile.location },
-  ]
-
   return (
     <section id="about" className="scroll-mt-28 py-14 sm:py-16">
       <Container className="space-y-8">
@@ -19,7 +13,7 @@ function About() {
         />
 
         <div className="grid gap-6 md:grid-cols-3">
-          {highlights.map((item) => (
+          {profile.highlights.map((item) => (
             <article
               key={item.label}
               className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900"
