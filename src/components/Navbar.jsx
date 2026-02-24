@@ -1,3 +1,4 @@
+import LanguageToggle from './LanguageToggle'
 import Container from './Container'
 import ThemeToggle from './ThemeToggle'
 
@@ -24,7 +25,10 @@ function Navbar({ navItems, isDark, onToggleTheme, brand, brandHref = '#hero' })
           ))}
         </nav>
 
-        <ThemeToggle isDark={isDark} onToggle={onToggleTheme} />
+        <div className="flex items-center gap-2">
+          <LanguageToggle />
+          <ThemeToggle isDark={isDark} onToggle={onToggleTheme} />
+        </div>
       </Container>
 
       <div className="border-t border-zinc-200 py-3 md:hidden dark:border-zinc-800">

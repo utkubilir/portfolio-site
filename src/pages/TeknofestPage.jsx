@@ -3,11 +3,13 @@ import { useNavigate } from 'react-router-dom'
 import ButtonLink from '../components/ButtonLink'
 import Card from '../components/Card'
 import Container from '../components/Container'
+import { useI18n } from '../i18n'
 import { projects } from '../data/projects'
 import { isUsableHref } from '../utils/link'
 
 function TeknofestPage() {
   const navigate = useNavigate()
+  const { messages } = useI18n()
 
   const project = useMemo(
     () => projects.find((item) => item.slug === 'teknofest' || item.featured),
@@ -17,27 +19,32 @@ function TeknofestPage() {
   const detailBlocks = useMemo(
     () => [
       {
+        id: 'architecture',
+        title: messages.teknofest.sections.architecture.title,
+        items: messages.teknofest.sections.architecture.body,
+      },
+      {
         id: 'leadership',
-        title: 'Leadership',
-        items: project?.detailSections?.leadership ?? [],
+        title: messages.teknofest.sections.leadership.title,
+        items: messages.teknofest.sections.leadership.body,
       },
       {
         id: 'simulation',
-        title: 'Simulation & Testing',
-        items: project?.detailSections?.simulationTesting ?? [],
+        title: messages.teknofest.sections.simulation.title,
+        items: messages.teknofest.sections.simulation.body,
       },
       {
         id: 'autonomy',
-        title: 'Autonomy & Guidance',
-        items: project?.detailSections?.autonomyGuidance ?? [],
+        title: messages.teknofest.sections.autonomy.title,
+        items: messages.teknofest.sections.autonomy.body,
       },
       {
         id: 'telemetry',
-        title: 'Telemetry / Infrastructure',
-        items: project?.detailSections?.telemetryInfrastructure ?? [],
+        title: messages.teknofest.sections.telemetry.title,
+        items: messages.teknofest.sections.telemetry.body,
       },
     ],
-    [project],
+    [messages],
   )
 
   const handleBack = () => {
@@ -54,7 +61,7 @@ function TeknofestPage() {
       <section className="py-20 sm:py-24">
         <Container className="space-y-6">
           <ButtonLink as="button" type="button" onClick={handleBack}>
-            ← Back to Home
+            ← {messages.teknofest.back}
           </ButtonLink>
           <p className="text-sm text-zinc-600 dark:text-zinc-300">Project details are not available.</p>
         </Container>
@@ -66,22 +73,22 @@ function TeknofestPage() {
     <section id="teknofest" className="py-16 sm:py-20">
       <Container className="space-y-8">
         <ButtonLink as="button" type="button" onClick={handleBack}>
-          ← Back to Home
+          ← {messages.teknofest.back}
         </ButtonLink>
 
         <section id="overview" className="scroll-mt-28">
           <Card className="p-7" hover>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 dark:text-blue-400">
-              Project Detail
+              {messages.teknofest.projectDetail}
             </p>
             <h1 className="mt-3 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-100">
-              {project.title}
+              {messages.teknofest.title}
             </h1>
             <p className="mt-2 text-sm font-medium text-blue-600 dark:text-blue-400">
-              {project.role} • {project.period}
+              {messages.teknofest.rolePeriod}
             </p>
             <p className="mt-4 max-w-3xl text-base leading-7 text-zinc-600 dark:text-zinc-300">
-              {project.description}
+              {messages.projects.items.teknofest.description}
             </p>
 
             <div className="mt-6 flex flex-wrap gap-2">
@@ -118,7 +125,9 @@ function TeknofestPage() {
         {(project.roadmap ?? []).length > 0 ? (
           <section id="roadmap" className="scroll-mt-28">
             <Card hover>
-              <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">Roadmap</h2>
+              <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+                {messages.teknofest.roadmap}
+              </h2>
               <div className="mt-4 grid gap-4 md:grid-cols-3">
                 {project.roadmap.map((item) => (
                   <div

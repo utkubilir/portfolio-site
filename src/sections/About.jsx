@@ -1,19 +1,19 @@
 import Card from '../components/Card'
 import Container from '../components/Container'
 import SectionTitle from '../components/SectionTitle'
+import { useI18n } from '../i18n'
 import { profile } from '../data/profile'
 
 function About() {
-  const aboutCopy =
-    'I study Computer Engineering at Izmir University of Economics. My main work is UAV autonomy with ROS 2, PX4 SITL, and Gazebo test loops. I also build Java and React applications in team projects. I am looking for internship roles in autonomy or product engineering.'
+  const { messages } = useI18n()
 
   return (
     <section id="about" className="scroll-mt-28 py-14 sm:py-16">
       <Container className="space-y-8">
         <SectionTitle
-          eyebrow="About"
-          title="About"
-          description={aboutCopy}
+          eyebrow={messages.about.eyebrow}
+          title={messages.about.title}
+          description={messages.about.body.join(' ')}
         />
 
         <div className="grid gap-6 md:grid-cols-3">

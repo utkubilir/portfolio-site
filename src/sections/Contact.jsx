@@ -3,10 +3,12 @@ import ButtonLink from '../components/ButtonLink'
 import Card from '../components/Card'
 import Container from '../components/Container'
 import SectionTitle from '../components/SectionTitle'
+import { useI18n } from '../i18n'
 import { contact } from '../data/contact'
 import { isUsableHref } from '../utils/link'
 
 function Contact() {
+  const { messages } = useI18n()
   const [copiedId, setCopiedId] = useState('')
   const copyTimerRef = useRef(null)
 
@@ -97,8 +99,8 @@ function Contact() {
     <section id="contact" className="scroll-mt-28 py-14 sm:py-16">
       <Container className="space-y-8">
         <SectionTitle
-          eyebrow="Contact"
-          title="Let’s connect"
+          eyebrow={messages.contact.eyebrow}
+          title={messages.contact.title}
           description={`${contact.availability} · ${contact.responseTime}`}
         />
 
@@ -157,10 +159,10 @@ function Contact() {
 
           <Card as="aside" hover>
             <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-              Ready to connect?
+              {messages.contact.ready}
             </h3>
             <p className="mt-3 text-base leading-7 text-zinc-600 dark:text-zinc-300">
-              {contact.cta.preview}
+              {messages.contact.cta}
             </p>
 
             {hasEmail ? (
@@ -181,19 +183,27 @@ function Contact() {
 
             <div className="mt-6 space-y-3 border-t border-zinc-200 pt-4 text-sm text-zinc-600 dark:border-zinc-800 dark:text-zinc-300">
               <p>
-                <span className="font-semibold text-zinc-800 dark:text-zinc-100">Location:</span>{' '}
+                <span className="font-semibold text-zinc-800 dark:text-zinc-100">
+                  {messages.contact.locationLabel}
+                </span>{' '}
                 {contact.location}
               </p>
               <p>
-                <span className="font-semibold text-zinc-800 dark:text-zinc-100">Timezone:</span>{' '}
+                <span className="font-semibold text-zinc-800 dark:text-zinc-100">
+                  {messages.contact.timezoneLabel}
+                </span>{' '}
                 {contact.timezone}
               </p>
               <p>
-                <span className="font-semibold text-zinc-800 dark:text-zinc-100">Languages:</span>{' '}
+                <span className="font-semibold text-zinc-800 dark:text-zinc-100">
+                  {messages.contact.languagesLabel}
+                </span>{' '}
                 {contact.languages.join(', ')}
               </p>
               <p>
-                <span className="font-semibold text-zinc-800 dark:text-zinc-100">Response:</span>{' '}
+                <span className="font-semibold text-zinc-800 dark:text-zinc-100">
+                  {messages.contact.responseLabel}
+                </span>{' '}
                 {contact.responseTime}
               </p>
             </div>

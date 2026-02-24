@@ -3,6 +3,7 @@ import ButtonLink from '../components/ButtonLink'
 import Card from '../components/Card'
 import Container from '../components/Container'
 import SectionTitle from '../components/SectionTitle'
+import { useI18n } from '../i18n'
 import { projects } from '../data/projects'
 import { isUsableHref } from '../utils/link'
 
@@ -23,34 +24,47 @@ function ProjectLink({ href, label }) {
 }
 
 function Projects() {
+  const { messages } = useI18n()
   const featuredProject = projects.find((project) => project.featured)
   const regularProjects = projects.filter((project) => !project.featured)
+
+  const getProjectCopy = (project) => {
+    if (project.slug === 'teknofest') {
+      return messages.projects.items.teknofest
+    }
+
+    if (project.title === 'Exam Timetable Planner') {
+      return messages.projects.items.examPlanner
+    }
+
+    return null
+  }
 
   return (
     <section id="projects" className="scroll-mt-28 py-14 sm:py-16">
       <Container className="space-y-8">
         <SectionTitle
-          eyebrow="Projects"
-          title="Selected work"
-          description="Recent work in UAV autonomy and scheduling software."
+          eyebrow={messages.projects.eyebrow}
+          title={messages.projects.title}
+          description={messages.projects.intro}
         />
 
         {featuredProject ? (
           <Card className="p-7" hover>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 dark:text-blue-400">
-              Featured Project
+              {messages.projects.featured}
             </p>
 
             <div className="mt-4 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
               <div>
                 <h3 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100 sm:text-2xl">
-                  {featuredProject.title}
+                  {getProjectCopy(featuredProject)?.title ?? featuredProject.title}
                 </h3>
                 <p className="mt-1 text-sm font-medium text-blue-600 dark:text-blue-400">
                   {featuredProject.role} • {featuredProject.period}
                 </p>
                 <p className="mt-3 text-base leading-7 text-zinc-600 dark:text-zinc-300">
-                  {featuredProject.description}
+                  {getProjectCopy(featuredProject)?.description ?? featuredProject.description}
                 </p>
 
                 <ul className="mt-5 space-y-2">
@@ -80,7 +94,7 @@ function Projects() {
 
                 <div className="flex flex-wrap items-center gap-3 text-sm">
                   <ButtonLink as={Link} to="/teknofest" variant="primary">
-                    Read more
+                    {messages.projects.readMore}
                   </ButtonLink>
 
                   {(featuredProject.links ?? []).map((link) => (
@@ -100,7 +114,7 @@ function Projects() {
           {regularProjects.map((project) => (
             <Card key={project.title} className="flex h-full flex-col" hover>
               <h3 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-                {project.title}
+                {getProjectCopy(project)?.title ?? project.title}
               </h3>
               {project.role && project.period ? (
                 <p className="mt-1 text-sm font-medium text-blue-600 dark:text-blue-400">
@@ -108,7 +122,7 @@ function Projects() {
                 </p>
               ) : null}
               <p className="mt-3 flex-1 text-sm leading-7 text-zinc-600 dark:text-zinc-300">
-                {project.description}
+                {getProjectCopy(project)?.description ?? project.description}
               </p>
 
               {(project.bullets ?? []).length > 0 ? (
