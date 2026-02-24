@@ -6,52 +6,52 @@ export const projects = [
     role: 'Team Captain',
     period: '2025 - Present',
     description:
-      'Leading a multidisciplinary UAV competition team and driving roadmap, autonomy development, simulation validation, and end-to-end integration for mission-ready workflows.',
+      'Competition UAV project focused on mission planning, autonomy logic, and system integration. Stack: ROS 2, PX4 SITL, Gazebo, C++/Python, Git, and Linux.',
     tech: ['PX4 SITL', 'Gazebo', 'ROS 2', 'C++/Python', 'Git', 'Linux'],
     bullets: [
-      'Coordinated software, electronics, and mechanical sub-teams with clear milestones and delivery plans.',
-      'Validated mission scenarios with PX4 SITL + Gazebo simulation loops before field execution.',
-      'Contributed to autonomy architecture for offboard control and engagement/lock-on scenarios.',
-      'Planned perception and telemetry data flow for robust integration with competition infrastructure.',
-      'Managed end-to-end testing rhythm and system-level readiness for competition phases.',
+      'Planned weekly integration milestones across software, electronics, and mechanical teams.',
+      'Ran mission scenarios in PX4 SITL + Gazebo before field tests.',
+      'Built and reviewed offboard control flows for engagement tasks.',
+      'Set telemetry and logging checkpoints for debugging and post-flight analysis.',
+      'Tracked test results and blockers to prioritize sprint tasks.',
     ],
     detailSections: {
       leadership: [
-        'Led multidisciplinary coordination across software, electronics, and mechanical tracks.',
-        'Defined roadmap milestones, work packages, and ownership for predictable delivery cycles.',
-        'Aligned integration priorities with competition constraints and team capacity.',
+        'Coordinated software, electronics, and mechanical tracks each sprint.',
+        'Defined roadmap milestones, owners, and delivery dates.',
+        'Adjusted priorities based on test results and competition needs.',
       ],
       simulationTesting: [
-        'Built and iterated PX4 SITL + Gazebo validation loops for mission scenario testing.',
-        'Used simulation-first feedback cycles to reduce integration risk before hardware testing.',
-        'Tracked test outcomes to guide sprint priorities and issue resolution.',
+        'Ran PX4 SITL + Gazebo loops for mission scenario validation.',
+        'Used simulation results to prepare hardware test plans.',
+        'Logged outcomes and fixes after each test cycle.',
       ],
       autonomyGuidance: [
-        'Supported autonomy pipeline design for offboard control and engagement workflows.',
-        'Structured guidance logic decisions around reliability, traceability, and controllability.',
-        'Connected autonomy blocks with mission execution requirements and safety constraints.',
+        'Implemented autonomy blocks for offboard control and engagement flows.',
+        'Reviewed control logic for repeatable behavior across test cases.',
+        'Mapped autonomy tasks to mission and safety requirements.',
       ],
       telemetryInfrastructure: [
-        'Planned telemetry data flow and logging strategy for operational visibility.',
-        'Prepared integration approach for competition-side systems and communication interfaces.',
-        'Improved reproducibility by standardizing diagnostics and data capture points.',
+        'Designed telemetry flow and logging points for runtime monitoring.',
+        'Prepared interfaces for integration with competition systems.',
+        'Standardized diagnostics to make failures reproducible.',
       ],
     },
     roadmap: [
       {
         phase: 'Phase 1',
         title: 'Planning and Architecture',
-        description: 'Scope definition, technical decomposition, and baseline mission architecture.',
+        description: 'Defined scope, modules, and baseline mission architecture.',
       },
       {
         phase: 'Phase 2',
         title: 'Simulation Validation',
-        description: 'Scenario verification with PX4/Gazebo and rapid iteration of control logic.',
+        description: 'Verified mission scenarios in PX4/Gazebo and iterated control logic.',
       },
       {
         phase: 'Phase 3',
         title: 'Integration and Delivery',
-        description: 'System-level integration, performance checks, and competition readiness.',
+        description: 'Completed system integration, performance checks, and competition prep.',
       },
     ],
     links: [
@@ -64,7 +64,7 @@ export const projects = [
     role: 'Team Project (JavaFX Desktop App)',
     period: '2025 - 2026',
     description:
-      'Desktop timetable planning application with FXML/Scene Builder driven UI, reusable components, custom icons, and collaborative delivery flow.',
+      'Desktop app for creating and editing exam schedules with a JavaFX interface. Built with Java, JavaFX, FXML, and Maven.',
     tech: ['Java', 'JavaFX', 'Maven', 'FXML'],
     links: [
       { label: 'GitHub', href: 'https://github.com/utkubilir' },

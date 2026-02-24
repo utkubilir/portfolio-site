@@ -8,9 +8,9 @@ function Footer({ name }) {
   )
 
   return (
-    <footer className="border-t border-slate-200/80 py-6 dark:border-slate-800">
+    <footer className="border-t border-zinc-200 py-6 dark:border-zinc-800">
       <Container className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-xs text-slate-500 dark:text-slate-400">
+        <p className="text-xs text-zinc-500 dark:text-zinc-400">
           © {new Date().getFullYear()} {name}. All rights reserved.
         </p>
 
@@ -22,7 +22,7 @@ function Footer({ name }) {
                 href={item.href}
                 target={item.href.startsWith('http') ? '_blank' : undefined}
                 rel={item.href.startsWith('http') ? 'noreferrer' : undefined}
-                className="rounded-full border border-slate-300 px-3 py-1 text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-slate-100"
+                className="rounded-lg border border-zinc-300 px-3 py-1 text-zinc-600 no-underline transition-colors hover:bg-zinc-50 hover:text-blue-600 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-900/40 dark:hover:text-blue-400"
               >
                 {item.label}
               </a>

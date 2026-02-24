@@ -13,7 +13,7 @@ export const contact = {
     subject: 'Portfolio inquiry',
     body: 'Hi Utku,%0D%0A%0D%0AI reviewed your portfolio and would like to connect about...%0D%0A%0D%0AThanks,',
     preview:
-      'I reviewed your portfolio and would like to connect about internship or project collaboration opportunities.',
+      'Could we connect about an internship role or a project collaboration?',
   },
   links: {
     linkedin: 'https://www.linkedin.com/in/utkubilir',

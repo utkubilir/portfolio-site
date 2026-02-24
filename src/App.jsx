@@ -49,12 +49,7 @@ function App() {
   }, [isDark])
 
   return (
-    <div className="relative min-h-screen overflow-x-clip bg-slate-50 text-slate-900 transition-colors dark:bg-slate-950 dark:text-slate-100">
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-44 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-cyan-200/40 blur-3xl dark:bg-cyan-600/20" />
-        <div className="absolute right-[-120px] top-[45%] h-80 w-80 rounded-full bg-amber-200/40 blur-3xl dark:bg-amber-500/20" />
-      </div>
-
+    <div className="min-h-screen overflow-x-clip bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
       <Navbar
         navItems={navItems}
         isDark={isDark}
@@ -63,7 +58,7 @@ function App() {
         brandHref={isHomeRoute ? '#hero' : '/'}
       />
 
-      <main className="relative pb-16">
+      <main className="pb-16">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/teknofest" element={<TeknofestPage />} />

@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
+import ButtonLink from '../components/ButtonLink'
+import Card from '../components/Card'
 import Container from '../components/Container'
-import SectionHeader from '../components/SectionHeader'
+import SectionTitle from '../components/SectionTitle'
 import { contact } from '../data/contact'
-import { profile } from '../data/profile'
 import { isUsableHref } from '../utils/link'
 
 function Contact() {
@@ -22,7 +23,6 @@ function Contact() {
   const contactCards = [
     {
       id: 'email-primary',
-      icon: '@',
       label: 'Primary Email',
       value: contact.email,
       href: emailHref,
@@ -33,7 +33,6 @@ function Contact() {
       ? [
           {
             id: 'email-academic',
-            icon: 'AC',
             label: 'Academic Email',
             value: contact.secondaryEmail,
             href: `mailto:${contact.secondaryEmail}`,
@@ -44,7 +43,6 @@ function Contact() {
       : []),
     {
       id: 'phone',
-      icon: 'PH',
       label: 'Phone',
       value: prettyPhone,
       href: phoneHref,
@@ -53,7 +51,6 @@ function Contact() {
     },
     {
       id: 'linkedin',
-      icon: 'IN',
       label: 'LinkedIn',
       value: contact.links.linkedin,
       href: contact.links.linkedin,
@@ -61,7 +58,6 @@ function Contact() {
     },
     {
       id: 'github',
-      icon: 'GH',
       label: 'GitHub',
       value: contact.links.github,
       href: contact.links.github,
@@ -100,9 +96,9 @@ function Contact() {
   return (
     <section id="contact" className="scroll-mt-28 py-14 sm:py-16">
       <Container className="space-y-8">
-        <SectionHeader
+        <SectionTitle
           eyebrow="Contact"
-          title="Let’s work together."
+          title="Let’s connect"
           description={`${contact.availability} · ${contact.responseTime}`}
         />
 
@@ -113,111 +109,95 @@ function Contact() {
               const isExternal = item.href.startsWith('http')
 
               return (
-                <article
-                  key={item.id}
-                  className="rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900"
-                >
-                  <div className="flex items-start gap-3">
-                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-slate-100 text-xs font-bold text-slate-700 dark:bg-slate-800 dark:text-slate-200">
-                      {item.icon}
-                    </span>
-                    <div className="min-w-0">
-                      <p className="text-xs uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
-                        {item.label}
-                      </p>
-                      <p className="mt-1 break-all text-sm font-medium text-slate-800 dark:text-slate-200">
-                        {item.value}
-                      </p>
-                    </div>
-                  </div>
+                <Card key={item.id} className="p-5" hover>
+                  <p className="text-xs uppercase tracking-[0.14em] text-zinc-500 dark:text-zinc-400">
+                    {item.label}
+                  </p>
+                  <p className="mt-2 break-all text-sm font-medium text-zinc-800 dark:text-zinc-200">
+                    {item.value}
+                  </p>
 
                   <div className="mt-4 flex flex-wrap items-center gap-2">
                     {hasLink ? (
-                      <a
+                      <ButtonLink
                         href={item.href}
                         target={isExternal ? '_blank' : undefined}
                         rel={isExternal ? 'noreferrer' : undefined}
-                        className="rounded-full border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-700 transition hover:bg-slate-100 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+                        className="px-3 py-1.5 text-xs"
                       >
                         {item.action}
-                      </a>
+                      </ButtonLink>
                     ) : (
-                      <button
+                      <ButtonLink
+                        as="button"
                         type="button"
+                        variant="muted"
                         disabled
-                        className="cursor-not-allowed rounded-full border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-400 dark:border-slate-800 dark:text-slate-500"
+                        className="px-3 py-1.5 text-xs"
                       >
                         {item.action}
-                      </button>
+                      </ButtonLink>
                     )}
 
                     {item.copyValue ? (
-                      <button
+                      <ButtonLink
+                        as="button"
                         type="button"
                         onClick={() => copyToClipboard(item.id, item.copyValue)}
-                        className="rounded-full border border-cyan-300 px-3 py-1.5 text-xs font-semibold text-cyan-700 transition hover:bg-cyan-50 dark:border-cyan-500/50 dark:text-cyan-300 dark:hover:bg-cyan-500/10"
+                        className="px-3 py-1.5 text-xs"
                       >
-                        {copiedId === item.id ? 'Copied!' : 'Copy'}
-                      </button>
+                        {copiedId === item.id ? 'Copied' : 'Copy'}
+                      </ButtonLink>
                     ) : null}
                   </div>
-                </article>
+                </Card>
               )
             })}
           </div>
 
-          <aside className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
+          <Card as="aside" hover>
+            <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
               Ready to connect?
             </h3>
-            <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
-              Hi {profile.name}, {contact.cta.preview}
+            <p className="mt-3 text-base leading-7 text-zinc-600 dark:text-zinc-300">
+              {contact.cta.preview}
             </p>
 
             {hasEmail ? (
-              <a
-                href={ctaHref}
-                className="mt-6 inline-flex w-full items-center justify-center rounded-2xl bg-slate-900 px-6 py-4 text-sm font-semibold text-white transition hover:bg-slate-700 dark:bg-cyan-400 dark:text-slate-950 dark:hover:bg-cyan-300"
-              >
+              <ButtonLink href={ctaHref} variant="primary" className="mt-6 w-full">
                 Email me
-              </a>
+              </ButtonLink>
             ) : (
-              <button
+              <ButtonLink
+                as="button"
                 type="button"
+                variant="muted"
                 disabled
-                className="mt-6 inline-flex w-full cursor-not-allowed items-center justify-center rounded-2xl bg-slate-300 px-6 py-4 text-sm font-semibold text-white dark:bg-slate-700"
+                className="mt-6 w-full"
               >
                 Email me
-              </button>
+              </ButtonLink>
             )}
 
-            <div className="mt-6 space-y-3 border-t border-slate-200 pt-4 text-sm text-slate-600 dark:border-slate-800 dark:text-slate-300">
+            <div className="mt-6 space-y-3 border-t border-zinc-200 pt-4 text-sm text-zinc-600 dark:border-zinc-800 dark:text-zinc-300">
               <p>
-                <span className="font-semibold text-slate-800 dark:text-slate-100">
-                  Location:
-                </span>{' '}
+                <span className="font-semibold text-zinc-800 dark:text-zinc-100">Location:</span>{' '}
                 {contact.location}
               </p>
               <p>
-                <span className="font-semibold text-slate-800 dark:text-slate-100">
-                  Timezone:
-                </span>{' '}
+                <span className="font-semibold text-zinc-800 dark:text-zinc-100">Timezone:</span>{' '}
                 {contact.timezone}
               </p>
               <p>
-                <span className="font-semibold text-slate-800 dark:text-slate-100">
-                  Languages:
-                </span>{' '}
+                <span className="font-semibold text-zinc-800 dark:text-zinc-100">Languages:</span>{' '}
                 {contact.languages.join(', ')}
               </p>
               <p>
-                <span className="font-semibold text-slate-800 dark:text-slate-100">
-                  Response:
-                </span>{' '}
+                <span className="font-semibold text-zinc-800 dark:text-zinc-100">Response:</span>{' '}
                 {contact.responseTime}
               </p>
             </div>
-          </aside>
+          </Card>
         </div>
       </Container>
     </section>
