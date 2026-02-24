@@ -19,7 +19,14 @@ function DownloadIcon() {
   )
 }
 
-function ResumeButton() {
+function ResumeButton({ className = '' }) {
+  const classes = [
+    'inline-flex items-center justify-center gap-3 rounded-full border-2 border-zinc-900 bg-transparent px-6 py-3 text-base font-medium text-zinc-900 no-underline transition-colors hover:bg-zinc-900/5 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-zinc-100 dark:text-zinc-100 dark:hover:bg-zinc-100/10 dark:focus-visible:ring-offset-zinc-950',
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ')
+
   return (
     <a
       href={resume.href}
@@ -27,7 +34,7 @@ function ResumeButton() {
       target="_blank"
       rel="noreferrer"
       aria-label="Download resume"
-      className="inline-flex items-center gap-3 rounded-full border-2 border-zinc-900 bg-transparent px-6 py-3 text-base font-medium text-zinc-900 no-underline transition-colors hover:bg-zinc-900/5 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-zinc-100 dark:text-zinc-100 dark:hover:bg-zinc-100/10 dark:focus-visible:ring-offset-zinc-950"
+      className={classes}
     >
       <DownloadIcon />
       <span>{resume.label}</span>

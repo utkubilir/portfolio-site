@@ -5,7 +5,7 @@ import { skills } from '../data/skills'
 
 function Skills() {
   return (
-    <section id="skills" className="scroll-mt-28 py-14 sm:py-16">
+    <section id="skills" className="scroll-mt-28 py-12 sm:py-16">
       <Container className="space-y-8">
         <SectionTitle
           eyebrow="Skills"

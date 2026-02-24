@@ -5,7 +5,7 @@ import { certificates } from '../data/certificates'
 
 function Certificates() {
   return (
-    <section id="certificates" className="scroll-mt-28 py-14 sm:py-16">
+    <section id="certificates" className="scroll-mt-28 py-12 sm:py-16">
       <Container className="space-y-8">
         <SectionTitle
           eyebrow="Certificates"

@@ -5,10 +5,10 @@ import ThemeToggle from './ThemeToggle'
 function Navbar({ navItems, isDark, onToggleTheme, brand, brandHref = '#hero' }) {
   return (
     <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/95 dark:border-zinc-800 dark:bg-zinc-950/95">
-      <Container className="flex items-center justify-between py-4">
+      <Container className="flex flex-wrap items-center justify-between gap-2 py-3 sm:py-4">
         <a
           href={brandHref}
-          className="text-sm font-bold uppercase tracking-[0.2em] text-zinc-900 no-underline dark:text-zinc-100"
+          className="text-xs font-bold uppercase tracking-[0.14em] text-zinc-900 no-underline sm:text-sm sm:tracking-[0.2em] dark:text-zinc-100"
         >
           {brand}
         </a>
@@ -25,7 +25,7 @@ function Navbar({ navItems, isDark, onToggleTheme, brand, brandHref = '#hero' })
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="ml-auto flex flex-wrap items-center gap-2">
           <LanguageToggle />
           <ThemeToggle isDark={isDark} onToggle={onToggleTheme} />
         </div>
@@ -33,7 +33,7 @@ function Navbar({ navItems, isDark, onToggleTheme, brand, brandHref = '#hero' })
 
       <div className="border-t border-zinc-200 py-3 md:hidden dark:border-zinc-800">
         <Container>
-          <nav className="flex gap-2 overflow-x-auto">
+          <nav className="flex flex-wrap gap-2">
             {navItems.map((item) => (
               <a
                 key={item.id ?? item.href}

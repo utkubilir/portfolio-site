@@ -8,7 +8,7 @@ function About() {
   const { messages } = useI18n()
 
   return (
-    <section id="about" className="scroll-mt-28 py-14 sm:py-16">
+    <section id="about" className="scroll-mt-28 py-12 sm:py-16">
       <Container className="space-y-8">
         <SectionTitle
           eyebrow={messages.about.eyebrow}

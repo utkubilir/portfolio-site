@@ -5,7 +5,7 @@ import { activities } from '../data/activities'
 
 function Activities() {
   return (
-    <section id="activities" className="scroll-mt-28 py-14 sm:py-16">
+    <section id="activities" className="scroll-mt-28 py-12 sm:py-16">
       <Container className="space-y-8">
         <SectionTitle
           eyebrow="Leadership"

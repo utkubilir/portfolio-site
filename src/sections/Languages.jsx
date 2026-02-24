@@ -5,7 +5,7 @@ import { languages } from '../data/languages'
 
 function Languages() {
   return (
-    <section id="languages" className="scroll-mt-28 py-14 sm:py-16">
+    <section id="languages" className="scroll-mt-28 py-12 sm:py-16">
       <Container className="space-y-8">
         <SectionTitle
           eyebrow="Languages"

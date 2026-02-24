@@ -58,9 +58,9 @@ function TeknofestPage() {
 
   if (!project) {
     return (
-      <section className="py-20 sm:py-24">
+      <section className="py-16 sm:py-20">
         <Container className="space-y-6">
-          <ButtonLink as="button" type="button" onClick={handleBack}>
+          <ButtonLink as="button" type="button" onClick={handleBack} className="w-full sm:w-auto">
             ← {messages.teknofest.back}
           </ButtonLink>
           <p className="text-sm text-zinc-600 dark:text-zinc-300">Project details are not available.</p>
@@ -70,24 +70,24 @@ function TeknofestPage() {
   }
 
   return (
-    <section id="teknofest" className="py-16 sm:py-20">
-      <Container className="space-y-8">
-        <ButtonLink as="button" type="button" onClick={handleBack}>
+    <section id="teknofest" className="py-14 sm:py-20">
+      <Container className="space-y-8 sm:space-y-10">
+        <ButtonLink as="button" type="button" onClick={handleBack} className="w-full sm:w-auto">
           ← {messages.teknofest.back}
         </ButtonLink>
 
         <section id="overview" className="scroll-mt-28">
-          <Card className="p-7" hover>
+          <Card className="p-6 sm:p-7" hover>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 dark:text-blue-400">
               {messages.teknofest.projectDetail}
             </p>
-            <h1 className="mt-3 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-100">
+            <h1 className="mt-3 text-2xl font-semibold tracking-tight text-zinc-900 sm:text-3xl md:text-4xl dark:text-zinc-100">
               {messages.teknofest.title}
             </h1>
             <p className="mt-2 text-sm font-medium text-blue-600 dark:text-blue-400">
               {messages.teknofest.rolePeriod}
             </p>
-            <p className="mt-4 max-w-3xl text-base leading-7 text-zinc-600 dark:text-zinc-300">
+            <p className="mt-4 max-w-3xl break-words text-base leading-7 text-zinc-600 dark:text-zinc-300">
               {messages.projects.items.teknofest.description}
             </p>
 
@@ -104,14 +104,19 @@ function TeknofestPage() {
           </Card>
         </section>
 
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2">
           {detailBlocks.map((block) => (
             <section id={block.id} key={block.id} className="scroll-mt-28">
               <Card hover>
-                <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">{block.title}</h2>
+                <h2 className="break-words text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+                  {block.title}
+                </h2>
                 <ul className="mt-4 space-y-2">
                   {block.items.map((item) => (
-                    <li key={item} className="flex gap-2 text-sm leading-7 text-zinc-600 dark:text-zinc-300">
+                    <li
+                      key={item}
+                      className="flex gap-2 break-words text-sm leading-7 text-zinc-600 dark:text-zinc-300"
+                    >
                       <span className="mt-2 inline-block h-1.5 w-1.5 rounded-full bg-blue-600 dark:bg-blue-400" />
                       <span>{item}</span>
                     </li>
@@ -128,7 +133,7 @@ function TeknofestPage() {
               <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
                 {messages.teknofest.roadmap}
               </h2>
-              <div className="mt-4 grid gap-4 md:grid-cols-3">
+              <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {project.roadmap.map((item) => (
                   <div
                     key={`${item.phase}-${item.title}`}
@@ -137,10 +142,10 @@ function TeknofestPage() {
                     <p className="text-xs font-semibold uppercase tracking-[0.14em] text-blue-600 dark:text-blue-400">
                       {item.phase}
                     </p>
-                    <h3 className="mt-2 text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+                    <h3 className="mt-2 break-words text-sm font-semibold text-zinc-900 dark:text-zinc-100">
                       {item.title}
                     </h3>
-                    <p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-300">
+                    <p className="mt-2 break-words text-sm leading-6 text-zinc-600 dark:text-zinc-300">
                       {item.description}
                     </p>
                   </div>

@@ -32,7 +32,7 @@ function SocialRail() {
   return (
     <nav
       aria-label="Social links"
-      className="fixed left-6 top-1/2 z-50 flex -translate-y-1/2 flex-col items-center gap-10"
+      className="fixed left-6 top-1/2 z-50 hidden -translate-y-1/2 flex-col items-center gap-10 lg:flex"
     >
       <a
         href={socialLinks.github}
