@@ -59,7 +59,7 @@ function App() {
         navItems={navItems}
         isDark={isDark}
         onToggleTheme={() => setIsDark((previous) => !previous)}
-        brand={profile.name}
+        brand="Utku Bilir"
         brandHref={isHomeRoute ? '#hero' : '/'}
       />
 
