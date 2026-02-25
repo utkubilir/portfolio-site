@@ -5,10 +5,10 @@ import ThemeToggle from './ThemeToggle'
 function Navbar({ navItems, isDark, onToggleTheme, brand, brandHref = '#hero' }) {
   return (
     <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/95 dark:border-zinc-800 dark:bg-zinc-950/95">
-      <Container className="flex flex-wrap items-center justify-between gap-2 py-3 sm:py-4">
+      <Container className="max-w-none px-2 sm:px-3 lg:px-4 flex flex-wrap items-center justify-between gap-2 py-3 sm:py-4">
         <a
           href={brandHref}
-          className="text-xs font-bold uppercase tracking-[0.14em] text-zinc-900 no-underline sm:text-sm sm:tracking-[0.2em] dark:text-zinc-100"
+          className="text-sm font-extrabold uppercase tracking-[0.18em] text-zinc-900 no-underline sm:text-base sm:tracking-[0.24em] dark:text-zinc-100"
         >
           {brand}
         </a>
@@ -32,7 +32,7 @@ function Navbar({ navItems, isDark, onToggleTheme, brand, brandHref = '#hero' })
       </Container>
 
       <div className="border-t border-zinc-200 py-3 md:hidden dark:border-zinc-800">
-        <Container>
+        <Container className="max-w-none px-2 sm:px-3 lg:px-4">
           <nav className="flex flex-wrap gap-2">
             {navItems.map((item) => (
               <a
