@@ -25,30 +25,30 @@ function Contact() {
   const contactCards = [
     {
       id: 'email-primary',
-      label: 'Primary Email',
+      label: messages.contact.cards.primaryEmail,
       value: contact.email,
       href: emailHref,
-      action: 'Write',
+      action: messages.contact.actions.write,
       copyValue: contact.email,
     },
     ...(contact.secondaryEmail
       ? [
           {
             id: 'email-academic',
-            label: 'Academic Email',
+            label: messages.contact.cards.academicEmail,
             value: contact.secondaryEmail,
             href: `mailto:${contact.secondaryEmail}`,
-            action: 'Write',
+            action: messages.contact.actions.write,
             copyValue: contact.secondaryEmail,
           },
         ]
       : []),
     {
       id: 'phone',
-      label: 'Phone',
+      label: messages.contact.cards.phone,
       value: prettyPhone,
       href: phoneHref,
-      action: 'Call',
+      action: messages.contact.actions.call,
       copyValue: contact.phone,
     },
     {
@@ -56,14 +56,14 @@ function Contact() {
       label: 'LinkedIn',
       value: contact.links.linkedin,
       href: contact.links.linkedin,
-      action: 'Open',
+      action: messages.contact.actions.open,
     },
     {
       id: 'github',
       label: 'GitHub',
       value: contact.links.github,
       href: contact.links.github,
-      action: 'Open',
+      action: messages.contact.actions.open,
     },
   ]
 
@@ -101,7 +101,7 @@ function Contact() {
         <SectionTitle
           eyebrow={messages.contact.eyebrow}
           title={messages.contact.title}
-          description={`${contact.availability} · ${contact.responseTime}`}
+          description={`${messages.contact.availability} · ${messages.contact.responseTime}`}
         />
 
         <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
@@ -148,7 +148,9 @@ function Contact() {
                         onClick={() => copyToClipboard(item.id, item.copyValue)}
                         className="px-3 py-1.5 text-xs"
                       >
-                        {copiedId === item.id ? 'Copied' : 'Copy'}
+                        {copiedId === item.id
+                          ? messages.contact.actions.copied
+                          : messages.contact.actions.copy}
                       </ButtonLink>
                     ) : null}
                   </div>
@@ -167,7 +169,7 @@ function Contact() {
 
             {hasEmail ? (
               <ButtonLink href={ctaHref} variant="primary" className="mt-6 w-full">
-                Email me
+                {messages.contact.emailCta}
               </ButtonLink>
             ) : (
               <ButtonLink
@@ -177,7 +179,7 @@ function Contact() {
                 disabled
                 className="mt-6 w-full"
               >
-                Email me
+                {messages.contact.emailCta}
               </ButtonLink>
             )}
 
@@ -204,7 +206,7 @@ function Contact() {
                 <span className="font-semibold text-zinc-800 dark:text-zinc-100">
                   {messages.contact.responseLabel}
                 </span>{' '}
-                {contact.responseTime}
+                {messages.contact.responseTime}
               </p>
             </div>
           </Card>

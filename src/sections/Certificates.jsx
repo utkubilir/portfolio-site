@@ -1,16 +1,22 @@
 import Card from '../components/Card'
 import Container from '../components/Container'
 import SectionTitle from '../components/SectionTitle'
+import { useI18n } from '../i18n'
 import { certificates } from '../data/certificates'
 
 function Certificates() {
+  const { messages } = useI18n()
+
+  const getStatusLabel = (status) =>
+    status === 'Expected' ? messages.certificates.expected : messages.certificates.completed
+
   return (
     <section id="certificates" className="scroll-mt-28 py-12 sm:py-16">
       <Container className="space-y-8">
         <SectionTitle
-          eyebrow="Certificates"
-          title="Certifications and courses"
-          description="Completed and planned milestones relevant to engineering and software work."
+          eyebrow={messages.certificates.eyebrow}
+          title={messages.certificates.title}
+          description={messages.certificates.description}
         />
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -29,7 +35,7 @@ function Certificates() {
                       : 'border-zinc-300 text-zinc-700 dark:border-zinc-700 dark:text-zinc-200'
                   }`}
                 >
-                  {item.status}
+                  {getStatusLabel(item.status)}
                 </span>
               </div>
             </Card>

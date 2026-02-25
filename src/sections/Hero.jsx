@@ -3,7 +3,6 @@ import Card from '../components/Card'
 import Container from '../components/Container'
 import ResumeButton from '../components/ResumeButton'
 import { useI18n } from '../i18n'
-import { contact } from '../data/contact'
 import { education } from '../data/education'
 import { profile } from '../data/profile'
 
@@ -53,7 +52,7 @@ function Hero() {
                   {messages.hero.availability}
                 </p>
                 <p className="mt-1 text-base font-semibold text-zinc-900 dark:text-zinc-100">
-                  {contact.availability}
+                  {messages.contact.availability}
                 </p>
               </div>
               <div className="rounded-lg border border-zinc-200 p-4 dark:border-zinc-800">

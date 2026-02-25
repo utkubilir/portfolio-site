@@ -1,16 +1,19 @@
 import Card from '../components/Card'
 import Container from '../components/Container'
 import SectionTitle from '../components/SectionTitle'
+import { useI18n } from '../i18n'
 import { activities } from '../data/activities'
 
 function Activities() {
+  const { messages } = useI18n()
+
   return (
     <section id="activities" className="scroll-mt-28 py-12 sm:py-16">
       <Container className="space-y-8">
         <SectionTitle
-          eyebrow="Leadership"
-          title="Club and volunteer activities"
-          description="Roles that shaped project ownership, communication, and execution discipline."
+          eyebrow={messages.activities.eyebrow}
+          title={messages.activities.title}
+          description={messages.activities.description}
         />
 
         <div className="space-y-4">

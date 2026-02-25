@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { Suspense, lazy, useCallback, useEffect, useState } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
@@ -7,7 +7,8 @@ import SplashScreen from './components/SplashScreen'
 import { useI18n } from './i18n'
 import { profile } from './data/profile'
 import HomePage from './pages/HomePage'
-import TeknofestPage from './pages/TeknofestPage'
+
+const TeknofestPage = lazy(() => import('./pages/TeknofestPage'))
 
 function getInitialTheme() {
   if (typeof window === 'undefined') {
@@ -37,9 +38,34 @@ function getInitialSplashState() {
   }
 }
 
+function upsertMetaTag(attribute, key, content) {
+  const selector = `meta[${attribute}="${key}"]`
+  let element = document.head.querySelector(selector)
+
+  if (!element) {
+    element = document.createElement('meta')
+    element.setAttribute(attribute, key)
+    document.head.appendChild(element)
+  }
+
+  element.setAttribute('content', content)
+}
+
+function upsertCanonicalLink(href) {
+  let element = document.head.querySelector('link[rel="canonical"]')
+
+  if (!element) {
+    element = document.createElement('link')
+    element.setAttribute('rel', 'canonical')
+    document.head.appendChild(element)
+  }
+
+  element.setAttribute('href', href)
+}
+
 function App() {
   const location = useLocation()
-  const { messages } = useI18n()
+  const { language, messages } = useI18n()
   const isHomeRoute = location.pathname === '/'
 
   const navItems = isHomeRoute
@@ -64,6 +90,24 @@ function App() {
     document.documentElement.classList.toggle('dark', isDark)
     window.localStorage.setItem('theme', isDark ? 'dark' : 'light')
   }, [isDark])
+
+  useEffect(() => {
+    const isTeknofestRoute = location.pathname === '/teknofest'
+    const title = isTeknofestRoute ? messages.meta.teknofestTitle : messages.meta.homeTitle
+    const description = isTeknofestRoute
+      ? messages.meta.teknofestDescription
+      : messages.meta.homeDescription
+    const canonicalUrl = new URL(location.pathname, window.location.origin).toString()
+
+    document.title = title
+    upsertMetaTag('name', 'description', description)
+    upsertMetaTag('property', 'og:type', 'website')
+    upsertMetaTag('property', 'og:title', title)
+    upsertMetaTag('property', 'og:description', description)
+    upsertMetaTag('property', 'og:url', canonicalUrl)
+    upsertMetaTag('property', 'og:locale', language === 'tr' ? 'tr_TR' : 'en_US')
+    upsertCanonicalLink(canonicalUrl)
+  }, [language, location.pathname, messages])
 
   const handleSplashDone = useCallback(() => {
     if (typeof window !== 'undefined') {
@@ -91,10 +135,18 @@ function App() {
         />
 
         <main className="pb-16">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/teknofest" element={<TeknofestPage />} />
-          </Routes>
+          <Suspense
+            fallback={
+              <p className="mx-auto max-w-6xl px-4 pt-10 text-sm text-zinc-500 sm:px-6 lg:px-8 dark:text-zinc-400">
+                {messages.ui.loading}
+              </p>
+            }
+          >
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/teknofest" element={<TeknofestPage />} />
+            </Routes>
+          </Suspense>
         </main>
 
         <Footer name={profile.name} />

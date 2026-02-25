@@ -60,6 +60,7 @@ export const projects = [
     ],
   },
   {
+    slug: 'exam-timetable-planner',
     title: 'Exam Timetable Planner',
     role: 'Team Project (JavaFX Desktop App)',
     period: '2025 - 2026',

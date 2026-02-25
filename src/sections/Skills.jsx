@@ -1,16 +1,19 @@
 import Card from '../components/Card'
 import Container from '../components/Container'
 import SectionTitle from '../components/SectionTitle'
+import { useI18n } from '../i18n'
 import { skills } from '../data/skills'
 
 function Skills() {
+  const { messages } = useI18n()
+
   return (
     <section id="skills" className="scroll-mt-28 py-12 sm:py-16">
       <Container className="space-y-8">
         <SectionTitle
-          eyebrow="Skills"
-          title="Tooling and technical strengths"
-          description="Core technologies used in autonomy, backend/frontend, and team projects."
+          eyebrow={messages.skills.eyebrow}
+          title={messages.skills.title}
+          description={messages.skills.description}
         />
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">

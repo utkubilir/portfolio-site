@@ -1,16 +1,19 @@
 import Card from '../components/Card'
 import Container from '../components/Container'
 import SectionTitle from '../components/SectionTitle'
+import { useI18n } from '../i18n'
 import { languages } from '../data/languages'
 
 function Languages() {
+  const { messages } = useI18n()
+
   return (
     <section id="languages" className="scroll-mt-28 py-12 sm:py-16">
       <Container className="space-y-8">
         <SectionTitle
-          eyebrow="Languages"
-          title="Communication proficiency"
-          description="Language levels used in academic and technical collaboration."
+          eyebrow={messages.languagesSection.eyebrow}
+          title={messages.languagesSection.title}
+          description={messages.languagesSection.description}
         />
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

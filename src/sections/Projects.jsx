@@ -27,18 +27,12 @@ function Projects() {
   const { messages } = useI18n()
   const featuredProject = projects.find((project) => project.featured)
   const regularProjects = projects.filter((project) => !project.featured)
-
-  const getProjectCopy = (project) => {
-    if (project.slug === 'teknofest') {
-      return messages.projects.items.teknofest
-    }
-
-    if (project.title === 'Exam Timetable Planner') {
-      return messages.projects.items.examPlanner
-    }
-
-    return null
+  const projectCopyBySlug = {
+    teknofest: messages.projects.items.teknofest,
+    'exam-timetable-planner': messages.projects.items.examPlanner,
   }
+
+  const getProjectCopy = (project) => projectCopyBySlug[project.slug] ?? null
 
   return (
     <section id="projects" className="scroll-mt-28 py-12 sm:py-16">

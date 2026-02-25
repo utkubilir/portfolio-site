@@ -1,5 +1,13 @@
 export const en = {
   locale: 'en',
+  meta: {
+    homeTitle: 'Utku Bilir | Portfolio',
+    homeDescription:
+      'Third-year Computer Engineering student at Izmir University of Economics seeking internship opportunities in software development, computer vision, and UAV autonomy.',
+    teknofestTitle: 'ECOFUAV TEKNOFEST Project | Utku Bilir',
+    teknofestDescription:
+      'Detailed overview of the ECOFUAV TEKNOFEST Fighting UAV project, architecture, simulation flow, autonomy blocks, and roadmap.',
+  },
   nav: {
     home: 'Home',
     about: 'About',
@@ -15,6 +23,9 @@ export const en = {
   ui: {
     switchToTurkish: 'Switch language to Turkish',
     switchToEnglish: 'Switch language to English',
+    themeDark: 'Dark',
+    themeLight: 'Light',
+    loading: 'Loading...',
   },
   hero: {
     subtitle:
@@ -43,7 +54,7 @@ export const en = {
     title: 'Selected work',
     intro: 'Recent work in UAV autonomy and planning software.',
     featured: 'Featured Project',
-    readMore: 'Read more',
+    readMore: 'Read ECOFUAV details',
     items: {
       teknofest: {
         title: 'ECOFUAV — TEKNOFEST Fighting UAV',
@@ -56,6 +67,43 @@ export const en = {
           'Desktop application for creating and editing exam schedules. Built with Java, JavaFX, FXML, and Maven; I contributed to UI structure, theme implementation, and team delivery flow.',
       },
     },
+  },
+  experience: {
+    eyebrow: 'Experience',
+    title: 'Professional timeline',
+    description:
+      'Internship and project contributions across software and autonomy workflows.',
+  },
+  education: {
+    eyebrow: 'Education',
+    title: 'Academic background',
+    description: 'Computer Engineering studies and timeline.',
+  },
+  certificates: {
+    eyebrow: 'Certificates',
+    title: 'Certifications and courses',
+    description:
+      'Completed and planned milestones relevant to engineering and software work.',
+    expected: 'Expected',
+    completed: 'Completed',
+  },
+  activities: {
+    eyebrow: 'Leadership',
+    title: 'Club and volunteer activities',
+    description:
+      'Roles that shaped project ownership, communication, and execution discipline.',
+  },
+  skills: {
+    eyebrow: 'Skills',
+    title: 'Tooling and technical strengths',
+    description:
+      'Core technologies used in autonomy, backend/frontend, and team projects.',
+  },
+  languagesSection: {
+    eyebrow: 'Languages',
+    title: 'Communication proficiency',
+    description:
+      'Language levels used in academic and technical collaboration.',
   },
   teknofest: {
     back: 'Back to Home',
@@ -110,6 +158,21 @@ export const en = {
     timezoneLabel: 'Timezone:',
     languagesLabel: 'Languages:',
     responseLabel: 'Response:',
+    cards: {
+      primaryEmail: 'Primary Email',
+      academicEmail: 'Academic Email',
+      phone: 'Phone',
+    },
+    actions: {
+      write: 'Write',
+      call: 'Call',
+      open: 'Open',
+      copy: 'Copy',
+      copied: 'Copied',
+    },
+    availability: 'Open to internship opportunities and project collaboration',
+    responseTime: 'Usually replies within 24-48 hours',
+    emailCta: 'Email me',
     email: 'bilirutku35@gmail.com',
     phone: '+90 534 684 0696',
     github: 'https://github.com/utkubilir',

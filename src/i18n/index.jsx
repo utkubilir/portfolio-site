@@ -25,7 +25,15 @@ export function LanguageProvider({ children }) {
   const [language, setLanguage] = useState(getInitialLanguage)
 
   useEffect(() => {
-    window.localStorage.setItem(STORAGE_KEY, language)
+    try {
+      window.localStorage.setItem(STORAGE_KEY, language)
+    } catch {
+      // ignore storage write errors
+    }
+  }, [language])
+
+  useEffect(() => {
+    document.documentElement.lang = language
   }, [language])
 
   const value = useMemo(() => {

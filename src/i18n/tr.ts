@@ -1,5 +1,13 @@
 export const tr = {
   locale: 'tr',
+  meta: {
+    homeTitle: 'Utku Bilir | Portfolyo',
+    homeDescription:
+      'Izmir Ekonomi Universitesi Bilgisayar Muhendisligi ogrencisi. Yazilim, bilgisayarli goru ve IHA otonomisi alanlarinda staj firsatlarina acik.',
+    teknofestTitle: 'ECOFUAV TEKNOFEST Projesi | Utku Bilir',
+    teknofestDescription:
+      'ECOFUAV TEKNOFEST Savasan IHA projesinin mimari, simulasyon, otonomi, telemetri ve yol haritasi detaylari.',
+  },
   nav: {
     home: 'Ana Sayfa',
     about: 'Hakkımda',
@@ -14,7 +22,10 @@ export const tr = {
   },
   ui: {
     switchToTurkish: 'Türkçeye geç',
-    switchToEnglish: 'Switch language to English',
+    switchToEnglish: 'İngilizceye geç',
+    themeDark: 'Koyu',
+    themeLight: 'Açık',
+    loading: 'Yukleniyor...',
   },
   hero: {
     subtitle:
@@ -47,7 +58,7 @@ export const tr = {
     title: 'Seçili Çalışmalar',
     intro: 'İHA otonomisi ve planlama yazılımlarına odaklanan güncel çalışmalar.',
     featured: 'Öne Çıkan Proje',
-    readMore: 'Detaya Git',
+    readMore: 'ECOFUAV detaylarını incele',
     items: {
       teknofest: {
         title: 'ECOFUAV — TEKNOFEST Savaşan İHA',
@@ -60,6 +71,43 @@ export const tr = {
           'Proje, sınav programlarının masaüstünde hızlı biçimde oluşturulması ve düzenlenmesi için geliştirildi. Java, JavaFX, FXML ve Maven kullanarak arayüz yapısını, ekran akışlarını ve tema düzenini oluşturduk. Ben özellikle arayüz organizasyonu, tekrar kullanılabilir bileşen yaklaşımı ve ekip içi teslim sürecinin düzenli ilerlemesi tarafında katkı sağladım.',
       },
     },
+  },
+  experience: {
+    eyebrow: 'Deneyim',
+    title: 'Profesyonel zaman cizelgesi',
+    description:
+      'Yazilim ve otonomi akislarinda staj ve proje katkilarim.',
+  },
+  education: {
+    eyebrow: 'Egitim',
+    title: 'Akademik gecmis',
+    description: 'Bilgisayar Muhendisligi egitimi ve zaman cizelgesi.',
+  },
+  certificates: {
+    eyebrow: 'Sertifikalar',
+    title: 'Sertifikalar ve egitimler',
+    description:
+      'Muhendislik ve yazilim odakli tamamlanan ve planlanan gelisim adimlari.',
+    expected: 'Bekleniyor',
+    completed: 'Tamamlandi',
+  },
+  activities: {
+    eyebrow: 'Liderlik',
+    title: 'Kulupler ve gonullu aktiviteler',
+    description:
+      'Proje sahiplenmesi, iletisim ve uygulama disiplinimi guclendiren roller.',
+  },
+  skills: {
+    eyebrow: 'Yetenekler',
+    title: 'Araclar ve teknik gucler',
+    description:
+      'Otonomi, backend/frontend ve ekip projelerinde kullandigim temel teknolojiler.',
+  },
+  languagesSection: {
+    eyebrow: 'Diller',
+    title: 'Iletisim yeterliligi',
+    description:
+      'Akademik ve teknik is birliklerinde kullandigim dil seviyeleri.',
   },
   teknofest: {
     back: 'Ana Sayfaya Dön',
@@ -139,6 +187,21 @@ export const tr = {
     timezoneLabel: 'Saat Dilimi:',
     languagesLabel: 'Diller:',
     responseLabel: 'Yanıt Süresi:',
+    cards: {
+      primaryEmail: 'Ana E-posta',
+      academicEmail: 'Akademik E-posta',
+      phone: 'Telefon',
+    },
+    actions: {
+      write: 'Yaz',
+      call: 'Ara',
+      open: 'Ac',
+      copy: 'Kopyala',
+      copied: 'Kopyalandi',
+    },
+    availability: 'Staj firsatlari ve proje is birliklerine acigim',
+    responseTime: 'Genellikle 24-48 saat icinde donus yaparim',
+    emailCta: 'E-posta gonder',
     email: 'bilirutku35@gmail.com',
     phone: '+90 534 684 0696',
     github: 'https://github.com/utkubilir',
