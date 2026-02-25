@@ -28,12 +28,16 @@ function InstagramIcon() {
 const railItemClass =
   'group inline-flex h-12 w-12 items-center justify-center text-zinc-900/90 opacity-90 transition-opacity hover:opacity-70 motion-reduce:transition-none dark:text-zinc-100/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-zinc-950'
 
-function SocialRail() {
+function SocialRail({ className = '' }: { className?: string }) {
+  const classes = [
+    'fixed left-6 top-1/2 z-50 hidden -translate-y-1/2 flex-col items-center gap-10 lg:flex',
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ')
+
   return (
-    <nav
-      aria-label="Social links"
-      className="fixed left-6 top-1/2 z-50 hidden -translate-y-1/2 flex-col items-center gap-10 lg:flex"
-    >
+    <nav aria-label="Social links" className={classes}>
       <a
         href={socialLinks.github}
         target="_blank"

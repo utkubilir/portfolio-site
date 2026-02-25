@@ -8,7 +8,7 @@ import { useI18n } from './i18n'
 import { profile } from './data/profile'
 import HomePage from './pages/HomePage'
 
-const TeknofestPage = lazy(() => import('./pages/TeknofestPage'))
+const TeknofestPage = lazy(() => import('./pages/Teknofest'))
 
 function getInitialTheme() {
   if (typeof window === 'undefined') {
@@ -67,6 +67,7 @@ function App() {
   const location = useLocation()
   const { language, messages } = useI18n()
   const isHomeRoute = location.pathname === '/'
+  const isTeknofestRoute = location.pathname === '/teknofest'
 
   const navItems = isHomeRoute
     ? [
@@ -92,7 +93,6 @@ function App() {
   }, [isDark])
 
   useEffect(() => {
-    const isTeknofestRoute = location.pathname === '/teknofest'
     const title = isTeknofestRoute ? messages.meta.teknofestTitle : messages.meta.homeTitle
     const description = isTeknofestRoute
       ? messages.meta.teknofestDescription
@@ -107,7 +107,7 @@ function App() {
     upsertMetaTag('property', 'og:url', canonicalUrl)
     upsertMetaTag('property', 'og:locale', language === 'tr' ? 'tr_TR' : 'en_US')
     upsertCanonicalLink(canonicalUrl)
-  }, [language, location.pathname, messages])
+  }, [isTeknofestRoute, language, location.pathname, messages])
 
   const handleSplashDone = useCallback(() => {
     if (typeof window !== 'undefined') {
@@ -124,7 +124,7 @@ function App() {
   return (
     <div className="min-h-screen overflow-x-clip bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
       <div aria-hidden={showSplash ? 'true' : undefined}>
-        <SocialRail />
+        <SocialRail className={isTeknofestRoute ? 'hidden md:flex' : ''} />
 
         <Navbar
           navItems={navItems}
