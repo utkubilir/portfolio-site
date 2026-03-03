@@ -29,46 +29,107 @@ export const tr = {
   },
   hero: {
     subtitle:
-      'Bilgisayar Mühendisliği öğrencisiyim; ROS 2 ve PX4 ile İHA otonomisi üzerine çalışıyor, Java/React projeleri geliştiriyorum.',
+      'İzmir’de Bilgisayar Mühendisliği öğrencisiyim; TEKNOFEST İHA takımında yazılım planlamasını yürütüyor, Java/React ile somut araçlar geliştiriyorum.',
     summary:
-      'ECOFUAV yazılım planlamasını ve entegrasyon akışını koordine ederken, ders ve ekip projelerinde kullanılabilir yazılım çıktıları üretmeye odaklanıyorum.',
+      'Haftamın büyük kısmı PX4 simülasyon testleri, ekip koordinasyonu ve gerçekten kullanılan ders projeleri geliştirmekle geçiyor.',
+    currentlyBuildingLabel: 'Şu an geliştirdiklerim',
+    currentlyBuilding:
+      'ECOFUAV görev akışı/test düzeni ve üniversite kullanımına yönelik sınav takvimi masaüstü uygulaması.',
+    recentFocusLabel: 'Son teknik odağım',
+    recentFocus:
+      'ROS 2 modül sınırları, PX4 SITL senaryo doğrulaması, telemetri log kalitesi ve sürdürülebilir JavaFX arayüzü.',
+    workStyleLabel: 'Çalışma biçimim',
+    workStyle:
+      'Kısa plan döngüleri, yazılı karar notları ve neden-sonuç ilişkisi net test çıktıları.',
     cta: {
       projects: 'Projeleri Gör',
       contact: 'İletişime Geç',
       resume: 'Özgeçmişi İndir',
     },
-    quickSnapshot: 'Kısa Özet',
+    quickSnapshot: 'Güncel durum',
     availability: 'Uygunluk',
     education: 'Eğitim',
   },
   about: {
     eyebrow: 'Hakkımda',
-    title: 'Hakkımda',
+    title: 'Nasıl Çalışıyorum',
     body: [
-      'İzmir Ekonomi Üniversitesi Bilgisayar Mühendisliği bölümünde eğitimime devam ediyorum.',
-      'Çalışmalarımın ana odağı, otonom görev akışına sahip İHA sistemlerinde yazılım geliştirme ve doğrulama süreçleri.',
-      'ECOFUAV takımında yazılım tarafında planlama, görev kırılımı, entegrasyon sırası ve test takibi konularında aktif sorumluluk alıyorum.',
-      'PX4 SITL ve Gazebo ortamında senaryo tabanlı doğrulama yaparak sahaya çıkmadan önce kontrol mantığını ve görev akışını test ediyoruz.',
-      'ROS 2 tabanlı modüller, offboard kontrol yaklaşımı ve telemetri entegrasyonu üzerine düzenli geliştirme ve iyileştirme yapıyorum.',
-      'Bunun yanında Java ve React ile daha klasik ürün odaklı projeler geliştiriyor, ekip içinde görev takibi ve teslim disiplinine önem veriyorum.',
+      'İzmir Ekonomi Üniversitesi Bilgisayar Mühendisliği bölümünde üçüncü sınıf öğrencisiyim.',
+      'Şu an en yoğun çalıştığım alan ECOFUAV: yazılım kilometre taşları, entegrasyon sırası ve simülasyon temelli doğrulama.',
+      'İHA dışında, öğrencilerin günlük kullanımına dokunan Java ve React projeleri geliştiriyorum; bu da bana güvenilirlik ve sürdürülebilirlik odaklı çalışma disiplini kazandırıyor.',
+      'Özellikle modüller arası arayüzlerin net olması, teknik kararların yazılı tutulması ve ekip içinde teslim gerçekçiliği benim için kritik.',
+    ],
+    currentlyBuildingTitle: 'Şu an geliştirdiklerim',
+    currentlyBuilding: [
+      'ECOFUAV için görev planlama ve offboard kontrol akışı.',
+      'Düzenlenebilir bloklarla JavaFX sınav takvimi planlayıcı.',
+      'Proje anlatımı daha güçlü bir portfolyo yapısı.',
+    ],
+    recentFocusTitle: 'Son teknik odağım',
+    recentFocus: [
+      'PX4 SITL + Gazebo üzerinde senaryo bazlı hata ayıklama.',
+      'Test sonrası karar vermeyi kolaylaştıran telemetri logları.',
+      'Bölümler büyüdükçe okunabilir kalan React bileşenleri.',
+    ],
+    careTitle: 'Önemsediğim noktalar',
+    care: [
+      'Uygulanan her kararın teknik gerekçesinin yazılı olması.',
+      'Öğrenci ekiplerinde hız ve test edilebilirlik dengesini korumak.',
+      'Bitirilebilir ve geliştirilebilir proje kapsamı seçmek.',
     ],
   },
   projects: {
-    eyebrow: 'Projeler',
+    eyebrow: 'Seçili Çalışmalar',
     title: 'Seçili Çalışmalar',
-    intro: 'İHA otonomisi ve planlama yazılımlarına odaklanan güncel çalışmalar.',
-    featured: 'Öne Çıkan Proje',
-    readMore: 'ECOFUAV detaylarını incele',
+    intro:
+      'Gerçek kısıtlarla şekillenmiş, karar süreci ve çıktısı net olan iki temsil proje.',
+    caseStudy: 'Mini vaka çalışması',
+    readMore: 'ECOFUAV tam vaka çalışması',
+    fields: {
+      problem: 'Problem',
+      role: 'Rolüm',
+      techStack: 'Teknik yığın',
+      constraints: 'Kısıtlar',
+      keyDecision: 'Kritik karar',
+      result: 'Sonuç',
+      learned: 'Öğrendiğim',
+    },
     items: {
       teknofest: {
         title: 'ECOFUAV — TEKNOFEST Savaşan İHA',
-        description:
-          'Bu proje, yarışma senaryolarında görevin otonom biçimde icra edilmesini hedefleyen bir Savaşan İHA geliştirme çalışmasıdır. Teknik yığında PX4 SITL, Gazebo, ROS 2, C++/Python, Git ve Linux kullanıyoruz. Ben takım kaptanı olarak yazılım iş paketlerini planlıyor, modüller arası entegrasyon sırasını belirliyor ve sprint çıktılarının test sonuçlarıyla birlikte takip edilmesini sağlıyorum. Ayrıca offboard kontrol ve telemetri akışının kararlı çalışması için ekipler arası koordinasyonu yürütüyorum.',
+        context: 'Otonom görev icrasına odaklanan öğrenci yarışma İHA projesi',
+        description: 'Otonom görev icrasına odaklanan öğrenci yarışma İHA projesi.',
+        role: 'Takım kaptanı olarak yazılım planlama ve entegrasyon koordinasyonu',
+        caseStudy: {
+          problem:
+            'Sahadaki maliyetli testlerden önce görev mantığını tekrarlanabilir şekilde doğrulayacak bir çalışma düzenine ihtiyacımız vardı.',
+          constraints:
+            'Yarışma takvimi, yazılım-elektronik-mekanik ekip bağımlılıkları ve sınırlı gerçek uçuş fırsatı.',
+          keyDecision:
+            'PX4 SITL + Gazebo tabanlı simülasyon döngüsünü standart hale getirip, donanım testinden önce log çıktısını zorunlu hale getirdik.',
+          result:
+            'Entegrasyon toplantıları daha veriye dayalı ilerledi, blokajlar erken tespit edildi ve saha testleri daha planlı hale geldi.',
+          learned:
+            'Teknik liderlik çoğu zaman kod yazmaktan çok karar hijyenidir: arayüzleri erken netleştirmek, varsayımları yazmak ve her testten sonra öncelikleri güncellemek.',
+        },
       },
-      examPlanner: {
+      'exam-timetable-planner': {
         title: 'Sınav Takvimi Planlayıcı',
-        description:
-          'Proje, sınav programlarının masaüstünde hızlı biçimde oluşturulması ve düzenlenmesi için geliştirildi. Java, JavaFX, FXML ve Maven kullanarak arayüz yapısını, ekran akışlarını ve tema düzenini oluşturduk. Ben özellikle arayüz organizasyonu, tekrar kullanılabilir bileşen yaklaşımı ve ekip içi teslim sürecinin düzenli ilerlemesi tarafında katkı sağladım.',
+        context: 'Sınav takvimini hızlı oluşturup düzenlemeye yönelik masaüstü araç',
+        description: 'Sınav takvimini hızlı oluşturup düzenlemeye yönelik masaüstü araç.',
+        role: 'Arayüz yapısı ve ekip içi teslim akışı odaklı ekip katkısı',
+        caseStudy: {
+          problem:
+            'Öğrenciler sınav programı oluştururken tablo düzenleme işine fazla zaman harcıyor ve değişiklikleri takip etmekte zorlanıyordu.',
+          constraints:
+            'Masaüstü kapsamı, dönem sonu teslim tarihi ve JavaFX tecrübesi farklı ekip üyeleri.',
+          keyDecision:
+            'Ekranları tekrar kullanılabilir FXML bloklarıyla kurup veri akışını sade tuttuk; böylece ekip paralel geliştirme yapabildi.',
+          result:
+            'Uygulama hızlı takvim düzenleme sağlayan tutarlı bir arayüze ulaştı ve ekip içi değişiklik çakışmaları azaldı.',
+          learned:
+            'Öğrenci projelerinde sürdürülebilirlik, karmaşık mimariden daha kritik. Bileşen sınırları net olduğunda ekip daha hızlı teslim ediyor.',
+        },
       },
     },
   },

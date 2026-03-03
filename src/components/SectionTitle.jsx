@@ -2,7 +2,7 @@ function SectionTitle({ eyebrow, title, description }) {
   return (
     <div className="max-w-3xl min-w-0 space-y-3">
       {eyebrow ? (
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 dark:text-blue-400">
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-600 dark:text-zinc-400">
           {eyebrow}
         </p>
       ) : null}

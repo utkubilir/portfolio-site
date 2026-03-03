@@ -29,42 +29,107 @@ export const en = {
   },
   hero: {
     subtitle:
-      'Computer Engineering student working on UAV autonomy with ROS 2/PX4 and building Java/React applications.',
+      'Computer Engineering student in Izmir, leading software planning for a TEKNOFEST UAV team and building practical Java/React tools.',
     summary:
-      'I coordinate software work for ECOFUAV and develop practical project software with clear delivery plans.',
+      'Most weeks I split my time between PX4 mission simulation, team coordination, and shipping course projects that people can actually use.',
+    currentlyBuildingLabel: 'Currently building',
+    currentlyBuilding:
+      'ECOFUAV mission-control workflows and an exam scheduling desktop app for day-to-day university planning.',
+    recentFocusLabel: 'Recent technical focus',
+    recentFocus:
+      'ROS 2 module boundaries, PX4 SITL test scenarios, telemetry logging quality, and maintainable JavaFX UI structure.',
+    workStyleLabel: 'How I work',
+    workStyle:
+      'Short planning cycles, written decisions, and test notes that explain what changed and why.',
     cta: {
       projects: 'View Projects',
       contact: 'Get In Touch',
       resume: 'Download Resume',
     },
-    quickSnapshot: 'Quick Snapshot',
+    quickSnapshot: 'Right now',
     availability: 'Availability',
     education: 'Education',
   },
   about: {
     eyebrow: 'About',
-    title: 'About',
+    title: 'How I Work',
     body: [
-      'Computer Engineering student at Izmir University of Economics.',
-      'Focused on UAV autonomy, simulation-first testing, and practical software development.',
+      'I am a Computer Engineering student at Izmir University of Economics, currently in my third year.',
+      'My main project is ECOFUAV for TEKNOFEST, where I help shape software milestones, integration order, and simulation-first validation.',
+      'Outside UAV work, I build Java and React projects that solve concrete student needs and force me to think about reliability, not just UI.',
+      'I care about clear interfaces between modules, transparent technical tradeoffs, and team communication that keeps delivery realistic.',
+    ],
+    currentlyBuildingTitle: 'Currently building',
+    currentlyBuilding: [
+      'Mission planning and offboard control flow for ECOFUAV.',
+      'A JavaFX exam timetable planner with editable schedule blocks.',
+      'A cleaner portfolio codebase with stronger project storytelling.',
+    ],
+    recentFocusTitle: 'Recent technical focus',
+    recentFocus: [
+      'Simulation-first debugging in PX4 SITL + Gazebo.',
+      'Telemetry logs that are useful for post-test decisions.',
+      'React components that stay readable as sections grow.',
+    ],
+    careTitle: 'What I care about',
+    care: [
+      'Decisions that can be explained, not just implemented.',
+      'Balancing speed with testability in student teams.',
+      'Projects that are small enough to finish and improve.',
     ],
   },
   projects: {
-    eyebrow: 'Projects',
+    eyebrow: 'Selected Work',
     title: 'Selected work',
-    intro: 'Recent work in UAV autonomy and planning software.',
-    featured: 'Featured Project',
-    readMore: 'Read ECOFUAV details',
+    intro:
+      'Two representative projects with real constraints, engineering decisions, and outcomes.',
+    caseStudy: 'Mini case study',
+    readMore: 'Full ECOFUAV case study',
+    fields: {
+      problem: 'Problem',
+      role: 'My role',
+      techStack: 'Tech stack',
+      constraints: 'Constraints',
+      keyDecision: 'Key decision',
+      result: 'Result',
+      learned: 'What I learned',
+    },
     items: {
       teknofest: {
         title: 'ECOFUAV — TEKNOFEST Fighting UAV',
-        description:
-          'Competition UAV project for autonomous mission execution. Stack: PX4 SITL, Gazebo, ROS 2, C++/Python, Git, Linux; I lead software planning and integration.',
+        context: 'Student competition UAV for autonomous mission execution',
+        description: 'Student competition UAV for autonomous mission execution.',
+        role: 'Team captain focused on software planning and integration',
+        caseStudy: {
+          problem:
+            'The team needed a repeatable way to validate mission logic before expensive and risky field tests.',
+          constraints:
+            'Competition timeline, cross-team dependencies (software/electronics/mechanics), and limited real-flight opportunities.',
+          keyDecision:
+            'We adopted a simulation-first loop in PX4 SITL + Gazebo and made test logs a required artifact before hardware runs.',
+          result:
+            'Integration meetings became more concrete, blockers were found earlier, and field-test preparation became less ad-hoc.',
+          learned:
+            'Technical leadership is mostly decision hygiene: define interfaces early, document assumptions, and revisit priorities after each test cycle.',
+        },
       },
-      examPlanner: {
+      'exam-timetable-planner': {
         title: 'Exam Timetable Planner',
-        description:
-          'Desktop application for creating and editing exam schedules. Built with Java, JavaFX, FXML, and Maven; I contributed to UI structure, theme implementation, and team delivery flow.',
+        context: 'Desktop planning tool for creating and editing exam schedules',
+        description: 'Desktop planning tool for creating and editing exam schedules.',
+        role: 'Team contributor focused on UI structure and delivery workflow',
+        caseStudy: {
+          problem:
+            'Students needed a faster way to build and revise exam schedules than editing spreadsheets manually.',
+          constraints:
+            'Desktop-only scope, tight semester deadline, and a team with mixed JavaFX experience.',
+          keyDecision:
+            'We structured screens with reusable FXML blocks and kept data flow simple so teammates could ship features in parallel.',
+          result:
+            'The app supported quick schedule edits with a consistent interface and reduced confusion during collaborative changes.',
+          learned:
+            'For student products, maintainability beats complexity. Clear component boundaries helped us move faster than clever architecture would have.',
+        },
       },
     },
   },

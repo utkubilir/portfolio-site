@@ -2,10 +2,11 @@ import { contact } from './contact'
 
 export const profile = {
   name: 'Utku Bilir',
-  title: 'Computer Engineering student working on ROS 2/PX4 UAV autonomy and Java/React applications.',
+  title:
+    'Computer Engineering student in Izmir working on UAV software integration and practical student tools.',
   location: contact.location,
   summary:
-    'I lead software work for our TEKNOFEST UAV team and build course projects with Java and React.',
+    'I coordinate software milestones in ECOFUAV and build Java/React projects with clear constraints and decisions.',
   email: contact.email,
   highlights: [
     { label: 'Current Focus', value: 'ROS 2, PX4 SITL, Gazebo simulation' },

@@ -10,7 +10,7 @@ function ButtonLink({
 }) {
   const variantClasses = {
     primary:
-      'border border-blue-600 bg-blue-600 text-white hover:bg-blue-700 hover:border-blue-700 dark:border-blue-400 dark:bg-blue-400 dark:text-zinc-950 dark:hover:border-blue-300 dark:hover:bg-blue-300',
+      'border border-zinc-900 bg-zinc-900 text-white hover:border-zinc-800 hover:bg-zinc-800 dark:border-zinc-100 dark:bg-zinc-100 dark:text-zinc-950 dark:hover:border-zinc-200 dark:hover:bg-zinc-200',
     secondary:
       'border border-zinc-300 bg-transparent text-zinc-700 hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-900/40',
     muted:
