@@ -104,6 +104,17 @@ export const tr = {
           'Sıkı teslim takvimli öğrenci projelerinde sürdürülebilirliğin karmaşıklıktan daha değerli olduğunu öğrendim.',
         ],
       },
+      portfolioSite: {
+        title: 'Kişisel Portfolyo',
+        role: 'Geliştirici & Tasarımcı',
+        period: '2026',
+        description: 'React, Vite ve Tailwind CSS ile geliştirilmiş modern ve duyarlı bir portfolyo sitesi. Pürüzsüz kaydırma, aktif bölüm takibi ve mobil öncelikli tasarım içerir.',
+        bullets: [
+          'Aktif bölüm takibi için özel ScrollSpy hook\'u uygulandı.',
+          'Modern CSS özellikleri ile dinamik ve duyarlı bir UI tasarlandı.',
+          'Vite ile performans ve derleme süreci optimize edildi.'
+        ],
+      },
     },
   },
   experience: {

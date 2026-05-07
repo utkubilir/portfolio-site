@@ -104,6 +104,17 @@ export const en = {
           'Learned that maintainability beats complexity for student products with tight deadlines.',
         ],
       },
+      portfolioSite: {
+        title: 'Personal Portfolio',
+        role: 'Developer & Designer',
+        period: '2026',
+        description: 'A modern, responsive portfolio website built with React, Vite, and Tailwind CSS. Features smooth scrolling, active section tracking, and mobile-first design principles.',
+        bullets: [
+          'Implemented custom ScrollSpy hook for active section tracking.',
+          'Designed a dynamic, responsive UI with modern CSS features.',
+          'Optimized performance and build process with Vite.'
+        ],
+      },
     },
   },
   experience: {

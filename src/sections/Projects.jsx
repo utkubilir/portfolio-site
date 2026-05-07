@@ -9,7 +9,10 @@ import { projects } from '../data/projects'
 import { isUsableHref } from '../utils/link'
 
 function ProjectLink({ href, label }) {
-  if (isUsableHref(href)) {
+  const isGenericGithub = href === 'https://github.com/utkubilir'
+  const isUsable = isUsableHref(href) && !isGenericGithub
+
+  if (isUsable) {
     return (
       <ButtonLink href={href} target="_blank" rel="noreferrer" className="px-3 py-1.5 text-xs">
         {label}
@@ -17,7 +20,11 @@ function ProjectLink({ href, label }) {
     )
   }
 
-  return null
+  return (
+    <ButtonLink as="button" type="button" variant="muted" disabled className="px-3 py-1.5 text-xs cursor-not-allowed opacity-50">
+      {label}
+    </ButtonLink>
+  )
 }
 
 function Projects() {
@@ -27,6 +34,7 @@ function Projects() {
   const projectCopyBySlug = {
     teknofest: messages.projects.items.teknofest,
     'exam-timetable-planner': messages.projects.items.examPlanner,
+    'portfolio-site': messages.projects.items.portfolioSite,
   }
 
   const getProjectCopy = (project) => projectCopyBySlug[project.slug] ?? null
@@ -124,7 +132,12 @@ function Projects() {
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {regularProjects.map((project) => (
-            <Card key={project.title} className="flex h-full min-w-0 flex-col" hover>
+            <Card key={project.title} className="flex h-full min-w-0 flex-col overflow-hidden" hover>
+              {project.image ? (
+                <div className="mb-5 -mx-5 -mt-5 sm:-mx-6 sm:-mt-6 overflow-hidden border-b border-[color:var(--color-line-soft)]">
+                  <img src={project.image} alt={project.title} className="w-full h-48 object-cover transition-transform duration-500 hover:scale-105" />
+                </div>
+              ) : null}
               <p className="font-['Space_Grotesk'] text-[0.72rem] uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
                 [ {messages.projects.eyebrow} ]
               </p>

@@ -1,3 +1,6 @@
+import examPlannerPreview from '../assets/exam-planner.png'
+import portfolioPreview from '../assets/portfolio-preview.png'
+
 export const projects = [
   {
     featured: true,
@@ -61,6 +64,7 @@ export const projects = [
   },
   {
     slug: 'exam-timetable-planner',
+    image: examPlannerPreview,
     title: 'Exam Timetable Planner',
     role: 'Team Project (JavaFX Desktop App)',
     period: '2025 - 2026',
@@ -75,6 +79,24 @@ export const projects = [
       'Built the interface with FXML and Scene Builder for clear UX structure.',
       'Applied CSS theming with dark mode support across reusable UI blocks.',
       'Collaborated using Git/GitHub workflow and Jira/Trello task tracking.',
+    ],
+  },
+  {
+    slug: 'portfolio-site',
+    image: portfolioPreview,
+    title: 'Personal Portfolio',
+    role: 'Frontend Developer',
+    period: '2026',
+    description:
+      'A cyber-themed personal portfolio website built to showcase my projects, skills, and experience. It features responsive design, smooth scrolling, scroll spy, and a dark mode aesthetic.',
+    tech: ['React', 'Vite', 'Tailwind CSS', 'Lucide React'],
+    links: [
+      { label: 'GitHub', href: 'https://github.com/utkubilir/portfolio-site' },
+    ],
+    bullets: [
+      'Implemented a responsive layout using Tailwind CSS with mobile-first approach.',
+      'Created custom scroll spy hook to highlight active navigation sections.',
+      'Designed a terminal-like user interface with custom animations and hover effects.',
     ],
   },
 ]

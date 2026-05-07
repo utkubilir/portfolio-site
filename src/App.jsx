@@ -59,6 +59,11 @@ function App() {
         { id: 'projects', label: messages.nav.projects, href: '#projects' },
         { id: 'skills', label: messages.nav.skills, href: '#skills' },
         { id: 'experience', label: messages.nav.experience, href: '#experience' },
+        { id: 'education', label: messages.nav.education, href: '#education' },
+        { id: 'certificates', label: messages.nav.certificates, href: '#certificates' },
+        { id: 'about', label: messages.nav.about, href: '#about' },
+        { id: 'activities', label: messages.nav.activities, href: '#activities' },
+        { id: 'languages', label: messages.nav.languages, href: '#languages' },
         { id: 'contact', label: messages.nav.contact, href: '#contact' },
       ]
     : [{ id: 'home', label: messages.nav.home, href: '/' }]

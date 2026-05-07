@@ -30,7 +30,7 @@ const railItemClass =
 
 function SocialRail({ className = '' }: { className?: string }) {
   const classes = [
-    'fixed left-6 top-1/2 z-50 hidden -translate-y-1/2 flex-col items-center gap-4 lg:flex',
+    'fixed left-6 top-1/2 z-50 hidden -translate-y-1/2 flex-col items-center gap-4 2xl:flex',
     className,
   ]
     .filter(Boolean)
