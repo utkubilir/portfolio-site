@@ -26,129 +26,127 @@ export const en = {
     themeDark: 'Dark',
     themeLight: 'Light',
     loading: 'Loading...',
+    systemBoot: 'System Boot',
+    bootMessage: 'Sharp terminal portfolio initializing',
+    portfolioNode: 'Portfolio Node',
   },
   hero: {
     subtitle:
-      'Computer Engineering student in Izmir, leading software planning for a TEKNOFEST UAV team and building practical Java/React tools.',
+      'Computer Engineering student in Izmir producing practical work in ROS 2/PX4 UAV autonomy and Java/React applications.',
     summary:
-      'Most weeks I split my time between PX4 mission simulation, team coordination, and shipping course projects that people can actually use.',
-    currentlyBuildingLabel: 'Currently building',
-    currentlyBuilding:
-      'ECOFUAV mission-control workflows and an exam scheduling desktop app for day-to-day university planning.',
-    recentFocusLabel: 'Recent technical focus',
-    recentFocus:
-      'ROS 2 module boundaries, PX4 SITL test scenarios, telemetry logging quality, and maintainable JavaFX UI structure.',
-    workStyleLabel: 'How I work',
-    workStyle:
-      'Short planning cycles, written decisions, and test notes that explain what changed and why.',
+      'I split my time between PX4 mission simulation, ECOFUAV software planning, team coordination, and course projects people can actually use.',
     cta: {
       projects: 'View Projects',
       contact: 'Get In Touch',
       resume: 'Download Resume',
     },
-    quickSnapshot: 'Right now',
+    quickSnapshot: 'Quick Snapshot',
+    profileNode: 'Profile Node',
+    location: 'Izmir, Turkey',
+    recruiterSnapshot: 'Recruiter Snapshot',
+    proofPoints: 'Fast Signals',
+    signals: [
+      { label: 'Focus', value: 'ROS 2 / PX4 / Gazebo' },
+      { label: 'Availability', value: 'Internships and project collaboration' },
+      { label: 'Work style', value: 'Short cycles, written decisions, test notes' },
+    ],
+    snapshot: [
+      { label: 'Availability', value: 'Open to internship opportunities' },
+      { label: 'Education', value: 'B.Sc. Computer Engineering • Expected 2027' },
+      { label: 'Focus Area', value: 'UAV autonomy, simulation, Java/React' },
+      { label: 'Location', value: 'Izmir, Turkey • Europe/Istanbul' },
+    ],
     availability: 'Availability',
     education: 'Education',
   },
   about: {
-    eyebrow: 'About',
-    title: 'How I Work',
+    eyebrow: 'Profile',
+    title: 'How I work',
+    fieldNotes: 'Profile Notes',
     body: [
-      'I am a Computer Engineering student at Izmir University of Economics, currently in my third year.',
+      'I am a third-year Computer Engineering student at Izmir University of Economics, focused on software development and validation workflows for UAV systems with autonomous mission logic.',
       'My main project is ECOFUAV for TEKNOFEST, where I help shape software milestones, integration order, and simulation-first validation.',
       'Outside UAV work, I build Java and React projects that solve concrete student needs and force me to think about reliability, not just UI.',
-      'I care about clear interfaces between modules, transparent technical tradeoffs, and team communication that keeps delivery realistic.',
-    ],
-    currentlyBuildingTitle: 'Currently building',
-    currentlyBuilding: [
-      'Mission planning and offboard control flow for ECOFUAV.',
-      'A JavaFX exam timetable planner with editable schedule blocks.',
-      'A cleaner portfolio codebase with stronger project storytelling.',
-    ],
-    recentFocusTitle: 'Recent technical focus',
-    recentFocus: [
-      'Simulation-first debugging in PX4 SITL + Gazebo.',
-      'Telemetry logs that are useful for post-test decisions.',
-      'React components that stay readable as sections grow.',
-    ],
-    careTitle: 'What I care about',
-    care: [
-      'Decisions that can be explained, not just implemented.',
-      'Balancing speed with testability in student teams.',
-      'Projects that are small enough to finish and improve.',
+      'I care about clear module interfaces, transparent technical tradeoffs, and team communication that keeps delivery realistic.',
     ],
   },
   projects: {
     eyebrow: 'Selected Work',
     title: 'Selected work',
-    intro:
-      'Two representative projects with real constraints, engineering decisions, and outcomes.',
-    caseStudy: 'Mini case study',
-    readMore: 'Full ECOFUAV case study',
-    fields: {
-      problem: 'Problem',
-      role: 'My role',
-      techStack: 'Tech stack',
-      constraints: 'Constraints',
-      keyDecision: 'Key decision',
-      result: 'Result',
-      learned: 'What I learned',
-    },
+    intro: 'Representative projects with real constraints, engineering decisions, and recruiter-relevant outcomes.',
+    featured: 'Featured Project',
+    preview: 'Technical Preview',
+    stack: 'Stack',
+    contributions: 'Concrete Contributions',
+    readMore: 'Read ECOFUAV details',
     items: {
       teknofest: {
         title: 'ECOFUAV — TEKNOFEST Fighting UAV',
-        context: 'Student competition UAV for autonomous mission execution',
-        description: 'Student competition UAV for autonomous mission execution.',
         role: 'Team captain focused on software planning and integration',
-        caseStudy: {
-          problem:
-            'The team needed a repeatable way to validate mission logic before expensive and risky field tests.',
-          constraints:
-            'Competition timeline, cross-team dependencies (software/electronics/mechanics), and limited real-flight opportunities.',
-          keyDecision:
-            'We adopted a simulation-first loop in PX4 SITL + Gazebo and made test logs a required artifact before hardware runs.',
-          result:
-            'Integration meetings became more concrete, blockers were found earlier, and field-test preparation became less ad-hoc.',
-          learned:
-            'Technical leadership is mostly decision hygiene: define interfaces early, document assumptions, and revisit priorities after each test cycle.',
-        },
+        period: '2025 - Present',
+        description:
+          'Student competition UAV for autonomous mission execution. The team needed a repeatable way to validate mission logic before expensive and risky field tests, so we standardized a simulation-first PX4 SITL + Gazebo loop and required useful test logs before hardware runs.',
+        bullets: [
+          'Planned weekly integration milestones across software, electronics, and mechanical teams.',
+          'Made simulation logs part of the delivery artifact before hardware tests.',
+          'Kept integration meetings concrete by documenting assumptions, blockers, and test outcomes.',
+        ],
       },
-      'exam-timetable-planner': {
+      examPlanner: {
         title: 'Exam Timetable Planner',
-        context: 'Desktop planning tool for creating and editing exam schedules',
-        description: 'Desktop planning tool for creating and editing exam schedules.',
         role: 'Team contributor focused on UI structure and delivery workflow',
-        caseStudy: {
-          problem:
-            'Students needed a faster way to build and revise exam schedules than editing spreadsheets manually.',
-          constraints:
-            'Desktop-only scope, tight semester deadline, and a team with mixed JavaFX experience.',
-          keyDecision:
-            'We structured screens with reusable FXML blocks and kept data flow simple so teammates could ship features in parallel.',
-          result:
-            'The app supported quick schedule edits with a consistent interface and reduced confusion during collaborative changes.',
-          learned:
-            'For student products, maintainability beats complexity. Clear component boundaries helped us move faster than clever architecture would have.',
-        },
+        period: '2025 - 2026',
+        description:
+          'Desktop planning tool for creating and editing exam schedules. We kept the scope desktop-first, structured screens with reusable FXML blocks, and kept data flow simple so teammates with mixed JavaFX experience could ship in parallel.',
+        bullets: [
+          'Built the interface with FXML and Scene Builder for clear UX structure.',
+          'Reduced team friction by keeping component boundaries and data flow readable.',
+          'Learned that maintainability beats complexity for student products with tight deadlines.',
+        ],
       },
     },
   },
   experience: {
     eyebrow: 'Experience',
-    title: 'Professional timeline',
+    title: 'Experience',
     description:
       'Internship and project contributions across software and autonomy workflows.',
+    items: [
+      {
+        role: 'Computer Vision Intern (Volunteer)',
+        org: 'A2InnoWave',
+        period: 'Jul 2025 - Aug 2025',
+        type: 'Internship',
+        description:
+          'Contributed to practical computer vision workflows and model experimentation for visual intelligence tasks.',
+        bullets: [
+          'Worked with OpenCV and YOLOv8 pipelines for classification, detection, segmentation, and tracking scenarios.',
+          'Ran dataset and inference experiments to compare model behavior across real-world cases.',
+          'Documented findings and supported iteration cycles with clear communication to the team.',
+        ],
+      },
+    ],
   },
   education: {
     eyebrow: 'Education',
     title: 'Academic background',
     description: 'Computer Engineering studies and timeline.',
+    academicNode: 'Academic Node',
+    items: [
+      {
+        institution: 'Izmir University of Economics',
+        degree: 'B.Sc. Computer Engineering',
+        period: 'Expected 2027',
+        details: '3rd Year Student',
+      },
+    ],
   },
   certificates: {
     eyebrow: 'Certificates',
     title: 'Certifications and courses',
     description:
       'Completed and planned milestones relevant to engineering and software work.',
+    label: 'Certification',
     expected: 'Expected',
     completed: 'Completed',
   },
@@ -157,18 +155,64 @@ export const en = {
     title: 'Club and volunteer activities',
     description:
       'Roles that shaped project ownership, communication, and execution discipline.',
+    compactLabel: 'Leadership Summary',
+    items: [
+      {
+        role: 'Chair, Supervisory Board',
+        org: 'Folk Dance Club',
+        period: '2025 - Present',
+        bullets: [
+          'Led governance and compliance reviews for club operations.',
+          'Supervised process quality and strategic planning decisions.',
+        ],
+      },
+      {
+        role: 'Vice President',
+        org: 'Folk Dance Club',
+        period: '2024 - 2025',
+        bullets: [
+          'Managed administrative operations, event planning, and daily coordination.',
+          'Improved communication flow and task ownership across member teams.',
+        ],
+      },
+      {
+        role: 'Board Member',
+        org: 'Folk Dance Club',
+        period: '2022 - 2024',
+        bullets: [
+          'Contributed to performance logistics and volunteer coordination.',
+          'Supported onboarding and rehearsal planning for new members.',
+        ],
+      },
+    ],
   },
   skills: {
     eyebrow: 'Skills',
-    title: 'Tooling and technical strengths',
+    title: 'Technical snapshot',
     description:
       'Core technologies used in autonomy, backend/frontend, and team projects.',
+    categories: {
+      Programming: 'Programming',
+      'Frameworks / Libraries': 'Frameworks / Libraries',
+      'Simulation / Robotics': 'Simulation / Robotics',
+      Databases: 'Databases',
+      Tools: 'Tools',
+      'Project Management': 'Project Management',
+    },
   },
   languagesSection: {
     eyebrow: 'Languages',
     title: 'Communication proficiency',
     description:
       'Language levels used in academic and technical collaboration.',
+    names: {
+      Turkish: 'Turkish',
+      English: 'English',
+      German: 'German',
+    },
+    levels: {
+      Native: 'Native',
+    },
   },
   teknofest: {
     back: 'Back to Home',
@@ -217,12 +261,22 @@ export const en = {
   contact: {
     eyebrow: 'Contact',
     title: 'Let’s connect',
-    cta: 'Could we connect about an internship role or a project collaboration?',
+    description:
+      'Email is the fastest path for internship, project collaboration, or technical team conversations.',
+    primaryLabel: 'Primary channel',
+    primaryTitle: 'Start with email',
+    cta: 'A short email is enough for an internship role, project collaboration, or technical team conversation.',
     ready: 'Ready to connect?',
     locationLabel: 'Location:',
     timezoneLabel: 'Timezone:',
     languagesLabel: 'Languages:',
     responseLabel: 'Response:',
+    summaryTitle: 'Availability summary',
+    summary:
+      'Based in Izmir and open to conversations around software, autonomy, and team-based engineering work.',
+    secondaryTitle: 'Secondary channels',
+    emailNote:
+      'Launch a message with a prepared subject line or copy the address directly.',
     cards: {
       primaryEmail: 'Primary Email',
       academicEmail: 'Academic Email',
@@ -235,9 +289,23 @@ export const en = {
       copy: 'Copy',
       copied: 'Copied',
     },
+    social: {
+      linkedin: 'Professional profile, networking, and quick follow-up messages.',
+      github: 'Code, project history, and technical work samples.',
+    },
+    copyHint:
+      'Copy the email address or start a message with a prepared subject line.',
+    copyStatus: {
+      primaryEmail: 'Primary email copied.',
+      academicEmail: 'Academic email copied.',
+      phone: 'Phone number copied.',
+      default: 'Contact detail copied.',
+    },
     availability: 'Open to internship opportunities and project collaboration',
-    responseTime: 'Usually replies within 24-48 hours',
+    responseTime: 'Usually replies within 24–48 hours',
     emailCta: 'Email me',
+    resumeCta: 'Download CV',
+    scheduleCta: 'Schedule a call',
     email: 'bilirutku35@gmail.com',
     phone: '+90 534 684 0696',
     github: 'https://github.com/utkubilir',

@@ -26,11 +26,11 @@ function InstagramIcon() {
 }
 
 const railItemClass =
-  'group inline-flex h-12 w-12 items-center justify-center text-zinc-900/90 opacity-90 transition-opacity hover:opacity-70 motion-reduce:transition-none dark:text-zinc-100/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-zinc-950'
+  'group inline-flex h-12 w-12 items-center justify-center border border-[color:var(--color-line-soft)] bg-[rgba(19,19,19,0.86)] text-[color:var(--color-text)] no-underline transition-colors duration-200 hover:border-[color:rgba(217,93,38,0.8)] hover:bg-[rgba(217,93,38,0.12)] hover:text-[color:var(--color-accent-soft)] focus-visible:outline-none'
 
 function SocialRail({ className = '' }: { className?: string }) {
   const classes = [
-    'fixed left-6 top-1/2 z-50 hidden -translate-y-1/2 flex-col items-center gap-10 lg:flex',
+    'fixed left-6 top-1/2 z-50 hidden -translate-y-1/2 flex-col items-center gap-4 lg:flex',
     className,
   ]
     .filter(Boolean)
@@ -38,6 +38,7 @@ function SocialRail({ className = '' }: { className?: string }) {
 
   return (
     <nav aria-label="Social links" className={classes}>
+      <span className="h-20 w-px bg-[linear-gradient(180deg,transparent,rgba(116,137,148,0.78),transparent)]" />
       <a
         href={socialLinks.github}
         target="_blank"
@@ -67,6 +68,7 @@ function SocialRail({ className = '' }: { className?: string }) {
       >
         <InstagramIcon />
       </a>
+      <span className="h-20 w-px bg-[linear-gradient(180deg,transparent,rgba(116,137,148,0.78),transparent)]" />
     </nav>
   )
 }

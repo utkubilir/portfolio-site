@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react'
+import { useI18n } from '../i18n'
 
 const DEFAULT_DURATION = 900
 const REDUCED_DURATION = 400
 const FADE_DURATION = 220
 
 function SplashScreen({ onDone }: { onDone?: () => void }) {
+  const { messages } = useI18n()
   const [isFading, setIsFading] = useState(false)
 
   useEffect(() => {
@@ -39,13 +41,19 @@ function SplashScreen({ onDone }: { onDone?: () => void }) {
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] flex items-center justify-center bg-white text-zinc-900 transition-opacity duration-200 motion-reduce:transition-none dark:bg-zinc-950 dark:text-zinc-100 ${
+      className={`fixed inset-0 z-[9999] flex items-center justify-center bg-[color:var(--color-bg)] px-5 text-[color:var(--color-text)] transition-opacity duration-200 motion-reduce:transition-none ${
         isFading ? 'opacity-0' : 'opacity-100'
       }`}
       role="status"
       aria-live="polite"
     >
-      <p className="text-4xl font-semibold tracking-tight sm:text-5xl">Utku Bilir</p>
+      <div className="mission-card w-full max-w-xl p-8 sm:p-10">
+        <p className="eyebrow-tag">{messages.ui.systemBoot}</p>
+        <p className="display-hero mt-6">Utku Bilir</p>
+        <p className="mt-4 font-['Space_Grotesk'] text-xs uppercase tracking-[0.24em] text-[color:var(--color-muted)]">
+          {messages.ui.bootMessage}
+        </p>
+      </div>
     </div>
   )
 }

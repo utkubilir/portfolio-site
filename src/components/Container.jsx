@@ -1,5 +1,5 @@
 function Container({ children, className = '' }) {
-  const classes = ['mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8', className]
+  const classes = ['mx-auto w-full max-w-[88rem] px-5 sm:px-8 xl:px-10', className]
     .filter(Boolean)
     .join(' ')
 

@@ -227,10 +227,10 @@ function Teknofest() {
   )
 
   return (
-    <section id="teknofest" className="relative isolate overflow-x-clip py-16 sm:py-24">
+    <section id="teknofest" className="relative isolate overflow-x-clip py-16 sm:py-20 lg:py-24">
       <a
         href="#teknofest-content"
-        className="sr-only z-[60] rounded-md bg-blue-600 px-4 py-2 text-sm text-white no-underline focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+        className="sr-only z-[60] border border-[color:var(--color-accent)] bg-[color:var(--color-accent)] px-4 py-2 font-['Space_Grotesk'] text-xs uppercase tracking-[0.18em] text-[color:var(--color-ink)] no-underline focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
       >
         Skip to case study content
       </a>
@@ -244,7 +244,7 @@ function Teknofest() {
             } ${prefersReducedMotion ? '' : 'transition-opacity duration-700 ease-out'}`}
           >
             <img src={background} alt="" className="h-full w-full object-cover" />
-            <div className="absolute inset-0 bg-white/90 dark:bg-zinc-950/70" />
+            <div className="absolute inset-0 bg-[rgba(5,5,5,0.62)]" />
           </div>
         ))}
       </div>
@@ -265,7 +265,7 @@ function Teknofest() {
           <main
             id="teknofest-content"
             ref={contentRef}
-            className="mx-auto w-full max-w-2xl min-w-0 space-y-6 sm:space-y-8"
+            className="mx-auto w-full max-w-3xl min-w-0 space-y-6 sm:space-y-8"
           >
             {sections.map((section) => {
               const isHero = section.id === 'hero'
@@ -276,20 +276,21 @@ function Teknofest() {
                 <section
                   id={section.id}
                   key={section.id}
-                  className="scroll-mt-28"
+                  className="scroll-mt-32"
                   aria-labelledby={`${section.id}-heading`}
                 >
-                  <Card className="border-zinc-200 bg-white/90 p-6 sm:p-7 dark:border-zinc-800 dark:bg-zinc-950/75">
+                  <Card className="p-6 sm:p-7">
                     {isHero ? (
                       <>
+                        <p className="eyebrow-tag">Project Detail</p>
                         <h1
                           id={`${section.id}-heading`}
-                          className="mt-3 text-2xl font-semibold tracking-tight text-zinc-900 sm:text-3xl md:text-4xl dark:text-zinc-100"
+                          className="mt-5 font-['Space_Grotesk'] text-3xl font-semibold uppercase tracking-[0.08em] text-[color:var(--color-text)] sm:text-4xl md:text-[3.5rem]"
                         >
                           {section.title}
                         </h1>
                         {section.subtitle ? (
-                          <p className="mt-3 max-w-2xl text-base leading-7 text-zinc-700 dark:text-zinc-200">
+                          <p className="terminal-subtitle mt-4 max-w-2xl">
                             {section.subtitle}
                           </p>
                         ) : null}
@@ -297,7 +298,7 @@ function Teknofest() {
                     ) : (
                       <h2
                         id={`${section.id}-heading`}
-                        className="text-xl font-semibold tracking-tight text-zinc-900 sm:text-2xl dark:text-zinc-100"
+                        className="font-['Space_Grotesk'] text-2xl font-semibold uppercase tracking-[0.08em] text-[color:var(--color-text)] sm:text-[2.2rem]"
                       >
                         {section.title}
                       </h2>
@@ -307,7 +308,7 @@ function Teknofest() {
                       {section.body.map((paragraph) => (
                         <p
                           key={`${section.id}-${paragraph}`}
-                          className="break-words text-base leading-7 text-zinc-700 dark:text-zinc-200"
+                          className="copy-muted break-words text-base"
                         >
                           {paragraph}
                         </p>
@@ -319,12 +320,12 @@ function Teknofest() {
                         {section.meta.map((item) => (
                           <div
                             key={`${section.id}-${item.label}`}
-                            className="rounded-lg border border-zinc-200 p-3 dark:border-zinc-800"
+                            className="border border-[color:var(--color-line-soft)] bg-[rgba(19,19,19,0.78)] p-4"
                           >
-                            <dt className="text-xs uppercase tracking-[0.14em] text-zinc-500 dark:text-zinc-400">
+                            <dt className="font-['Space_Grotesk'] text-[0.72rem] uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
                               {item.label}
                             </dt>
-                            <dd className="mt-1 text-sm font-medium text-zinc-800 dark:text-zinc-100">
+                            <dd className="mt-2 text-sm font-medium text-[color:var(--color-text)]">
                               {item.value}
                             </dd>
                           </div>
@@ -353,12 +354,12 @@ function Teknofest() {
                         {section.highlights.map((item) => (
                           <article
                             key={`${section.id}-${item.title}`}
-                            className="rounded-lg border border-zinc-200 p-4 dark:border-zinc-800"
+                            className="border border-[color:var(--color-line-soft)] bg-[rgba(19,19,19,0.78)] p-4"
                           >
-                            <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+                            <h3 className="text-sm font-semibold uppercase tracking-[0.08em] text-[color:var(--color-text)]">
                               {item.title}
                             </h3>
-                            <p className="mt-2 text-sm leading-6 text-zinc-700 dark:text-zinc-200">
+                            <p className="copy-muted mt-3 text-sm">
                               {item.detail}
                             </p>
                           </article>
@@ -369,10 +370,7 @@ function Teknofest() {
                     {section.chips?.length ? (
                       <div className="mt-6 flex flex-wrap gap-2">
                         {section.chips.map((chip) => (
-                          <span
-                            key={`${section.id}-${chip}`}
-                            className="rounded-full border border-zinc-300 px-3 py-1 text-xs text-zinc-700 dark:border-zinc-700 dark:text-zinc-200"
-                          >
+                          <span key={`${section.id}-${chip}`} className="hud-chip">
                             {chip}
                           </span>
                         ))}
@@ -380,17 +378,17 @@ function Teknofest() {
                     ) : null}
 
                     {isTimeline && section.timeline?.length ? (
-                      <ol className="mt-6 space-y-4 border-l border-zinc-200 pl-4 dark:border-zinc-800">
+                      <ol className="mt-6 space-y-4 border-l border-[color:var(--color-line-soft)] pl-4">
                         {section.timeline.map((item) => (
                           <li key={`${section.id}-${item.month}-${item.title}`} className="relative">
-                            <span className="absolute -left-[1.12rem] top-2 h-2 w-2 rounded-full bg-blue-600 dark:bg-blue-400" />
-                            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-blue-600 dark:text-blue-400">
+                            <span className="absolute -left-[1.15rem] top-2 h-2 w-2 border border-[color:var(--color-accent)] bg-[rgba(217,93,38,0.28)]" />
+                            <p className="font-['Space_Grotesk'] text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent-soft)]">
                               {item.month}
                             </p>
-                            <h3 className="mt-1 text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+                            <h3 className="mt-2 text-sm font-semibold uppercase tracking-[0.08em] text-[color:var(--color-text)]">
                               {item.title}
                             </h3>
-                            <p className="mt-1 max-w-2xl text-sm leading-6 text-zinc-700 dark:text-zinc-200">
+                            <p className="copy-muted mt-2 max-w-2xl text-sm">
                               {item.detail}
                             </p>
                           </li>
@@ -403,9 +401,9 @@ function Teknofest() {
                         {section.bullets.map((bullet) => (
                           <li
                             key={`${section.id}-${bullet}`}
-                            className="flex gap-2 break-words text-sm leading-7 text-zinc-700 dark:text-zinc-200"
+                            className="flex gap-3 break-words text-sm leading-7 text-[color:rgba(232,228,217,0.76)]"
                           >
-                            <span className="mt-2 inline-block h-1.5 w-1.5 rounded-full bg-blue-600 dark:bg-blue-400" />
+                            <span className="mt-2 inline-block h-2 w-2 border border-[color:var(--color-accent)] bg-[rgba(217,93,38,0.25)]" />
                             <span>{bullet}</span>
                           </li>
                         ))}

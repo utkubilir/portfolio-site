@@ -11,7 +11,7 @@ function Certificates() {
     status === 'Expected' ? messages.certificates.expected : messages.certificates.completed
 
   return (
-    <section id="certificates" className="scroll-mt-28 py-12 sm:py-16">
+    <section id="certificates" className="scroll-mt-32 py-16 sm:py-20 lg:py-24">
       <Container className="space-y-8">
         <SectionTitle
           eyebrow={messages.certificates.eyebrow}
@@ -22,17 +22,18 @@ function Certificates() {
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {certificates.map((item) => (
             <Card key={`${item.title}-${item.date}`} hover>
-              <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">{item.title}</h3>
-              <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-300">{item.issuer}</p>
+              <p className="font-['Space_Grotesk'] text-[0.72rem] uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
+                [ {messages.certificates.label} ]
+              </p>
+              <h3 className="mt-3 text-base font-semibold text-[color:var(--color-text)]">{item.title}</h3>
+              <p className="copy-muted mt-3 text-sm">{item.issuer}</p>
               <div className="mt-4 flex flex-wrap items-center gap-2 text-xs">
-                <span className="rounded-full border border-zinc-300 px-3 py-1 text-zinc-700 dark:border-zinc-700 dark:text-zinc-200">
-                  {item.date}
-                </span>
+                <span className="hud-chip">{item.date}</span>
                 <span
-                  className={`rounded-full border px-3 py-1 ${
+                  className={`hud-chip ${
                     item.status === 'Expected'
-                      ? 'border-blue-200 text-blue-700 dark:border-blue-500/40 dark:text-blue-300'
-                      : 'border-zinc-300 text-zinc-700 dark:border-zinc-700 dark:text-zinc-200'
+                      ? 'hud-chip-accent'
+                      : 'hud-chip-quiet'
                   }`}
                 >
                   {getStatusLabel(item.status)}

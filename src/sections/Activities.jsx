@@ -6,9 +6,13 @@ import { activities } from '../data/activities'
 
 function Activities() {
   const { messages } = useI18n()
+  const localizedItems = activities.map((item, index) => ({
+    ...item,
+    ...(messages.activities.items?.[index] ?? {}),
+  }))
 
   return (
-    <section id="activities" className="scroll-mt-28 py-12 sm:py-16">
+    <section id="activities" className="scroll-mt-32 py-16 sm:py-20 lg:py-24">
       <Container className="space-y-8">
         <SectionTitle
           eyebrow={messages.activities.eyebrow}
@@ -16,29 +20,37 @@ function Activities() {
           description={messages.activities.description}
         />
 
-        <div className="space-y-4">
-          {activities.map((item) => (
-            <Card key={`${item.role}-${item.period}`} hover>
-              <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">{item.role}</h3>
-                <p className="text-sm font-medium text-blue-600 dark:text-blue-400">{item.period}</p>
-              </div>
-              <p className="mt-1 text-sm font-medium text-zinc-700 dark:text-zinc-300">{item.org}</p>
+        <Card className="p-0">
+          <p className="terminal-subtitle px-5 pt-5 sm:px-6 sm:pt-6">
+            {messages.activities.compactLabel}
+          </p>
 
-              <ul className="mt-3 space-y-2">
-                {item.bullets.map((bullet) => (
-                  <li
-                    key={bullet}
-                    className="flex gap-2 text-sm leading-7 text-zinc-600 dark:text-zinc-300"
-                  >
-                    <span className="mt-2 inline-block h-1.5 w-1.5 rounded-full bg-blue-600 dark:bg-blue-400" />
-                    <span>{bullet}</span>
-                  </li>
-                ))}
-              </ul>
-            </Card>
-          ))}
-        </div>
+          <div className="mt-4 divide-y divide-[color:var(--color-line-soft)]">
+            {localizedItems.map((item) => (
+              <article key={`${item.role}-${item.period}`} className="p-5 sm:p-6">
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                  <div>
+                    <h3 className="terminal-title text-[1rem]">{item.role}</h3>
+                    <p className="mt-2 text-sm font-medium text-[color:var(--color-text)]">{item.org}</p>
+                  </div>
+                  <p className="hud-chip hud-chip-accent shrink-0">{item.period}</p>
+                </div>
+
+                <ul className="mt-4 grid gap-2 md:grid-cols-2">
+                  {item.bullets.slice(0, 2).map((bullet) => (
+                    <li
+                      key={bullet}
+                      className="flex gap-3 text-sm leading-6 text-[color:rgba(232,228,217,0.76)]"
+                    >
+                      <span className="mt-2 inline-block h-2 w-2 shrink-0 border border-[color:var(--color-accent)] bg-[rgba(217,93,38,0.25)]" />
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </Card>
       </Container>
     </section>
   )

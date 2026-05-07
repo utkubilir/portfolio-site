@@ -6,9 +6,13 @@ import { education } from '../data/education'
 
 function Education() {
   const { messages } = useI18n()
+  const localizedItems = education.map((item, index) => ({
+    ...item,
+    ...(messages.education.items?.[index] ?? {}),
+  }))
 
   return (
-    <section id="education" className="scroll-mt-28 py-12 sm:py-16">
+    <section id="education" className="scroll-mt-32 py-16 sm:py-20 lg:py-24">
       <Container className="space-y-8">
         <SectionTitle
           eyebrow={messages.education.eyebrow}
@@ -17,14 +21,15 @@ function Education() {
         />
 
         <div className="grid gap-6 md:grid-cols-2">
-          {education.map((item) => (
+          {localizedItems.map((item) => (
             <Card key={`${item.institution}-${item.degree}`} hover>
-              <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-                {item.institution}
-              </h3>
-              <p className="mt-2 text-sm font-medium text-blue-600 dark:text-blue-400">{item.degree}</p>
-              <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-300">{item.details}</p>
-              <p className="mt-4 inline-flex rounded-full border border-zinc-300 px-3 py-1 text-xs text-zinc-700 dark:border-zinc-700 dark:text-zinc-200">
+              <p className="font-['Space_Grotesk'] text-[0.72rem] uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
+                [ {messages.education.academicNode} ]
+              </p>
+              <h3 className="mt-3 terminal-title">{item.institution}</h3>
+              <p className="terminal-subtitle mt-3">{item.degree}</p>
+              <p className="copy-muted mt-3 text-sm">{item.details}</p>
+              <p className="hud-chip mt-5 inline-flex">
                 {item.period}
               </p>
             </Card>

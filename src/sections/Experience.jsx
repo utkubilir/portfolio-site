@@ -6,9 +6,13 @@ import { experience } from '../data/experience'
 
 function Experience() {
   const { messages } = useI18n()
+  const localizedItems = experience.map((item, index) => ({
+    ...item,
+    ...(messages.experience.items?.[index] ?? {}),
+  }))
 
   return (
-    <section id="experience" className="scroll-mt-28 py-12 sm:py-16">
+    <section id="experience" className="scroll-mt-32 py-16 sm:py-20 lg:py-24">
       <Container className="space-y-8">
         <SectionTitle
           eyebrow={messages.experience.eyebrow}
@@ -17,32 +21,28 @@ function Experience() {
         />
 
         <div className="space-y-4">
-          {experience.map((item) => (
+          {localizedItems.map((item) => (
             <Card key={`${item.org}-${item.role}`} hover>
               <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-                  {item.role}
-                </h3>
-                <p className="text-sm font-medium text-blue-600 dark:text-blue-400">{item.period}</p>
+                <h3 className="terminal-title">{item.role}</h3>
+                <p className="hud-chip hud-chip-accent">{item.period}</p>
               </div>
-              <p className="mt-1 text-sm font-medium text-zinc-700 dark:text-zinc-300">{item.org}</p>
+              <p className="mt-3 text-sm font-medium text-[color:var(--color-text)]">{item.org}</p>
               {item.type ? (
-                <p className="mt-1 text-xs uppercase tracking-[0.14em] text-zinc-500 dark:text-zinc-400">
+                <p className="mt-2 font-['Space_Grotesk'] text-[0.72rem] uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
                   {item.type}
                 </p>
               ) : null}
               {item.description ? (
-                <p className="mt-3 text-sm leading-7 text-zinc-600 dark:text-zinc-300">
-                  {item.description}
-                </p>
+                <p className="copy-muted mt-4 text-sm">{item.description}</p>
               ) : null}
               <ul className="mt-3 space-y-2">
                 {item.bullets.map((bullet) => (
                   <li
                     key={bullet}
-                    className="flex gap-2 text-sm leading-7 text-zinc-600 dark:text-zinc-300"
+                    className="flex gap-3 text-sm leading-7 text-[color:rgba(232,228,217,0.76)]"
                   >
-                    <span className="mt-2 inline-block h-1.5 w-1.5 rounded-full bg-blue-600 dark:bg-blue-400" />
+                    <span className="mt-2 inline-block h-2 w-2 border border-[color:var(--color-accent)] bg-[rgba(217,93,38,0.25)]" />
                     <span>{bullet}</span>
                   </li>
                 ))}
@@ -50,10 +50,7 @@ function Experience() {
               {(item.tech ?? []).length > 0 ? (
                 <div className="mt-4 flex flex-wrap gap-2">
                   {item.tech.map((techItem) => (
-                    <span
-                      key={techItem}
-                      className="rounded-full border border-zinc-300 px-3 py-1 text-xs text-zinc-700 dark:border-zinc-700 dark:text-zinc-200"
-                    >
+                    <span key={techItem} className="hud-chip hud-chip-quiet">
                       {techItem}
                     </span>
                   ))}

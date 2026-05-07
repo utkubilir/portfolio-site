@@ -25,150 +25,194 @@ export const tr = {
     switchToEnglish: 'İngilizceye geç',
     themeDark: 'Koyu',
     themeLight: 'Açık',
-    loading: 'Yukleniyor...',
+    loading: 'Yükleniyor...',
+    systemBoot: 'Sistem başlatılıyor',
+    bootMessage: 'Keskin terminal portfolyo hazırlanıyor',
+    portfolioNode: 'Portfolyo Düğümü',
   },
   hero: {
     subtitle:
-      'İzmir’de Bilgisayar Mühendisliği öğrencisiyim; TEKNOFEST İHA takımında yazılım planlamasını yürütüyor, Java/React ile somut araçlar geliştiriyorum.',
+      'İzmir’de ROS 2/PX4 İHA otonomisi ve Java/React uygulamalarında uygulamalı çıktı üreten Bilgisayar Mühendisliği öğrencisi.',
     summary:
-      'Haftamın büyük kısmı PX4 simülasyon testleri, ekip koordinasyonu ve gerçekten kullanılan ders projeleri geliştirmekle geçiyor.',
-    currentlyBuildingLabel: 'Şu an geliştirdiklerim',
-    currentlyBuilding:
-      'ECOFUAV görev akışı/test düzeni ve üniversite kullanımına yönelik sınav takvimi masaüstü uygulaması.',
-    recentFocusLabel: 'Son teknik odağım',
-    recentFocus:
-      'ROS 2 modül sınırları, PX4 SITL senaryo doğrulaması, telemetri log kalitesi ve sürdürülebilir JavaFX arayüzü.',
-    workStyleLabel: 'Çalışma biçimim',
-    workStyle:
-      'Kısa plan döngüleri, yazılı karar notları ve neden-sonuç ilişkisi net test çıktıları.',
+      'Haftamı PX4 görev simülasyonu, ECOFUAV yazılım planlaması, ekip koordinasyonu ve gerçekten kullanılabilir ders projeleri arasında bölüştürüyorum.',
     cta: {
       projects: 'Projeleri Gör',
       contact: 'İletişime Geç',
       resume: 'Özgeçmişi İndir',
     },
-    quickSnapshot: 'Güncel durum',
+    quickSnapshot: 'Kısa Özet',
+    profileNode: 'Ana Profil',
+    location: 'İzmir, Türkiye',
+    recruiterSnapshot: 'İşe Alım Özeti',
+    proofPoints: 'Hızlı Sinyaller',
+    signals: [
+      { label: 'Odak', value: 'ROS 2 / PX4 / Gazebo' },
+      { label: 'Uygunluk', value: 'Staj ve proje iş birliği' },
+      { label: 'Çalışma biçimi', value: 'Kısa döngüler, yazılı kararlar, test notları' },
+    ],
+    snapshot: [
+      { label: 'Uygunluk', value: 'Staj fırsatlarına açık' },
+      { label: 'Eğitim', value: 'B.Sc. Computer Engineering • Expected 2027' },
+      { label: 'Odak alanı', value: 'İHA otonomisi, simülasyon, Java/React' },
+      { label: 'Konum', value: 'İzmir, Türkiye • Europe/Istanbul' },
+    ],
     availability: 'Uygunluk',
     education: 'Eğitim',
   },
   about: {
-    eyebrow: 'Hakkımda',
-    title: 'Nasıl Çalışıyorum',
+    eyebrow: 'Profil',
+    title: 'Nasıl çalışıyorum',
+    fieldNotes: 'Profil Notları',
     body: [
-      'İzmir Ekonomi Üniversitesi Bilgisayar Mühendisliği bölümünde üçüncü sınıf öğrencisiyim.',
+      'İzmir Ekonomi Üniversitesi Bilgisayar Mühendisliği bölümünde üçüncü sınıf öğrencisiyim; çalışmalarımın ana odağı otonom görev akışına sahip İHA sistemlerinde yazılım geliştirme ve doğrulama süreçleri.',
       'Şu an en yoğun çalıştığım alan ECOFUAV: yazılım kilometre taşları, entegrasyon sırası ve simülasyon temelli doğrulama.',
       'İHA dışında, öğrencilerin günlük kullanımına dokunan Java ve React projeleri geliştiriyorum; bu da bana güvenilirlik ve sürdürülebilirlik odaklı çalışma disiplini kazandırıyor.',
       'Özellikle modüller arası arayüzlerin net olması, teknik kararların yazılı tutulması ve ekip içinde teslim gerçekçiliği benim için kritik.',
-    ],
-    currentlyBuildingTitle: 'Şu an geliştirdiklerim',
-    currentlyBuilding: [
-      'ECOFUAV için görev planlama ve offboard kontrol akışı.',
-      'Düzenlenebilir bloklarla JavaFX sınav takvimi planlayıcı.',
-      'Proje anlatımı daha güçlü bir portfolyo yapısı.',
-    ],
-    recentFocusTitle: 'Son teknik odağım',
-    recentFocus: [
-      'PX4 SITL + Gazebo üzerinde senaryo bazlı hata ayıklama.',
-      'Test sonrası karar vermeyi kolaylaştıran telemetri logları.',
-      'Bölümler büyüdükçe okunabilir kalan React bileşenleri.',
-    ],
-    careTitle: 'Önemsediğim noktalar',
-    care: [
-      'Uygulanan her kararın teknik gerekçesinin yazılı olması.',
-      'Öğrenci ekiplerinde hız ve test edilebilirlik dengesini korumak.',
-      'Bitirilebilir ve geliştirilebilir proje kapsamı seçmek.',
     ],
   },
   projects: {
     eyebrow: 'Seçili Çalışmalar',
     title: 'Seçili Çalışmalar',
-    intro:
-      'Gerçek kısıtlarla şekillenmiş, karar süreci ve çıktısı net olan iki temsil proje.',
-    caseStudy: 'Mini vaka çalışması',
-    readMore: 'ECOFUAV tam vaka çalışması',
-    fields: {
-      problem: 'Problem',
-      role: 'Rolüm',
-      techStack: 'Teknik yığın',
-      constraints: 'Kısıtlar',
-      keyDecision: 'Kritik karar',
-      result: 'Sonuç',
-      learned: 'Öğrendiğim',
-    },
+    intro: 'Gerçek kısıtlarla şekillenmiş, karar süreci ve çıktısı recruiter için hızlı okunabilen projeler.',
+    featured: 'Öne Çıkan Proje',
+    preview: 'Teknik Önizleme',
+    stack: 'Stack',
+    contributions: 'Somut Katkılar',
+    readMore: 'ECOFUAV detaylarını incele',
     items: {
       teknofest: {
         title: 'ECOFUAV — TEKNOFEST Savaşan İHA',
-        context: 'Otonom görev icrasına odaklanan öğrenci yarışma İHA projesi',
-        description: 'Otonom görev icrasına odaklanan öğrenci yarışma İHA projesi.',
-        role: 'Takım kaptanı olarak yazılım planlama ve entegrasyon koordinasyonu',
-        caseStudy: {
-          problem:
-            'Sahadaki maliyetli testlerden önce görev mantığını tekrarlanabilir şekilde doğrulayacak bir çalışma düzenine ihtiyacımız vardı.',
-          constraints:
-            'Yarışma takvimi, yazılım-elektronik-mekanik ekip bağımlılıkları ve sınırlı gerçek uçuş fırsatı.',
-          keyDecision:
-            'PX4 SITL + Gazebo tabanlı simülasyon döngüsünü standart hale getirip, donanım testinden önce log çıktısını zorunlu hale getirdik.',
-          result:
-            'Entegrasyon toplantıları daha veriye dayalı ilerledi, blokajlar erken tespit edildi ve saha testleri daha planlı hale geldi.',
-          learned:
-            'Teknik liderlik çoğu zaman kod yazmaktan çok karar hijyenidir: arayüzleri erken netleştirmek, varsayımları yazmak ve her testten sonra öncelikleri güncellemek.',
-        },
+        role: 'Yazılım planlama ve entegrasyon odaklı takım kaptanı',
+        period: '2025 - Günümüz',
+        description:
+          'Otonom görev icrasına odaklanan öğrenci yarışma İHA projesi. Sahadaki maliyetli testlerden önce görev mantığını tekrarlanabilir şekilde doğrulamak için PX4 SITL + Gazebo tabanlı simülasyon döngüsünü standart hale getirdik ve donanım testinden önce log çıktısını zorunlu tuttuk.',
+        bullets: [
+          'Yazılım, elektronik ve mekanik ekipleri için haftalık entegrasyon kilometre taşları planladım.',
+          'Donanım testinden önce simülasyon loglarını teslim çıktısının parçası haline getirdim.',
+          'Varsayımları, blokajları ve test sonuçlarını yazılı tutarak entegrasyon toplantılarını daha somut hale getirdim.',
+        ],
       },
-      'exam-timetable-planner': {
+      examPlanner: {
         title: 'Sınav Takvimi Planlayıcı',
-        context: 'Sınav takvimini hızlı oluşturup düzenlemeye yönelik masaüstü araç',
-        description: 'Sınav takvimini hızlı oluşturup düzenlemeye yönelik masaüstü araç.',
-        role: 'Arayüz yapısı ve ekip içi teslim akışı odaklı ekip katkısı',
-        caseStudy: {
-          problem:
-            'Öğrenciler sınav programı oluştururken tablo düzenleme işine fazla zaman harcıyor ve değişiklikleri takip etmekte zorlanıyordu.',
-          constraints:
-            'Masaüstü kapsamı, dönem sonu teslim tarihi ve JavaFX tecrübesi farklı ekip üyeleri.',
-          keyDecision:
-            'Ekranları tekrar kullanılabilir FXML bloklarıyla kurup veri akışını sade tuttuk; böylece ekip paralel geliştirme yapabildi.',
-          result:
-            'Uygulama hızlı takvim düzenleme sağlayan tutarlı bir arayüze ulaştı ve ekip içi değişiklik çakışmaları azaldı.',
-          learned:
-            'Öğrenci projelerinde sürdürülebilirlik, karmaşık mimariden daha kritik. Bileşen sınırları net olduğunda ekip daha hızlı teslim ediyor.',
-        },
+        role: 'Arayüz yapısı ve teslim akışı odaklı ekip katkısı',
+        period: '2025 - 2026',
+        description:
+          'Sınav takvimini hızlı oluşturup düzenlemeye yönelik masaüstü araç. Kapsamı masaüstü öncelikli tuttuk, ekranları tekrar kullanılabilir FXML bloklarıyla kurduk ve veri akışını sade bırakarak JavaFX tecrübesi farklı ekip üyelerinin paralel geliştirme yapmasını sağladık.',
+        bullets: [
+          'FXML ve Scene Builder ile okunur arayüz akışı kurdum.',
+          'Bileşen sınırlarını ve veri akışını okunur tutarak ekip içi sürtünmeyi azalttım.',
+          'Sıkı teslim takvimli öğrenci projelerinde sürdürülebilirliğin karmaşıklıktan daha değerli olduğunu öğrendim.',
+        ],
       },
     },
   },
   experience: {
     eyebrow: 'Deneyim',
-    title: 'Profesyonel zaman cizelgesi',
+    title: 'Deneyim',
     description:
-      'Yazilim ve otonomi akislarinda staj ve proje katkilarim.',
+      'Yazılım ve otonomi akışlarında staj ve proje katkılarım.',
+    items: [
+      {
+        role: 'Bilgisayarlı Görü Stajyeri (Gönüllü)',
+        org: 'A2InnoWave',
+        period: 'Tem 2025 - Ağu 2025',
+        type: 'Staj',
+        description:
+          'Görsel zeka görevleri için pratik bilgisayarlı görü akışları ve model denemelerine katkı verdim.',
+        bullets: [
+          'OpenCV ve YOLOv8 ile sınıflandırma, tespit, segmentasyon ve takip senaryolarında çalıştım.',
+          'Gerçek dünya örneklerinde model davranışını karşılaştırmak için veri ve çıkarım denemeleri yaptım.',
+          'Bulguları dokümante edip ekibin iterasyon sürecini net iletişimle destekledim.',
+        ],
+      },
+    ],
   },
   education: {
-    eyebrow: 'Egitim',
-    title: 'Akademik gecmis',
-    description: 'Bilgisayar Muhendisligi egitimi ve zaman cizelgesi.',
+    eyebrow: 'Eğitim',
+    title: 'Akademik geçmiş',
+    description: 'Bilgisayar Mühendisliği eğitimi ve zaman çizelgesi.',
+    academicNode: 'Akademik Kayıt',
+    items: [
+      {
+        institution: 'İzmir Ekonomi Üniversitesi',
+        degree: 'B.Sc. Computer Engineering',
+        period: 'Expected 2027',
+        details: '3. sınıf öğrencisi',
+      },
+    ],
   },
   certificates: {
     eyebrow: 'Sertifikalar',
-    title: 'Sertifikalar ve egitimler',
+    title: 'Sertifikalar ve eğitimler',
     description:
-      'Muhendislik ve yazilim odakli tamamlanan ve planlanan gelisim adimlari.',
+      'Mühendislik ve yazılım odaklı tamamlanan ve planlanan gelişim adımları.',
+    label: 'Sertifika',
     expected: 'Bekleniyor',
-    completed: 'Tamamlandi',
+    completed: 'Tamamlandı',
   },
   activities: {
     eyebrow: 'Liderlik',
-    title: 'Kulupler ve gonullu aktiviteler',
+    title: 'Kulüp ve gönüllü aktiviteler',
     description:
-      'Proje sahiplenmesi, iletisim ve uygulama disiplinimi guclendiren roller.',
+      'Proje sahiplenmesi, iletişim ve uygulama disiplinimi güçlendiren roller.',
+    compactLabel: 'Liderlik Özeti',
+    items: [
+      {
+        role: 'Denetleme Kurulu Başkanı',
+        org: 'Halk Dansları Kulübü',
+        period: '2025 - Günümüz',
+        bullets: [
+          'Kulüp operasyonları için yönetişim ve uygunluk değerlendirmelerini yürüttüm.',
+          'Süreç kalitesi ve stratejik planlama kararlarını denetledim.',
+        ],
+      },
+      {
+        role: 'Başkan Yardımcısı',
+        org: 'Halk Dansları Kulübü',
+        period: '2024 - 2025',
+        bullets: [
+          'İdari operasyon, etkinlik planlama ve günlük koordinasyonu yönettim.',
+          'Ekipler arası iletişim ve görev sahipliğini güçlendirdim.',
+        ],
+      },
+      {
+        role: 'Yönetim Kurulu Üyesi',
+        org: 'Halk Dansları Kulübü',
+        period: '2022 - 2024',
+        bullets: [
+          'Performans lojistiği ve gönüllü koordinasyonuna katkı verdim.',
+          'Yeni üyeler için onboarding ve prova planlamasını destekledim.',
+        ],
+      },
+    ],
   },
   skills: {
     eyebrow: 'Yetenekler',
-    title: 'Araclar ve teknik gucler',
+    title: 'Teknik özet',
     description:
-      'Otonomi, backend/frontend ve ekip projelerinde kullandigim temel teknolojiler.',
+      'Otonomi, backend/frontend ve ekip projelerinde kullandığım temel teknolojiler.',
+    categories: {
+      Programming: 'Programlama',
+      'Frameworks / Libraries': 'Frameworkler / Kütüphaneler',
+      'Simulation / Robotics': 'Simülasyon / Robotik',
+      Databases: 'Veritabanları',
+      Tools: 'Araçlar',
+      'Project Management': 'Proje Yönetimi',
+    },
   },
   languagesSection: {
     eyebrow: 'Diller',
-    title: 'Iletisim yeterliligi',
+    title: 'İletişim yeterliliği',
     description:
-      'Akademik ve teknik is birliklerinde kullandigim dil seviyeleri.',
+      'Akademik ve teknik iş birliklerinde kullandığım dil seviyeleri.',
+    names: {
+      Turkish: 'Türkçe',
+      English: 'İngilizce',
+      German: 'Almanca',
+    },
+    levels: {
+      Native: 'Anadil',
+    },
   },
   teknofest: {
     back: 'Ana Sayfaya Dön',
@@ -242,12 +286,22 @@ export const tr = {
   contact: {
     eyebrow: 'İletişim',
     title: 'İletişime Geçelim',
-    cta: 'Staj pozisyonu veya proje iş birliği için iletişime geçebiliriz.',
+    description:
+      'Staj, proje iş birliği veya teknik ekip görüşmeleri için en hızlı yol e-posta.',
+    primaryLabel: 'Ana kanal',
+    primaryTitle: 'Önce e-posta ile başlayalım',
+    cta: 'Staj pozisyonu, proje iş birliği ya da teknik bir ekip görüşmesi için kısa bir e-posta yeterli.',
     ready: 'Bağlantı Kurmaya Hazır mısın?',
     locationLabel: 'Konum:',
     timezoneLabel: 'Saat Dilimi:',
     languagesLabel: 'Diller:',
     responseLabel: 'Yanıt Süresi:',
+    summaryTitle: 'Uygunluk Özeti',
+    summary:
+      'İzmir merkezli çalışıyorum; yazılım, otonomi ve ekip projeleri odağında staj ve iş birliği görüşmelerine açığım.',
+    secondaryTitle: 'İkincil Kanallar',
+    emailNote:
+      'Hazır konu satırıyla mail başlatabilir veya adresi doğrudan kopyalayabilirsin.',
     cards: {
       primaryEmail: 'Ana E-posta',
       academicEmail: 'Akademik E-posta',
@@ -256,13 +310,27 @@ export const tr = {
     actions: {
       write: 'Yaz',
       call: 'Ara',
-      open: 'Ac',
+      open: 'Aç',
       copy: 'Kopyala',
-      copied: 'Kopyalandi',
+      copied: 'Kopyalandı',
+    },
+    social: {
+      linkedin: 'Profesyonel profil, bağlantı ve hızlı mesajlaşma için.',
+      github: 'Kod, proje geçmişi ve teknik çalışma örnekleri için.',
+    },
+    copyHint:
+      'E-posta adresini kopyalayabilir veya hazır konu satırıyla mail başlatabilirsin.',
+    copyStatus: {
+      primaryEmail: 'Ana e-posta kopyalandı.',
+      academicEmail: 'Akademik e-posta kopyalandı.',
+      phone: 'Telefon numarası kopyalandı.',
+      default: 'Bilgi kopyalandı.',
     },
     availability: 'Staj fırsatları ve proje iş birliklerine açığım',
-    responseTime: 'Genellikle 24-48 saat içinde dönüş yaparım',
-    emailCta: 'E-posta gonder',
+    responseTime: 'Genellikle 24–48 saat içinde dönüş yaparım',
+    emailCta: 'E-posta gönder',
+    resumeCta: 'CV indir',
+    scheduleCta: 'Toplantı planla',
     email: 'bilirutku35@gmail.com',
     phone: '+90 534 684 0696',
     github: 'https://github.com/utkubilir',

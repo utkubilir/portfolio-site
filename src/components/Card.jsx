@@ -2,8 +2,10 @@ import { createElement } from 'react'
 
 function Card({ as = 'article', className = '', hover = false, children, ...props }) {
   const classes = [
-    'min-w-0 rounded-xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-950',
-    hover ? 'transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-900/40' : '',
+    'mission-card min-w-0 p-5 sm:p-6',
+    hover
+      ? 'transition-transform duration-200 hover:-translate-y-0.5 hover:border-[color:rgba(217,93,38,0.82)] motion-reduce:transform-none'
+      : '',
     className,
   ]
     .filter(Boolean)

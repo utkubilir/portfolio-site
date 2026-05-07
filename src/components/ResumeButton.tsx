@@ -20,11 +20,17 @@ function DownloadIcon() {
   )
 }
 
-function ResumeButton({ className = '' }) {
+type ResumeButtonProps = {
+  className?: string
+  variant?: 'primary' | 'secondary'
+}
+
+function ResumeButton({ className = '', variant = 'secondary' }: ResumeButtonProps) {
   const { messages } = useI18n()
 
   const classes = [
-    'inline-flex items-center justify-center gap-2 rounded-lg border border-zinc-300 bg-transparent px-4 py-2 text-sm font-medium text-zinc-700 no-underline transition-colors hover:bg-zinc-50 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-900/40 dark:focus-visible:ring-offset-zinc-950',
+    'control-button',
+    variant === 'primary' ? 'control-button-primary' : '',
     className,
   ]
     .filter(Boolean)
@@ -41,6 +47,9 @@ function ResumeButton({ className = '' }) {
     >
       <DownloadIcon />
       <span>{messages.hero.cta.resume}</span>
+      <span aria-hidden="true" className="button-serial">
+        CV
+      </span>
     </a>
   )
 }

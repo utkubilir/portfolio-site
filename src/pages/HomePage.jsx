@@ -13,13 +13,13 @@ function HomePage() {
   return (
     <>
       <Hero />
-      <About />
       <Projects />
+      <Skills />
       <Experience />
       <Education />
       <Certificates />
+      <About />
       <Activities />
-      <Skills />
       <Languages />
       <Contact />
     </>

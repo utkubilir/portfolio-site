@@ -1,24 +1,29 @@
 import LanguageToggle from './LanguageToggle'
 import Container from './Container'
-import ThemeToggle from './ThemeToggle'
+import { useI18n } from '../i18n'
 
-function Navbar({ navItems, isDark, onToggleTheme, brand, brandHref = '#hero' }) {
+function Navbar({ navItems, brand, brandHref = '#hero' }) {
+  const { messages } = useI18n()
+
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950">
-      <Container className="max-w-none px-2 sm:px-3 lg:px-4 flex flex-wrap items-center justify-between gap-2 py-3 sm:py-4">
-        <a
-          href={brandHref}
-          className="text-sm font-semibold uppercase tracking-[0.12em] text-zinc-900 no-underline sm:text-base sm:tracking-[0.16em] dark:text-zinc-100"
-        >
-          {brand}
-        </a>
+    <header className="sticky top-0 z-50 border-b border-[color:var(--color-line-soft)] bg-[rgba(5,5,5,0.88)] backdrop-blur-xl">
+      <Container className="flex max-w-none flex-wrap items-center justify-between gap-3 py-4">
+        <div className="flex items-center gap-3">
+          <span className="eyebrow-tag hidden sm:inline-flex">{messages.ui.portfolioNode}</span>
+          <a
+            href={brandHref}
+            className="font-['Space_Grotesk'] text-sm font-bold uppercase tracking-[0.26em] text-[color:var(--color-text)] no-underline sm:text-base"
+          >
+            {brand}
+          </a>
+        </div>
 
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav className="hidden items-center gap-5 md:flex">
           {navItems.map((item) => (
             <a
               key={item.id ?? item.href}
               href={item.href ?? `#${item.id}`}
-              className="text-sm text-zinc-600 no-underline transition-colors hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400"
+              className="nav-link"
             >
               {item.label}
             </a>
@@ -27,18 +32,17 @@ function Navbar({ navItems, isDark, onToggleTheme, brand, brandHref = '#hero' })
 
         <div className="ml-auto flex flex-wrap items-center gap-2">
           <LanguageToggle />
-          <ThemeToggle isDark={isDark} onToggle={onToggleTheme} />
         </div>
       </Container>
 
-      <div className="border-t border-zinc-200 py-3 md:hidden dark:border-zinc-800">
-        <Container className="max-w-none px-2 sm:px-3 lg:px-4">
+      <div className="border-t border-[color:var(--color-line-soft)] py-3 md:hidden">
+        <Container className="max-w-none">
           <nav className="flex flex-wrap gap-2">
             {navItems.map((item) => (
               <a
                 key={item.id ?? item.href}
                 href={item.href ?? `#${item.id}`}
-                className="whitespace-nowrap rounded-lg border border-zinc-300 px-3 py-1 text-xs text-zinc-700 no-underline transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-900/40"
+                className="mobile-nav-link whitespace-nowrap"
               >
                 {item.label}
               </a>

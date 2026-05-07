@@ -5,6 +5,7 @@ import Container from '../components/Container'
 import SectionTitle from '../components/SectionTitle'
 import { useI18n } from '../i18n'
 import { contact } from '../data/contact'
+import { resume } from '../data/resume'
 import { isUsableHref } from '../utils/link'
 
 function Contact() {
@@ -15,6 +16,7 @@ function Contact() {
   const emailHref = `mailto:${contact.email}`
   const phoneHref = `tel:${contact.phone}`
   const hasEmail = isUsableHref(emailHref)
+  const hasCalendly = isUsableHref(contact.links.calendly)
   const ctaHref = `${emailHref}?subject=${encodeURIComponent(contact.cta.subject)}&body=${contact.cta.body}`
 
   const prettyPhone = contact.phone.replace(
@@ -22,19 +24,28 @@ function Contact() {
     '$1 $2 $3 $4 $5',
   )
 
-  const contactCards = [
+  const socialActions = [
     {
-      id: 'email-primary',
-      label: messages.contact.cards.primaryEmail,
-      value: contact.email,
-      href: emailHref,
-      action: messages.contact.actions.write,
-      copyValue: contact.email,
+      id: 'linkedin',
+      label: 'LinkedIn',
+      description: messages.contact.social.linkedin,
+      href: contact.links.linkedin,
+      serial: 'IN',
     },
+    {
+      id: 'github',
+      label: 'GitHub',
+      description: messages.contact.social.github,
+      href: contact.links.github,
+      serial: 'GH',
+    },
+  ]
+
+  const secondaryChannels = [
     ...(contact.secondaryEmail
       ? [
           {
-            id: 'email-academic',
+            id: 'academicEmail',
             label: messages.contact.cards.academicEmail,
             value: contact.secondaryEmail,
             href: `mailto:${contact.secondaryEmail}`,
@@ -51,20 +62,18 @@ function Contact() {
       action: messages.contact.actions.call,
       copyValue: contact.phone,
     },
+  ]
+
+  const profileDetails = [
+    { label: messages.contact.locationLabel, value: messages.hero.location },
+    { label: messages.contact.timezoneLabel, value: contact.timezone },
     {
-      id: 'linkedin',
-      label: 'LinkedIn',
-      value: contact.links.linkedin,
-      href: contact.links.linkedin,
-      action: messages.contact.actions.open,
+      label: messages.contact.languagesLabel,
+      value: contact.languages
+        .map((languageName) => messages.languagesSection.names?.[languageName] ?? languageName)
+        .join(', '),
     },
-    {
-      id: 'github',
-      label: 'GitHub',
-      value: contact.links.github,
-      href: contact.links.github,
-      action: messages.contact.actions.open,
-    },
+    { label: messages.contact.responseLabel, value: messages.contact.responseTime },
   ]
 
   useEffect(() => {
@@ -95,39 +104,125 @@ function Contact() {
     }
   }
 
+  const copyStatus = copiedId
+    ? (messages.contact.copyStatus[copiedId] ?? messages.contact.copyStatus.default)
+    : messages.contact.copyHint
+
   return (
-    <section id="contact" className="scroll-mt-28 py-12 sm:py-16">
+    <section id="contact" className="scroll-mt-32 py-16 sm:py-20 lg:py-24">
       <Container className="space-y-8">
         <SectionTitle
           eyebrow={messages.contact.eyebrow}
           title={messages.contact.title}
-          description={`${messages.contact.availability} · ${messages.contact.responseTime}`}
+          description={messages.contact.description}
         />
 
         <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
-          <div className="grid gap-4 sm:grid-cols-2">
-            {contactCards.map((item) => {
-              const hasLink = isUsableHref(item.href)
-              const isExternal = item.href.startsWith('http')
+          <div className="space-y-5">
+            <Card as="article" className="p-6 sm:p-7" hover>
+              <p className="eyebrow-tag">{messages.contact.primaryLabel}</p>
+              <h3 className="terminal-title mt-5">{messages.contact.primaryTitle}</h3>
+              <p className="copy-lead mt-4 text-base">{messages.contact.cta}</p>
 
-              return (
-                <Card key={item.id} className="p-5" hover>
-                  <p className="text-xs uppercase tracking-[0.14em] text-zinc-500 dark:text-zinc-400">
-                    {item.label}
-                  </p>
-                  <p className="mt-2 break-all text-sm font-medium text-zinc-800 dark:text-zinc-200">
-                    {item.value}
-                  </p>
+              <div className="mt-6 border border-[color:var(--color-line-soft)] bg-[rgba(10,10,10,0.48)] p-4">
+                <p className="font-['Space_Grotesk'] text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[color:var(--color-sand)]">
+                  {messages.contact.cards.primaryEmail}
+                </p>
+                <a
+                  href={emailHref}
+                  className="mt-3 block break-all font-['Space_Grotesk'] text-xl font-semibold tracking-[0.03em] text-[color:var(--color-text)] sm:text-2xl"
+                >
+                  {contact.email}
+                </a>
+                <p className="mt-3 text-sm leading-7 text-[color:rgba(232,228,217,0.68)]">
+                  {messages.contact.emailNote}
+                </p>
+              </div>
 
-                  <div className="mt-4 flex flex-wrap items-center gap-2">
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                {hasEmail ? (
+                  <ButtonLink href={ctaHref} variant="primary" serial="MAIL" className="w-full sm:w-auto">
+                    {messages.contact.emailCta}
+                  </ButtonLink>
+                ) : (
+                  <ButtonLink
+                    as="button"
+                    type="button"
+                    variant="muted"
+                    disabled
+                    serial="OFF"
+                    className="w-full sm:w-auto"
+                  >
+                    {messages.contact.emailCta}
+                  </ButtonLink>
+                )}
+
+                <ButtonLink
+                  as="button"
+                  type="button"
+                  onClick={() => copyToClipboard('primaryEmail', contact.email)}
+                  serial="COPY"
+                  className="w-full sm:w-auto"
+                >
+                  {copiedId === 'primaryEmail'
+                    ? messages.contact.actions.copied
+                    : messages.contact.actions.copy}
+                </ButtonLink>
+
+                <ButtonLink
+                  href={resume.href}
+                  download={resume.fileName}
+                  target="_blank"
+                  rel="noreferrer"
+                  serial="CV"
+                  className="w-full sm:w-auto"
+                >
+                  {messages.contact.resumeCta}
+                </ButtonLink>
+
+                {hasCalendly ? (
+                  <ButtonLink
+                    href={contact.links.calendly}
+                    target="_blank"
+                    rel="noreferrer"
+                    serial="CAL"
+                    className="w-full sm:w-auto"
+                  >
+                    {messages.contact.scheduleCta}
+                  </ButtonLink>
+                ) : null}
+              </div>
+
+              <p
+                aria-live="polite"
+                role="status"
+                className="mt-4 min-h-6 text-sm text-[color:var(--color-accent-soft)]"
+              >
+                {copyStatus}
+              </p>
+            </Card>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {socialActions.map((item) => {
+                const hasLink = isUsableHref(item.href)
+
+                return (
+                  <Card key={item.id} className="p-5" hover>
+                    <p className="font-['Space_Grotesk'] text-[0.72rem] uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
+                      {item.label}
+                    </p>
+                    <p className="mt-3 min-h-14 text-sm leading-7 text-[color:rgba(232,228,217,0.72)]">
+                      {item.description}
+                    </p>
                     {hasLink ? (
                       <ButtonLink
                         href={item.href}
-                        target={isExternal ? '_blank' : undefined}
-                        rel={isExternal ? 'noreferrer' : undefined}
-                        className="px-3 py-1.5 text-xs"
+                        target="_blank"
+                        rel="noreferrer"
+                        serial={item.serial}
+                        className="mt-4 w-full px-3 py-1.5 text-xs"
                       >
-                        {item.action}
+                        {messages.contact.actions.open}
                       </ButtonLink>
                     ) : (
                       <ButtonLink
@@ -135,79 +230,84 @@ function Contact() {
                         type="button"
                         variant="muted"
                         disabled
-                        className="px-3 py-1.5 text-xs"
+                        serial="OFF"
+                        className="mt-4 w-full px-3 py-1.5 text-xs"
                       >
-                        {item.action}
+                        {messages.contact.actions.open}
                       </ButtonLink>
                     )}
-
-                    {item.copyValue ? (
-                      <ButtonLink
-                        as="button"
-                        type="button"
-                        onClick={() => copyToClipboard(item.id, item.copyValue)}
-                        className="px-3 py-1.5 text-xs"
-                      >
-                        {copiedId === item.id
-                          ? messages.contact.actions.copied
-                          : messages.contact.actions.copy}
-                      </ButtonLink>
-                    ) : null}
-                  </div>
-                </Card>
-              )
-            })}
+                  </Card>
+                )
+              })}
+            </div>
           </div>
 
-          <Card as="aside" hover>
-            <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-              {messages.contact.ready}
-            </h3>
-            <p className="mt-3 text-base leading-7 text-zinc-600 dark:text-zinc-300">
-              {messages.contact.cta}
-            </p>
+          <Card as="aside" hover className="lg:sticky lg:top-28">
+            <p className="eyebrow-tag">{messages.contact.ready}</p>
+            <h3 className="terminal-title mt-4">{messages.contact.summaryTitle}</h3>
+            <p className="copy-lead mt-4 text-base">{messages.contact.summary}</p>
 
-            {hasEmail ? (
-              <ButtonLink href={ctaHref} variant="primary" className="mt-6 w-full">
-                {messages.contact.emailCta}
-              </ButtonLink>
-            ) : (
-              <ButtonLink
-                as="button"
-                type="button"
-                variant="muted"
-                disabled
-                className="mt-6 w-full"
-              >
-                {messages.contact.emailCta}
-              </ButtonLink>
-            )}
+            <div className="mt-6 space-y-3 border-t border-[color:var(--color-line-soft)] pt-4">
+              {profileDetails.map((item) => (
+                <p
+                  key={item.label}
+                  className="grid gap-1 text-sm text-[color:rgba(232,228,217,0.74)] sm:grid-cols-[8rem_1fr] sm:gap-3"
+                >
+                  <span className="font-['Space_Grotesk'] text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[color:var(--color-sand)]">
+                    {item.label}
+                  </span>
+                  <span>{item.value}</span>
+                </p>
+              ))}
+            </div>
 
-            <div className="mt-6 space-y-3 border-t border-zinc-200 pt-4 text-sm text-zinc-600 dark:border-zinc-800 dark:text-zinc-300">
-              <p>
-                <span className="font-semibold text-zinc-800 dark:text-zinc-100">
-                  {messages.contact.locationLabel}
-                </span>{' '}
-                {contact.location}
-              </p>
-              <p>
-                <span className="font-semibold text-zinc-800 dark:text-zinc-100">
-                  {messages.contact.timezoneLabel}
-                </span>{' '}
-                {contact.timezone}
-              </p>
-              <p>
-                <span className="font-semibold text-zinc-800 dark:text-zinc-100">
-                  {messages.contact.languagesLabel}
-                </span>{' '}
-                {contact.languages.join(', ')}
-              </p>
-              <p>
-                <span className="font-semibold text-zinc-800 dark:text-zinc-100">
-                  {messages.contact.responseLabel}
-                </span>{' '}
-                {messages.contact.responseTime}
-              </p>
+            <div className="mt-6 border-t border-[color:var(--color-line-soft)] pt-4">
+              <h4 className="font-['Space_Grotesk'] text-[0.72rem] font-bold uppercase tracking-[0.2em] text-[color:var(--color-muted)]">
+                {messages.contact.secondaryTitle}
+              </h4>
+
+              <div className="mt-4 space-y-4">
+                {secondaryChannels.map((item) => {
+                  const hasLink = isUsableHref(item.href)
+
+                  return (
+                    <div
+                      key={item.id}
+                      className="border border-[color:var(--color-line-soft)] bg-[rgba(7,9,11,0.34)] p-4"
+                    >
+                      <p className="font-['Space_Grotesk'] text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[color:var(--color-sand)]">
+                        {item.label}
+                      </p>
+                      <p className="mt-2 break-all text-sm font-medium text-[color:var(--color-text)]">
+                        {item.value}
+                      </p>
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {hasLink ? (
+                          <ButtonLink
+                            href={item.href}
+                            serial={item.id === 'phone' ? 'TEL' : 'ALT'}
+                            className="px-3 py-1.5 text-xs"
+                          >
+                            {item.action}
+                          </ButtonLink>
+                        ) : null}
+
+                        <ButtonLink
+                          as="button"
+                          type="button"
+                          onClick={() => copyToClipboard(item.id, item.copyValue)}
+                          serial="COPY"
+                          className="px-3 py-1.5 text-xs"
+                        >
+                          {copiedId === item.id
+                            ? messages.contact.actions.copied
+                            : messages.contact.actions.copy}
+                        </ButtonLink>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
             </div>
           </Card>
         </div>

@@ -5,20 +5,19 @@ function ButtonLink({
   variant = 'secondary',
   className = '',
   disabled = false,
+  serial,
   children,
   ...props
 }) {
   const variantClasses = {
-    primary:
-      'border border-zinc-900 bg-zinc-900 text-white hover:border-zinc-800 hover:bg-zinc-800 dark:border-zinc-100 dark:bg-zinc-100 dark:text-zinc-950 dark:hover:border-zinc-200 dark:hover:bg-zinc-200',
-    secondary:
-      'border border-zinc-300 bg-transparent text-zinc-700 hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-900/40',
-    muted:
-      'border border-zinc-200 bg-transparent text-zinc-400 cursor-not-allowed dark:border-zinc-800 dark:text-zinc-500',
+    primary: 'control-button control-button-primary',
+    secondary: 'control-button',
+    muted: 'control-button control-button-muted',
   }
+  const serialLabel = serial ?? (variant === 'primary' ? 'ACT' : disabled ? 'OFF' : 'NAV')
 
   const classes = [
-    'inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium no-underline transition-colors',
+    'group',
     variantClasses[variant] ?? variantClasses.secondary,
     disabled ? 'pointer-events-none opacity-70' : '',
     className,
@@ -33,7 +32,12 @@ function ButtonLink({
       'aria-disabled': disabled || undefined,
       ...props,
     },
-    children,
+    <>
+      <span>{children}</span>
+      <span aria-hidden="true" className="button-serial">
+        {serialLabel}
+      </span>
+    </>,
   )
 }
 
