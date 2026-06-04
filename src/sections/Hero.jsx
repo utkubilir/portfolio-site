@@ -1,88 +1,60 @@
-import ButtonLink from '../components/ButtonLink'
 import Container from '../components/Container'
-import ResumeButton from '../components/ResumeButton'
 import { useI18n } from '../i18n'
-import { education } from '../data/education'
 import { profile } from '../data/profile'
 
 function Hero() {
   const { messages } = useI18n()
-  const primaryEducation = education[0]
-  const educationLabel = primaryEducation?.degree ?? messages.hero.education
-  const educationDetails = primaryEducation
-    ? `${primaryEducation.institution} • ${primaryEducation.period}`
-    : ''
-  const educationSummary = educationDetails
-    ? `${educationLabel} (${educationDetails})`
-    : educationLabel
-
-  const quickItems = [
-    {
-      label: messages.hero.currentlyBuildingLabel,
-      value: messages.hero.currentlyBuilding,
-    },
-    {
-      label: messages.hero.recentFocusLabel,
-      value: messages.hero.recentFocus,
-    },
-    {
-      label: messages.hero.workStyleLabel,
-      value: messages.hero.workStyle,
-    },
-    {
-      label: messages.hero.availability,
-      value: messages.contact.availability,
-    },
-    {
-      label: messages.hero.education,
-      value: educationSummary,
-    },
-  ]
+  const facts = profile.highlights
 
   return (
-    <section id="hero" className="scroll-mt-28 py-12 sm:py-16">
+    <section id="hero" className="scroll-mt-32">
       <Container>
-        <div className="grid items-start gap-8 sm:gap-10 lg:grid-cols-[1.18fr_0.82fr]">
-          <div className="min-w-0 space-y-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-600 dark:text-zinc-400">
-              {profile.location}
-            </p>
-            <h1 className="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl lg:text-5xl dark:text-zinc-100">
-              {profile.name}
-            </h1>
-            <p className="max-w-2xl break-words text-lg leading-8 text-zinc-800 dark:text-zinc-200">
+        {/* Masthead */}
+        <div className="flex items-center justify-between gap-4">
+          <span className="ed-eyebrow">Portfolio — 2026</span>
+          <span className="ed-eyebrow inline-flex items-center gap-2">
+            <span className="ed-status-dot" aria-hidden="true" />
+            <span className="hidden sm:inline">{messages.contact.availability}</span>
+          </span>
+        </div>
+        <div className="ed-rule mt-3" />
+
+        {/* Statement */}
+        <div className="grid gap-x-16 gap-y-12 pt-14 lg:grid-cols-[minmax(0,1fr)_18rem] lg:pt-24">
+          <div>
+            <p className="ed-eyebrow">{messages.hero.kicker}</p>
+            <h1 className="ed-display mt-6 text-[2.6rem] font-semibold leading-[1.05] sm:text-5xl lg:text-[4.4rem] lg:leading-[1.02]">
               {messages.hero.subtitle}
-            </p>
-            <p className="max-w-2xl break-words text-base leading-7 text-zinc-600 dark:text-zinc-300">
+            </h1>
+            <p
+              className="mt-7 max-w-xl text-base leading-8 sm:text-[1.05rem]"
+              style={{ color: 'var(--ed-muted)' }}
+            >
               {messages.hero.summary}
             </p>
-            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <ButtonLink href="#projects" variant="primary" className="w-full sm:w-auto">
+
+            <div className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-4">
+              <a href="#projects" className="ed-cta">
                 {messages.hero.cta.projects}
-              </ButtonLink>
-              <ButtonLink href="#contact" className="w-full sm:w-auto">
+              </a>
+              <a href="#contact" className="ed-link">
                 {messages.hero.cta.contact}
-              </ButtonLink>
-              <ResumeButton className="w-full sm:w-auto" />
+                <span className="ed-link-arrow">→</span>
+              </a>
             </div>
           </div>
 
-          <aside className="min-w-0 rounded-lg border border-zinc-200 bg-zinc-50/60 p-5 dark:border-zinc-800 dark:bg-zinc-900/30 sm:p-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-600 dark:text-zinc-400">
-              {messages.hero.quickSnapshot}
-            </p>
-            <dl className="mt-4 divide-y divide-zinc-200 dark:divide-zinc-800">
-              {quickItems.map((item) => (
-                <div key={item.label} className="py-3 first:pt-0 last:pb-0">
-                  <dt className="text-xs uppercase tracking-[0.12em] text-zinc-500 dark:text-zinc-400">
-                    {item.label}
-                  </dt>
-                  <dd className="mt-1 text-sm leading-6 text-zinc-700 dark:text-zinc-200">
-                    {item.value}
-                  </dd>
+          {/* Facts rail */}
+          <aside className="lg:border-l lg:pl-10" style={{ borderColor: 'var(--ed-line)' }}>
+            <p className="ed-eyebrow">{messages.hero.quickSnapshot}</p>
+            <div className="mt-3">
+              {facts.map((fact) => (
+                <div key={fact.label} className="ed-fact">
+                  <p className="ed-fact-label">{fact.label}</p>
+                  <p className="ed-fact-value">{fact.value}</p>
                 </div>
               ))}
-            </dl>
+            </div>
           </aside>
         </div>
       </Container>

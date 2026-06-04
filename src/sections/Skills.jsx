@@ -1,6 +1,4 @@
-import Card from '../components/Card'
 import Container from '../components/Container'
-import SectionTitle from '../components/SectionTitle'
 import { useI18n } from '../i18n'
 import { skills } from '../data/skills'
 
@@ -8,31 +6,22 @@ function Skills() {
   const { messages } = useI18n()
 
   return (
-    <section id="skills" className="scroll-mt-28 py-12 sm:py-16">
-      <Container className="space-y-8">
-        <SectionTitle
-          eyebrow={messages.skills.eyebrow}
-          title={messages.skills.title}
-          description={messages.skills.description}
-        />
+    <section id="skills" className="scroll-mt-32 pt-24 sm:pt-32">
+      <Container>
+        <p className="ed-eyebrow">{messages.skills.eyebrow}</p>
+        <h2 className="ed-display mt-3 text-3xl font-semibold sm:text-[2.5rem]">
+          {messages.skills.title}
+        </h2>
+        <p className="mt-5 max-w-2xl text-base leading-7" style={{ color: 'var(--ed-muted)' }}>
+          {messages.skills.description}
+        </p>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-10">
           {skills.map((group) => (
-            <Card key={group.category} hover>
-              <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">
-                {group.category}
-              </h3>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {group.items.map((skill) => (
-                  <span
-                    key={skill}
-                    className="rounded-full border border-zinc-300 px-3 py-1.5 text-xs font-medium text-zinc-700 dark:border-zinc-700 dark:text-zinc-200"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </Card>
+            <div key={group.category} className="ed-block">
+              <h3 className="ed-display text-xl font-semibold">{group.category}</h3>
+              <p className="ed-skill-list">{group.items.join('   ·   ')}</p>
+            </div>
           ))}
         </div>
       </Container>

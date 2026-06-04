@@ -1,33 +1,21 @@
 export const skills = [
   {
-    category: 'Programming',
-    items: ['Java', 'Python', 'C', 'SQL (Intermediate)'],
-  },
-  {
-    category: 'Frameworks / Libraries',
-    items: ['JavaFX', 'OpenCV', 'YOLOv8', 'ROS 2'],
-  },
-  {
-    category: 'Simulation / Robotics',
-    items: ['Gazebo (Harmonic)', 'PX4 (SITL)'],
-  },
-  {
-    category: 'Databases',
-    items: ['MySQL', 'MySQL Workbench'],
+    category: 'Languages',
+    items: ['Java', 'Python', 'C', 'SQL'],
   },
   {
     category: 'Tools',
-    items: [
-      'Git',
-      'GitHub',
-      'Maven',
-      'IntelliJ IDEA',
-      'VS Code',
-      'Scene Builder',
-    ],
+    items: ['ROS 2', 'PX4 SITL', 'Gazebo', 'JavaFX', 'OpenCV', 'YOLOv8', 'Git', 'Maven'],
   },
   {
-    category: 'Project Management',
-    items: ['Jira', 'Trello'],
+    category: 'Conceptual',
+    items: [
+      'Computer Vision',
+      'Robotics',
+      'Simulation Testing',
+      'System Design',
+      'Cloud Fundamentals',
+      'Project Planning',
+    ],
   },
 ]

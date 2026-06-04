@@ -1,28 +1,18 @@
-import About from '../sections/About'
-import Activities from '../sections/Activities'
-import Certificates from '../sections/Certificates'
 import Contact from '../sections/Contact'
-import Education from '../sections/Education'
-import Experience from '../sections/Experience'
+import ExperienceEducation from '../sections/ExperienceEducation'
 import Hero from '../sections/Hero'
-import Languages from '../sections/Languages'
 import Projects from '../sections/Projects'
 import Skills from '../sections/Skills'
 
 function HomePage() {
   return (
-    <>
+    <div className="ed-root min-h-screen pb-24 pt-10 sm:pt-12">
       <Hero />
-      <About />
       <Projects />
-      <Experience />
-      <Education />
-      <Certificates />
-      <Activities />
+      <ExperienceEducation />
       <Skills />
-      <Languages />
       <Contact />
-    </>
+    </div>
   )
 }
 

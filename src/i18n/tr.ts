@@ -28,10 +28,12 @@ export const tr = {
     loading: 'Yukleniyor...',
   },
   hero: {
+    kicker: 'Bilgisayar mühendisliği öğrencisi, üretici ve sürekli öğrenen',
+    headline: 'Utku Bilir: Bilgisayar Mühendisliği Öğrencisi ve Sürekli Öğrenen',
     subtitle:
       'İzmir’de Bilgisayar Mühendisliği öğrencisiyim; TEKNOFEST İHA takımında yazılım planlamasını yürütüyor, Java/React ile somut araçlar geliştiriyorum.',
     summary:
-      'Haftamın büyük kısmı PX4 simülasyon testleri, ekip koordinasyonu ve gerçekten kullanılan ders projeleri geliştirmekle geçiyor.',
+      'Bilgisayar mühendisliğindeki akademik birikimimi robotik, simülasyon ve öğrencilerin gerçekten kullandığı araçlarla birleştiriyorum. Odağım güvenilir sistemler kurmak, teknik kararları netleştirmek ve gerçek projeler üzerinden sürekli gelişmek.',
     currentlyBuildingLabel: 'Şu an geliştirdiklerim',
     currentlyBuilding:
       'ECOFUAV görev akışı/test düzeni ve üniversite kullanımına yönelik sınav takvimi masaüstü uygulaması.',
@@ -45,6 +47,21 @@ export const tr = {
       projects: 'Projeleri Gör',
       contact: 'İletişime Geç',
       resume: 'Özgeçmişi İndir',
+    },
+    progressTitle: 'İlerleme Günlüğü ve Öğrenme Yolu',
+    progressDescription:
+      'Şu anda aktif olarak öğrendiğim, geliştirdiğim ve derinleştirdiğim başlıkların kısa özeti.',
+    progressStates: {
+      inProgress: 'Devam Ediyor',
+      building: 'Geliştiriyorum',
+      practicing: 'Pratik Yapıyorum',
+      exploring: 'Keşfediyorum',
+    },
+    progressItems: {
+      cloud: 'Öğreniyorum: AWS Cloud Foundations',
+      ros2: 'Geliştiriyorum: ROS 2 modül sınırları',
+      px4: 'Pratik: PX4 SITL test senaryoları',
+      robotics: 'Keşif: Robotikte AI ve otonomi',
     },
     quickSnapshot: 'Güncel durum',
     availability: 'Uygunluk',
@@ -138,6 +155,21 @@ export const tr = {
     title: 'Profesyonel zaman cizelgesi',
     description:
       'Yazilim ve otonomi akislarinda staj ve proje katkilarim.',
+  },
+  experienceEducation: {
+    eyebrow: 'Deneyim ve Eğitim',
+    title: 'Deneyim ve Eğitim',
+    description:
+      'Sistem kurma yaklaşımımı şekillendiren staj deneyimi, akademik eğitim ve öğrenci liderliği birikimi.',
+    sections: {
+      experience: 'Deneyim',
+      education: 'Eğitim',
+    },
+    educationBullets: [
+      'Gömülü sistemler, yazılım temelleri ve uygulamalı yapay zeka odağında ilerleyen bir müfredat takip ediyorum.',
+      'Derslerdeki teorik kavramları gerçek kullanıcı ihtiyacına bağlayan ekip projeleri geliştiriyorum.',
+      'Teknik çalışmaları sürdürürken öğrenci kulüplerinde sorumluluk almaya devam ediyorum.',
+    ],
   },
   education: {
     eyebrow: 'Egitim',
@@ -244,10 +276,29 @@ export const tr = {
     title: 'İletişime Geçelim',
     cta: 'Staj pozisyonu veya proje iş birliği için iletişime geçebiliriz.',
     ready: 'Bağlantı Kurmaya Hazır mısın?',
+    helper:
+      'Kısa bir not bırak; sana gönderebileceğin önceden doldurulmuş bir e-posta taslağı açayım.',
     locationLabel: 'Konum:',
     timezoneLabel: 'Saat Dilimi:',
     languagesLabel: 'Diller:',
     responseLabel: 'Yanıt Süresi:',
+    fields: {
+      name: 'İsim',
+      email: 'E-posta',
+      message: 'Mesaj',
+    },
+    placeholders: {
+      name: 'İsim',
+      email: 'E-posta',
+      message: 'Mesaj',
+    },
+    validation: {
+      name: 'Lütfen ismini gir.',
+      email: 'Lütfen e-posta adresini gir.',
+      invalidEmail: 'Lütfen geçerli bir e-posta adresi gir.',
+      message: 'Lütfen kısa bir mesaj yaz.',
+    },
+    submit: 'Mesaj Gönder',
     cards: {
       primaryEmail: 'Ana E-posta',
       academicEmail: 'Akademik E-posta',

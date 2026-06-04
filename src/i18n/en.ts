@@ -28,10 +28,12 @@ export const en = {
     loading: 'Loading...',
   },
   hero: {
+    kicker: 'Computer Engineering student, builder, and lifelong learner',
+    headline: 'Utku Bilir: Computer Engineering Student & Lifelong Learner',
     subtitle:
       'Computer Engineering student in Izmir, leading software planning for a TEKNOFEST UAV team and building practical Java/React tools.',
     summary:
-      'Most weeks I split my time between PX4 mission simulation, team coordination, and shipping course projects that people can actually use.',
+      'I combine academic rigor in computer engineering with hands-on work in robotics, simulation, and practical student tools. My focus stays on reliable systems, clear technical decisions, and steady improvement through real projects.',
     currentlyBuildingLabel: 'Currently building',
     currentlyBuilding:
       'ECOFUAV mission-control workflows and an exam scheduling desktop app for day-to-day university planning.',
@@ -45,6 +47,21 @@ export const en = {
       projects: 'View Projects',
       contact: 'Get In Touch',
       resume: 'Download Resume',
+    },
+    progressTitle: 'Progress Log & Learning Path',
+    progressDescription:
+      'A snapshot of what I am actively learning, building, and refining right now.',
+    progressStates: {
+      inProgress: 'In Progress',
+      building: 'Building',
+      practicing: 'Practicing',
+      exploring: 'Exploring',
+    },
+    progressItems: {
+      cloud: 'Learning: AWS Cloud Foundations',
+      ros2: 'Building: ROS 2 module boundaries',
+      px4: 'Practicing: PX4 SITL test scenarios',
+      robotics: 'Exploring: AI and autonomy in robotics',
     },
     quickSnapshot: 'Right now',
     availability: 'Availability',
@@ -139,6 +156,21 @@ export const en = {
     description:
       'Internship and project contributions across software and autonomy workflows.',
   },
+  experienceEducation: {
+    eyebrow: 'Experience & Education',
+    title: 'Experience & Education',
+    description:
+      'Internship work, academic training, and student leadership that shape how I build systems.',
+    sections: {
+      experience: 'Experience',
+      education: 'Education',
+    },
+    educationBullets: [
+      'Focused on embedded systems, software engineering fundamentals, and applied AI coursework.',
+      'Built team projects that connect classroom concepts to tools people can actually use.',
+      'Continued taking ownership in student organizations alongside technical coursework.',
+    ],
+  },
   education: {
     eyebrow: 'Education',
     title: 'Academic background',
@@ -219,10 +251,29 @@ export const en = {
     title: 'Let’s connect',
     cta: 'Could we connect about an internship role or a project collaboration?',
     ready: 'Ready to connect?',
+    helper:
+      'Send a short note and I will open a prefilled email draft so you can send it directly from your mail client.',
     locationLabel: 'Location:',
     timezoneLabel: 'Timezone:',
     languagesLabel: 'Languages:',
     responseLabel: 'Response:',
+    fields: {
+      name: 'Name',
+      email: 'Email',
+      message: 'Message',
+    },
+    placeholders: {
+      name: 'Name',
+      email: 'Email',
+      message: 'Message',
+    },
+    validation: {
+      name: 'Please enter your name.',
+      email: 'Please enter your email address.',
+      invalidEmail: 'Please enter a valid email address.',
+      message: 'Please add a short message.',
+    },
+    submit: 'Send Message',
     cards: {
       primaryEmail: 'Primary Email',
       academicEmail: 'Academic Email',

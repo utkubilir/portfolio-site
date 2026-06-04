@@ -1,6 +1,4 @@
 import { MouseEvent, useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import ButtonLink from '../components/ButtonLink'
-import Card from '../components/Card'
 import Container from '../components/Container'
 import ScrollProgress from '../components/ScrollProgress'
 import TeknofestToc from '../components/TeknofestToc'
@@ -230,7 +228,7 @@ function Teknofest() {
     <section id="teknofest" className="relative isolate overflow-x-clip py-16 sm:py-24">
       <a
         href="#teknofest-content"
-        className="sr-only z-[60] rounded-md bg-blue-600 px-4 py-2 text-sm text-white no-underline focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+        className="sr-only z-[60] rounded-md bg-[color:var(--ed-ink)] px-4 py-2 text-sm text-[color:var(--ed-paper)] no-underline focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
       >
         Skip to case study content
       </a>
@@ -244,7 +242,7 @@ function Teknofest() {
             } ${prefersReducedMotion ? '' : 'transition-opacity duration-700 ease-out'}`}
           >
             <img src={background} alt="" className="h-full w-full object-cover" />
-            <div className="absolute inset-0 bg-white/90 dark:bg-zinc-950/70" />
+            <div className="absolute inset-0" style={{ backgroundColor: 'var(--ed-paper)', opacity: 0.94 }} />
           </div>
         ))}
       </div>
@@ -252,7 +250,7 @@ function Teknofest() {
       <Container className="space-y-6 sm:space-y-8">
         <ScrollProgress progress={scrollProgress} reducedMotion={prefersReducedMotion} />
 
-        <div className="grid min-w-0 items-start gap-8 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-10">
+        <div className="grid min-w-0 items-start gap-8 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-12">
           <div className="space-y-4 lg:hidden">
             <TeknofestToc
               variant="mobile"
@@ -265,7 +263,7 @@ function Teknofest() {
           <main
             id="teknofest-content"
             ref={contentRef}
-            className="mx-auto w-full max-w-2xl min-w-0 space-y-6 sm:space-y-8"
+            className="w-full min-w-0 max-w-2xl"
           >
             {sections.map((section) => {
               const isHero = section.id === 'hero'
@@ -276,142 +274,141 @@ function Teknofest() {
                 <section
                   id={section.id}
                   key={section.id}
-                  className="scroll-mt-28"
+                  className={`scroll-mt-28 ${isHero ? 'pb-12 sm:pb-14' : 'border-t py-12 sm:py-14'}`}
+                  style={isHero ? undefined : { borderColor: 'var(--ed-line)' }}
                   aria-labelledby={`${section.id}-heading`}
                 >
-                  <Card className="border-zinc-200 bg-white/90 p-6 sm:p-7 dark:border-zinc-800 dark:bg-zinc-950/75">
-                    {isHero ? (
-                      <>
-                        <h1
-                          id={`${section.id}-heading`}
-                          className="mt-3 text-2xl font-semibold tracking-tight text-zinc-900 sm:text-3xl md:text-4xl dark:text-zinc-100"
-                        >
-                          {section.title}
-                        </h1>
-                        {section.subtitle ? (
-                          <p className="mt-3 max-w-2xl text-base leading-7 text-zinc-700 dark:text-zinc-200">
-                            {section.subtitle}
-                          </p>
-                        ) : null}
-                      </>
-                    ) : (
-                      <h2
+                  {isHero ? (
+                    <>
+                      <p className="ed-eyebrow">Case study · ECOFUAV</p>
+                      <h1
                         id={`${section.id}-heading`}
-                        className="text-xl font-semibold tracking-tight text-zinc-900 sm:text-2xl dark:text-zinc-100"
+                        className="ed-display mt-5 text-3xl font-semibold leading-[1.06] sm:text-4xl md:text-[3.1rem]"
                       >
                         {section.title}
-                      </h2>
-                    )}
-
-                    <div className="mt-4 max-w-2xl space-y-4">
-                      {section.body.map((paragraph) => (
+                      </h1>
+                      {section.subtitle ? (
                         <p
-                          key={`${section.id}-${paragraph}`}
-                          className="break-words text-base leading-7 text-zinc-700 dark:text-zinc-200"
+                          className="mt-5 max-w-2xl text-base leading-7 sm:text-[1.05rem]"
+                          style={{ color: 'var(--ed-muted)' }}
                         >
-                          {paragraph}
+                          {section.subtitle}
                         </p>
+                      ) : null}
+                    </>
+                  ) : (
+                    <h2
+                      id={`${section.id}-heading`}
+                      className="ed-display text-2xl font-semibold tracking-tight sm:text-[1.75rem]"
+                    >
+                      {section.title}
+                    </h2>
+                  )}
+
+                  <div className="mt-4 max-w-2xl space-y-4">
+                    {section.body.map((paragraph) => (
+                      <p
+                        key={`${section.id}-${paragraph}`}
+                        className="break-words text-base leading-7"
+                        style={{ color: 'var(--ed-muted)' }}
+                      >
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+
+                  {section.meta?.length ? (
+                    <dl className="mt-7 grid gap-x-8 gap-y-5 sm:grid-cols-3">
+                      {section.meta.map((item) => (
+                        <div
+                          key={`${section.id}-${item.label}`}
+                          className="border-t pt-3"
+                          style={{ borderColor: 'var(--ed-line)' }}
+                        >
+                          <dt className="ed-fact-label">{item.label}</dt>
+                          <dd className="ed-fact-value">{item.value}</dd>
+                        </div>
                       ))}
-                    </div>
+                    </dl>
+                  ) : null}
 
-                    {section.meta?.length ? (
-                      <dl className="mt-6 grid gap-3 sm:grid-cols-3">
-                        {section.meta.map((item) => (
-                          <div
-                            key={`${section.id}-${item.label}`}
-                            className="rounded-lg border border-zinc-200 p-3 dark:border-zinc-800"
-                          >
-                            <dt className="text-xs uppercase tracking-[0.14em] text-zinc-500 dark:text-zinc-400">
-                              {item.label}
-                            </dt>
-                            <dd className="mt-1 text-sm font-medium text-zinc-800 dark:text-zinc-100">
-                              {item.value}
-                            </dd>
-                          </div>
-                        ))}
-                      </dl>
-                    ) : null}
+                  {section.actions?.length ? (
+                    <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-3">
+                      {section.actions.map((action) => {
+                        const isPrimary = (action.variant ?? 'secondary') === 'primary'
 
-                    {section.actions?.length ? (
-                      <div className="mt-6 flex flex-wrap items-center gap-3">
-                        {section.actions.map((action) => (
-                          <ButtonLink
+                        return isPrimary ? (
+                          <a
                             key={`${section.id}-${action.label}`}
                             href={action.href}
-                            variant={action.variant ?? 'secondary'}
                             onClick={(event) => handleHeroActionClick(event, action.href)}
-                            className="w-full sm:w-auto"
+                            className="ed-cta"
                           >
                             {action.label}
-                          </ButtonLink>
-                        ))}
-                      </div>
-                    ) : null}
-
-                    {isHighlights && section.highlights?.length ? (
-                      <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                        {section.highlights.map((item) => (
-                          <article
-                            key={`${section.id}-${item.title}`}
-                            className="rounded-lg border border-zinc-200 p-4 dark:border-zinc-800"
+                          </a>
+                        ) : (
+                          <a
+                            key={`${section.id}-${action.label}`}
+                            href={action.href}
+                            onClick={(event) => handleHeroActionClick(event, action.href)}
+                            className="ed-link"
                           >
-                            <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-                              {item.title}
-                            </h3>
-                            <p className="mt-2 text-sm leading-6 text-zinc-700 dark:text-zinc-200">
-                              {item.detail}
-                            </p>
-                          </article>
-                        ))}
-                      </div>
-                    ) : null}
+                            {action.label}
+                            <span className="ed-link-arrow">→</span>
+                          </a>
+                        )
+                      })}
+                    </div>
+                  ) : null}
 
-                    {section.chips?.length ? (
-                      <div className="mt-6 flex flex-wrap gap-2">
-                        {section.chips.map((chip) => (
+                  {isHighlights && section.highlights?.length ? (
+                    <div className="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2">
+                      {section.highlights.map((item) => (
+                        <article
+                          key={`${section.id}-${item.title}`}
+                          className="border-t pt-4"
+                          style={{ borderColor: 'var(--ed-line)' }}
+                        >
+                          <h3 className="ed-display text-lg font-semibold">{item.title}</h3>
+                          <p className="mt-2 text-sm leading-6" style={{ color: 'var(--ed-muted)' }}>
+                            {item.detail}
+                          </p>
+                        </article>
+                      ))}
+                    </div>
+                  ) : null}
+
+                  {section.chips?.length ? (
+                    <p className="ed-tech mt-6">{section.chips.join('   ·   ')}</p>
+                  ) : null}
+
+                  {isTimeline && section.timeline?.length ? (
+                    <ol className="mt-8 space-y-7 border-l pl-6" style={{ borderColor: 'var(--ed-line)' }}>
+                      {section.timeline.map((item) => (
+                        <li key={`${section.id}-${item.month}-${item.title}`} className="relative">
                           <span
-                            key={`${section.id}-${chip}`}
-                            className="rounded-full border border-zinc-300 px-3 py-1 text-xs text-zinc-700 dark:border-zinc-700 dark:text-zinc-200"
-                          >
-                            {chip}
-                          </span>
-                        ))}
-                      </div>
-                    ) : null}
+                            className="absolute -left-[1.7rem] top-1.5 h-2.5 w-2.5 rounded-full"
+                            style={{ backgroundColor: 'var(--ed-accent)' }}
+                          />
+                          <p className="ed-meta" style={{ color: 'var(--ed-accent)' }}>
+                            {item.month}
+                          </p>
+                          <h3 className="ed-display mt-1.5 text-base font-semibold">{item.title}</h3>
+                          <p className="mt-1.5 max-w-2xl text-sm leading-6" style={{ color: 'var(--ed-muted)' }}>
+                            {item.detail}
+                          </p>
+                        </li>
+                      ))}
+                    </ol>
+                  ) : null}
 
-                    {isTimeline && section.timeline?.length ? (
-                      <ol className="mt-6 space-y-4 border-l border-zinc-200 pl-4 dark:border-zinc-800">
-                        {section.timeline.map((item) => (
-                          <li key={`${section.id}-${item.month}-${item.title}`} className="relative">
-                            <span className="absolute -left-[1.12rem] top-2 h-2 w-2 rounded-full bg-blue-600 dark:bg-blue-400" />
-                            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-blue-600 dark:text-blue-400">
-                              {item.month}
-                            </p>
-                            <h3 className="mt-1 text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-                              {item.title}
-                            </h3>
-                            <p className="mt-1 max-w-2xl text-sm leading-6 text-zinc-700 dark:text-zinc-200">
-                              {item.detail}
-                            </p>
-                          </li>
-                        ))}
-                      </ol>
-                    ) : null}
-
-                    {!isHero && section.bullets?.length ? (
-                      <ul className="mt-5 space-y-2">
-                        {section.bullets.map((bullet) => (
-                          <li
-                            key={`${section.id}-${bullet}`}
-                            className="flex gap-2 break-words text-sm leading-7 text-zinc-700 dark:text-zinc-200"
-                          >
-                            <span className="mt-2 inline-block h-1.5 w-1.5 rounded-full bg-blue-600 dark:bg-blue-400" />
-                            <span>{bullet}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    ) : null}
-                  </Card>
+                  {!isHero && section.bullets?.length ? (
+                    <ul className="ed-bullets mt-6 space-y-2.5">
+                      {section.bullets.map((bullet) => (
+                        <li key={`${section.id}-${bullet}`}>{bullet}</li>
+                      ))}
+                    </ul>
+                  ) : null}
                 </section>
               )
             })}

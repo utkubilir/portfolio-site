@@ -28,10 +28,10 @@ function TeknofestToc({ items, activeId, onNavigate, variant }: TeknofestTocProp
                       event.preventDefault()
                       onNavigate(item.id)
                     }}
-                    className={`inline-flex whitespace-nowrap rounded-full border px-3 py-1.5 text-xs no-underline transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-zinc-950 ${
+                    className={`inline-flex whitespace-nowrap rounded-full border px-3 py-1.5 text-xs no-underline transition-colors ${
                       isActive
-                        ? 'border-blue-500 bg-blue-50 text-blue-700 dark:border-blue-400 dark:bg-blue-500/10 dark:text-blue-300'
-                        : 'border-zinc-300 text-zinc-700 dark:border-zinc-700 dark:text-zinc-200'
+                        ? 'border-[color:var(--ed-accent)] bg-[color:var(--ed-accent-soft)] text-[color:var(--ed-accent)]'
+                        : 'border-[color:var(--ed-line-strong)] text-[color:var(--ed-muted)]'
                     }`}
                   >
                     {item.title}
@@ -48,10 +48,8 @@ function TeknofestToc({ items, activeId, onNavigate, variant }: TeknofestTocProp
   return (
     <aside className="hidden lg:block">
       <nav aria-label="Case study sections" className="sticky top-24">
-        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400">
-          On this page
-        </p>
-        <ul className="mt-3 border-l border-zinc-200 pl-3 dark:border-zinc-800">
+        <p className="ed-eyebrow">On this page</p>
+        <ul className="mt-4 border-l pl-4" style={{ borderColor: 'var(--ed-line)' }}>
           {items.map((item) => {
             const isActive = item.id === activeId
 
@@ -64,11 +62,10 @@ function TeknofestToc({ items, activeId, onNavigate, variant }: TeknofestTocProp
                     event.preventDefault()
                     onNavigate(item.id)
                   }}
-                  className={`block rounded-md px-2 py-2 text-sm no-underline transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-zinc-950 ${
-                    isActive
-                      ? 'text-blue-700 dark:text-blue-300'
-                      : 'text-zinc-600 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100'
+                  className={`block py-1.5 text-sm no-underline transition-colors ${
+                    isActive ? 'font-semibold' : ''
                   }`}
+                  style={{ color: isActive ? 'var(--ed-accent)' : 'var(--ed-muted)' }}
                 >
                   {item.title}
                 </a>

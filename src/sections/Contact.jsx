@@ -1,215 +1,153 @@
-import { useEffect, useRef, useState } from 'react'
-import ButtonLink from '../components/ButtonLink'
-import Card from '../components/Card'
+import { useMemo, useState } from 'react'
 import Container from '../components/Container'
-import SectionTitle from '../components/SectionTitle'
 import { useI18n } from '../i18n'
 import { contact } from '../data/contact'
-import { isUsableHref } from '../utils/link'
+import { socials } from '../data/socials'
 
 function Contact() {
   const { messages } = useI18n()
-  const [copiedId, setCopiedId] = useState('')
-  const copyTimerRef = useRef(null)
+  const [form, setForm] = useState({ name: '', email: '', message: '' })
+  const [errors, setErrors] = useState({})
 
-  const emailHref = `mailto:${contact.email}`
-  const phoneHref = `tel:${contact.phone}`
-  const hasEmail = isUsableHref(emailHref)
-  const ctaHref = `${emailHref}?subject=${encodeURIComponent(contact.cta.subject)}&body=${contact.cta.body}`
-
-  const prettyPhone = contact.phone.replace(
-    /^(\+90)(\d{3})(\d{3})(\d{2})(\d{2})$/,
-    '$1 $2 $3 $4 $5',
+  const contactMeta = useMemo(
+    () => [
+      `${messages.contact.locationLabel} ${contact.location}`,
+      `${messages.contact.timezoneLabel} ${contact.timezone}`,
+      `${messages.contact.languagesLabel} ${contact.languages.join(', ')}`,
+    ],
+    [messages],
   )
 
-  const contactCards = [
-    {
-      id: 'email-primary',
-      label: messages.contact.cards.primaryEmail,
-      value: contact.email,
-      href: emailHref,
-      action: messages.contact.actions.write,
-      copyValue: contact.email,
-    },
-    ...(contact.secondaryEmail
-      ? [
-          {
-            id: 'email-academic',
-            label: messages.contact.cards.academicEmail,
-            value: contact.secondaryEmail,
-            href: `mailto:${contact.secondaryEmail}`,
-            action: messages.contact.actions.write,
-            copyValue: contact.secondaryEmail,
-          },
-        ]
-      : []),
-    {
-      id: 'phone',
-      label: messages.contact.cards.phone,
-      value: prettyPhone,
-      href: phoneHref,
-      action: messages.contact.actions.call,
-      copyValue: contact.phone,
-    },
-    {
-      id: 'linkedin',
-      label: 'LinkedIn',
-      value: contact.links.linkedin,
-      href: contact.links.linkedin,
-      action: messages.contact.actions.open,
-    },
-    {
-      id: 'github',
-      label: 'GitHub',
-      value: contact.links.github,
-      href: contact.links.github,
-      action: messages.contact.actions.open,
-    },
-  ]
+  const validate = () => {
+    const nextErrors = {}
 
-  useEffect(() => {
-    return () => {
-      if (copyTimerRef.current) {
-        window.clearTimeout(copyTimerRef.current)
-      }
+    if (!form.name.trim()) {
+      nextErrors.name = messages.contact.validation.name
     }
-  }, [])
+    if (!form.email.trim()) {
+      nextErrors.email = messages.contact.validation.email
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
+      nextErrors.email = messages.contact.validation.invalidEmail
+    }
+    if (!form.message.trim()) {
+      nextErrors.message = messages.contact.validation.message
+    }
 
-  const copyToClipboard = async (id, value) => {
-    if (!value || typeof navigator === 'undefined' || !navigator.clipboard) {
+    return nextErrors
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    const nextErrors = validate()
+
+    setErrors(nextErrors)
+
+    if (Object.keys(nextErrors).length > 0 || typeof window === 'undefined') {
       return
     }
 
-    try {
-      await navigator.clipboard.writeText(value)
-      setCopiedId(id)
+    const subject = `${contact.cta.subject} - ${form.name.trim()}`
+    const body = [
+      `${messages.contact.fields.name}: ${form.name.trim()}`,
+      `${messages.contact.fields.email}: ${form.email.trim()}`,
+      '',
+      form.message.trim(),
+    ].join('\n')
 
-      if (copyTimerRef.current) {
-        window.clearTimeout(copyTimerRef.current)
-      }
-      copyTimerRef.current = window.setTimeout(() => {
-        setCopiedId('')
-      }, 1500)
-    } catch {
-      setCopiedId('')
-    }
+    window.location.href = `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
   }
 
   return (
-    <section id="contact" className="scroll-mt-28 py-12 sm:py-16">
-      <Container className="space-y-8">
-        <SectionTitle
-          eyebrow={messages.contact.eyebrow}
-          title={messages.contact.title}
-          description={`${messages.contact.availability} · ${messages.contact.responseTime}`}
-        />
+    <section id="contact" className="scroll-mt-32 pt-24 sm:pt-32">
+      <Container>
+        <p className="ed-eyebrow">{messages.contact.eyebrow}</p>
+        <h2 className="ed-display mt-3 text-3xl font-semibold sm:text-[2.5rem]">
+          {messages.contact.title}
+        </h2>
+        <p className="mt-5 max-w-2xl text-base leading-7" style={{ color: 'var(--ed-muted)' }}>
+          {messages.contact.cta}
+        </p>
 
-        <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
-          <div className="grid gap-4 sm:grid-cols-2">
-            {contactCards.map((item) => {
-              const hasLink = isUsableHref(item.href)
-              const isExternal = item.href.startsWith('http')
+        <div className="mt-12 grid gap-x-16 gap-y-12 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-start">
+          <form className="space-y-7" onSubmit={handleSubmit} noValidate>
+            <div className="grid gap-7 md:grid-cols-2">
+              <div>
+                <label htmlFor="contact-name" className="sr-only">
+                  {messages.contact.fields.name}
+                </label>
+                <input
+                  id="contact-name"
+                  type="text"
+                  value={form.name}
+                  onChange={(event) => setForm((current) => ({ ...current, name: event.target.value }))}
+                  placeholder={messages.contact.placeholders.name}
+                  className={`ed-field ${errors.name ? 'ed-field-error' : ''}`}
+                />
+                {errors.name ? <p className="ed-error">{errors.name}</p> : null}
+              </div>
 
-              return (
-                <Card key={item.id} className="p-5" hover>
-                  <p className="text-xs uppercase tracking-[0.14em] text-zinc-500 dark:text-zinc-400">
-                    {item.label}
-                  </p>
-                  <p className="mt-2 break-all text-sm font-medium text-zinc-800 dark:text-zinc-200">
-                    {item.value}
-                  </p>
+              <div>
+                <label htmlFor="contact-email" className="sr-only">
+                  {messages.contact.fields.email}
+                </label>
+                <input
+                  id="contact-email"
+                  type="email"
+                  value={form.email}
+                  onChange={(event) => setForm((current) => ({ ...current, email: event.target.value }))}
+                  placeholder={messages.contact.placeholders.email}
+                  className={`ed-field ${errors.email ? 'ed-field-error' : ''}`}
+                />
+                {errors.email ? <p className="ed-error">{errors.email}</p> : null}
+              </div>
+            </div>
 
-                  <div className="mt-4 flex flex-wrap items-center gap-2">
-                    {hasLink ? (
-                      <ButtonLink
-                        href={item.href}
-                        target={isExternal ? '_blank' : undefined}
-                        rel={isExternal ? 'noreferrer' : undefined}
-                        className="px-3 py-1.5 text-xs"
-                      >
-                        {item.action}
-                      </ButtonLink>
-                    ) : (
-                      <ButtonLink
-                        as="button"
-                        type="button"
-                        variant="muted"
-                        disabled
-                        className="px-3 py-1.5 text-xs"
-                      >
-                        {item.action}
-                      </ButtonLink>
-                    )}
+            <div>
+              <label htmlFor="contact-message" className="sr-only">
+                {messages.contact.fields.message}
+              </label>
+              <textarea
+                id="contact-message"
+                value={form.message}
+                onChange={(event) => setForm((current) => ({ ...current, message: event.target.value }))}
+                placeholder={messages.contact.placeholders.message}
+                className={`ed-field min-h-[9rem] resize-y ${errors.message ? 'ed-field-error' : ''}`}
+              />
+              {errors.message ? <p className="ed-error">{errors.message}</p> : null}
+            </div>
 
-                    {item.copyValue ? (
-                      <ButtonLink
-                        as="button"
-                        type="button"
-                        onClick={() => copyToClipboard(item.id, item.copyValue)}
-                        className="px-3 py-1.5 text-xs"
-                      >
-                        {copiedId === item.id
-                          ? messages.contact.actions.copied
-                          : messages.contact.actions.copy}
-                      </ButtonLink>
-                    ) : null}
-                  </div>
-                </Card>
-              )
-            })}
-          </div>
+            <button type="submit" className="ed-cta w-full justify-center sm:w-auto">
+              {messages.contact.submit}
+            </button>
+          </form>
 
-          <Card as="aside" hover>
-            <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-              {messages.contact.ready}
-            </h3>
-            <p className="mt-3 text-base leading-7 text-zinc-600 dark:text-zinc-300">
-              {messages.contact.cta}
+          <aside className="lg:border-l lg:pl-10" style={{ borderColor: 'var(--ed-line)' }}>
+            <p className="ed-display text-xl font-semibold">{messages.contact.ready}</p>
+            <p className="mt-3 text-sm leading-7" style={{ color: 'var(--ed-muted)' }}>
+              {messages.contact.helper}
             </p>
-
-            {hasEmail ? (
-              <ButtonLink href={ctaHref} variant="primary" className="mt-6 w-full">
-                {messages.contact.emailCta}
-              </ButtonLink>
-            ) : (
-              <ButtonLink
-                as="button"
-                type="button"
-                variant="muted"
-                disabled
-                className="mt-6 w-full"
-              >
-                {messages.contact.emailCta}
-              </ButtonLink>
-            )}
-
-            <div className="mt-6 space-y-3 border-t border-zinc-200 pt-4 text-sm text-zinc-600 dark:border-zinc-800 dark:text-zinc-300">
+            <div className="mt-5 space-y-1.5 text-sm" style={{ color: 'var(--ed-muted)' }}>
+              {contactMeta.map((item) => (
+                <p key={item}>{item}</p>
+              ))}
               <p>
-                <span className="font-semibold text-zinc-800 dark:text-zinc-100">
-                  {messages.contact.locationLabel}
-                </span>{' '}
-                {contact.location}
-              </p>
-              <p>
-                <span className="font-semibold text-zinc-800 dark:text-zinc-100">
-                  {messages.contact.timezoneLabel}
-                </span>{' '}
-                {contact.timezone}
-              </p>
-              <p>
-                <span className="font-semibold text-zinc-800 dark:text-zinc-100">
-                  {messages.contact.languagesLabel}
-                </span>{' '}
-                {contact.languages.join(', ')}
-              </p>
-              <p>
-                <span className="font-semibold text-zinc-800 dark:text-zinc-100">
-                  {messages.contact.responseLabel}
-                </span>{' '}
-                {messages.contact.responseTime}
+                {messages.contact.responseLabel} {messages.contact.responseTime}
               </p>
             </div>
-          </Card>
+            <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3">
+              {socials.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target={item.href.startsWith('http') ? '_blank' : undefined}
+                  rel={item.href.startsWith('http') ? 'noreferrer' : undefined}
+                  className="ed-link"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          </aside>
         </div>
       </Container>
     </section>

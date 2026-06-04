@@ -1,9 +1,7 @@
-import { Suspense, lazy, useCallback, useEffect, useState } from 'react'
+import { Suspense, lazy, useEffect, useState } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
-import SocialRail from './components/SocialRail'
-import SplashScreen from './components/SplashScreen'
 import { useI18n } from './i18n'
 import { profile } from './data/profile'
 import HomePage from './pages/HomePage'
@@ -24,18 +22,6 @@ function getInitialTheme() {
   }
 
   return window.matchMedia('(prefers-color-scheme: dark)').matches
-}
-
-function getInitialSplashState() {
-  if (typeof window === 'undefined') {
-    return false
-  }
-
-  try {
-    return window.sessionStorage.getItem('splash_seen') !== '1'
-  } catch {
-    return true
-  }
 }
 
 function upsertMetaTag(attribute, key, content) {
@@ -85,7 +71,6 @@ function App() {
     : [{ id: 'home', label: messages.nav.home, href: '/' }]
 
   const [isDark, setIsDark] = useState(getInitialTheme)
-  const [showSplash, setShowSplash] = useState(getInitialSplashState)
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', isDark)
@@ -109,50 +94,32 @@ function App() {
     upsertCanonicalLink(canonicalUrl)
   }, [isTeknofestRoute, language, location.pathname, messages])
 
-  const handleSplashDone = useCallback(() => {
-    if (typeof window !== 'undefined') {
-      try {
-        window.sessionStorage.setItem('splash_seen', '1')
-      } catch {
-        // ignore storage write errors
-      }
-    }
-
-    setShowSplash(false)
-  }, [])
-
   return (
-    <div className="min-h-screen overflow-x-clip bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
-      <div aria-hidden={showSplash ? 'true' : undefined}>
-        <SocialRail className={isTeknofestRoute ? 'hidden md:flex' : ''} />
+    <div className="site-shell min-h-screen overflow-x-clip bg-[color:var(--page-bg)] text-[color:var(--page-text)]">
+      <Navbar
+        navItems={navItems}
+        isDark={isDark}
+        onToggleTheme={() => setIsDark((previous) => !previous)}
+        brand="Utku Bilir"
+        brandHref={isHomeRoute ? '#hero' : '/'}
+      />
 
-        <Navbar
-          navItems={navItems}
-          isDark={isDark}
-          onToggleTheme={() => setIsDark((previous) => !previous)}
-          brand="Utku Bilir"
-          brandHref={isHomeRoute ? '#hero' : '/'}
-        />
+      <main className="pb-12 sm:pb-16">
+        <Suspense
+          fallback={
+            <p className="mx-auto max-w-6xl px-4 pt-10 text-sm text-[color:var(--page-muted)] sm:px-6 lg:px-8">
+              {messages.ui.loading}
+            </p>
+          }
+        >
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/teknofest" element={<TeknofestPage />} />
+          </Routes>
+        </Suspense>
+      </main>
 
-        <main className="pb-16">
-          <Suspense
-            fallback={
-              <p className="mx-auto max-w-6xl px-4 pt-10 text-sm text-zinc-500 sm:px-6 lg:px-8 dark:text-zinc-400">
-                {messages.ui.loading}
-              </p>
-            }
-          >
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/teknofest" element={<TeknofestPage />} />
-            </Routes>
-          </Suspense>
-        </main>
-
-        <Footer name={profile.name} />
-      </div>
-
-      {showSplash ? <SplashScreen onDone={handleSplashDone} /> : null}
+      <Footer name={profile.name} className={isTeknofestRoute ? 'pt-4' : ''} />
     </div>
   )
 }

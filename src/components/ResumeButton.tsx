@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { resume } from '../data/resume'
 import { useI18n } from '../i18n'
 
@@ -22,13 +23,49 @@ function DownloadIcon() {
 
 function ResumeButton({ className = '' }) {
   const { messages } = useI18n()
+  const [isAvailable, setIsAvailable] = useState(Boolean(resume.href))
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || !resume.href) {
+      setIsAvailable(false)
+      return
+    }
+
+    let isMounted = true
+
+    window
+      .fetch(resume.href, { method: 'HEAD' })
+      .then((response) => {
+        if (isMounted) {
+          setIsAvailable(response.ok)
+        }
+      })
+      .catch(() => {
+        if (isMounted) {
+          setIsAvailable(Boolean(resume.href))
+        }
+      })
+
+    return () => {
+      isMounted = false
+    }
+  }, [])
 
   const classes = [
-    'inline-flex items-center justify-center gap-2 rounded-lg border border-zinc-300 bg-transparent px-4 py-2 text-sm font-medium text-zinc-700 no-underline transition-colors hover:bg-zinc-50 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-900/40 dark:focus-visible:ring-offset-zinc-950',
+    'site-resume-button',
     className,
   ]
     .filter(Boolean)
     .join(' ')
+
+  if (!isAvailable) {
+    return (
+      <button type="button" disabled className={`${classes} cursor-not-allowed opacity-60`}>
+        <DownloadIcon />
+        <span>{messages.hero.cta.resume}</span>
+      </button>
+    )
+  }
 
   return (
     <a
