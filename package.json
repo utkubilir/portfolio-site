@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "node scripts/ensure-rollup-native.mjs && vite",
+    "build": "node scripts/ensure-rollup-native.mjs && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "node scripts/ensure-rollup-native.mjs && vite preview"
   },
   "dependencies": {
     "@fontsource/manrope": "^5.2.8",
