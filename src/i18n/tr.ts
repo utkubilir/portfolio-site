@@ -41,16 +41,32 @@ export const tr = {
     eyebrow: 'Seçili Çalışmalar',
     title: 'Seçili Çalışmalar',
     intro:
-      'Gerçek kısıtlarla şekillenmiş, karar süreci ve çıktısı net olan iki temsil proje.',
+      'Gerçek kısıtlarla şekillenmiş, mühendislik kararları ve çıktıları net olan projeler.',
     readMore: 'ECOFUAV tam vaka çalışması',
     items: {
       teknofest: {
         title: 'ECOFUAV — TEKNOFEST Savaşan İHA',
         context: 'Otonom görev icrasına odaklanan öğrenci yarışma İHA projesi',
       },
+      'ce316-iae': {
+        title: 'CE316 — Entegre Ödev Ortamı',
+        context: 'C, C++, Java ve Python ödevlerini otomatik puanlayan JavaFX aracı',
+      },
+      'game-collection-app': {
+        title: 'Oyun Koleksiyonu Uygulaması',
+        context: 'Rol tabanlı yetkilendirme ve MySQL arka uçlu masaüstü oyun kütüphanesi',
+      },
       'exam-timetable-planner': {
         title: 'Sınav Takvimi Planlayıcı',
         context: 'Sınav takvimini hızlı oluşturup düzenlemeye yönelik masaüstü araç',
+      },
+    },
+    more: {
+      title: 'GitHub’da daha fazlası',
+      allRepos: 'Tüm depolar',
+      items: {
+        blackjack: 'Dili öğrenmek için yazılmış Java kart oyunu',
+        sorting: 'Uygulamalı sıralama algoritması pratiği',
       },
     },
   },

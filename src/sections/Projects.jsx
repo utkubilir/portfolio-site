@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 import Container from '../components/Container'
 import { useI18n } from '../i18n'
-import { projects } from '../data/projects'
+import { projects, moreProjects } from '../data/projects'
+import { contact } from '../data/contact'
 import { isUsableHref } from '../utils/link'
 
 function Projects() {
@@ -80,6 +81,28 @@ function Projects() {
               </article>
             )
           })}
+
+          <div className="ed-block">
+            <p className="ed-eyebrow">{messages.projects.more.title}</p>
+            <ul className="flex flex-col gap-3">
+              {moreProjects.map((repo) => (
+                <li key={repo.slug} className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                  <a href={repo.href} target="_blank" rel="noreferrer" className="ed-link">
+                    {repo.name}
+                    <span className="ed-link-arrow">↗</span>
+                  </a>
+                  <span className="ed-tech">{messages.projects.more.items[repo.slug]}</span>
+                </li>
+              ))}
+              <li>
+                <a href={contact.links.github} target="_blank" rel="noreferrer" className="ed-link">
+                  {messages.projects.more.allRepos}
+                  <span className="ed-link-arrow">↗</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
           <div className="ed-rule" />
         </div>
       </Container>

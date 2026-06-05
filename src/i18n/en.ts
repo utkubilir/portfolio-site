@@ -41,16 +41,32 @@ export const en = {
     eyebrow: 'Selected Work',
     title: 'Selected work',
     intro:
-      'Two representative projects with real constraints, engineering decisions, and outcomes.',
+      'A selection of projects with real constraints, engineering decisions, and outcomes.',
     readMore: 'Full ECOFUAV case study',
     items: {
       teknofest: {
         title: 'ECOFUAV — TEKNOFEST Fighting UAV',
         context: 'Student competition UAV for autonomous mission execution',
       },
+      'ce316-iae': {
+        title: 'CE316 — Integrated Assignment Environment',
+        context: 'JavaFX tool that auto-grades programming assignments across C, C++, Java, and Python',
+      },
+      'game-collection-app': {
+        title: 'Game Collection App',
+        context: 'Desktop game-library manager with role-based auth and a MySQL backend',
+      },
       'exam-timetable-planner': {
         title: 'Exam Timetable Planner',
         context: 'Desktop planning tool for creating and editing exam schedules',
+      },
+    },
+    more: {
+      title: 'More on GitHub',
+      allRepos: 'All repositories',
+      items: {
+        blackjack: 'Java card game built to learn the language',
+        sorting: 'Hands-on sorting-algorithm practice',
       },
     },
   },
