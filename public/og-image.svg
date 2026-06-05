@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f3efe8" />
+  <rect x="80" y="118" width="1040" height="1" fill="#1b1a17" fill-opacity="0.16" />
+  <text x="80" y="102" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="6" fill="#9a3a18">PORTFOLIO — 2026</text>
+  <text x="1120" y="102" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="22" letter-spacing="4" fill="#6f6a60">İZMİR · TR</text>
+  <text x="76" y="298" font-family="Georgia, 'Times New Roman', serif" font-size="142" font-weight="600" fill="#1b1a17">Utku Bilir</text>
+  <text x="80" y="382" font-family="Helvetica, Arial, sans-serif" font-size="34" fill="#4a4640">Computer Engineering student — UAV software,</text>
+  <text x="80" y="430" font-family="Helvetica, Arial, sans-serif" font-size="34" fill="#4a4640">simulation &amp; practical Java / React tools.</text>
+  <rect x="80" y="520" width="1040" height="1" fill="#1b1a17" fill-opacity="0.16" />
+  <circle cx="90" cy="567" r="7" fill="#3f9b6b" />
+  <text x="110" y="575" font-family="Helvetica, Arial, sans-serif" font-size="26" fill="#4a4640">Open to internship opportunities</text>
+  <text x="1120" y="576" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="600" fill="#9a3a18">utkubilir.com</text>
+</svg>

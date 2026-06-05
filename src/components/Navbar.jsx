@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import LanguageToggle from './LanguageToggle'
 import Container from './Container'
 import ResumeButton from './ResumeButton'
@@ -31,8 +31,23 @@ function MenuIcon({ isOpen }) {
   )
 }
 
-function Navbar({ navItems, isDark, onToggleTheme, brand, brandHref = '#hero' }) {
+function Navbar({ navItems, activeId, isDark, onToggleTheme, brand, brandHref = '#hero' }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  useEffect(() => {
+    if (!isMenuOpen) {
+      return undefined
+    }
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setIsMenuOpen(false)
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [isMenuOpen])
 
   return (
     <header className="sticky top-0 z-50 border-b border-[color:var(--ui-border)] bg-[color:var(--ui-header)]/88 backdrop-blur-xl">
@@ -45,15 +60,22 @@ function Navbar({ navItems, isDark, onToggleTheme, brand, brandHref = '#hero' })
         </a>
 
         <nav className="hidden items-center justify-center gap-6 md:flex">
-          {navItems.map((item) => (
-            <a
-              key={item.id ?? item.href}
-              href={item.href ?? `#${item.id}`}
-              className="site-nav-link text-sm text-[color:var(--page-muted)] no-underline"
-            >
-              {item.label}
-            </a>
-          ))}
+          {navItems.map((item) => {
+            const isActive = Boolean(activeId) && item.id === activeId
+
+            return (
+              <a
+                key={item.id ?? item.href}
+                href={item.href ?? `#${item.id}`}
+                aria-current={isActive ? 'true' : undefined}
+                className={`site-nav-link text-sm text-[color:var(--page-muted)] no-underline ${
+                  isActive ? 'is-active' : ''
+                }`}
+              >
+                {item.label}
+              </a>
+            )
+          })}
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
@@ -81,16 +103,21 @@ function Navbar({ navItems, isDark, onToggleTheme, brand, brandHref = '#hero' })
         <Container className="pb-4">
           <div className="mobile-nav-panel">
             <nav className="flex flex-col gap-2">
-              {navItems.map((item) => (
-                <a
-                  key={item.id ?? item.href}
-                  href={item.href ?? `#${item.id}`}
-                  className="mobile-nav-link"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.label}
-                </a>
-              ))}
+              {navItems.map((item) => {
+                const isActive = Boolean(activeId) && item.id === activeId
+
+                return (
+                  <a
+                    key={item.id ?? item.href}
+                    href={item.href ?? `#${item.id}`}
+                    aria-current={isActive ? 'true' : undefined}
+                    className={`mobile-nav-link ${isActive ? 'is-active' : ''}`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                )
+              })}
             </nav>
 
             <div className="mt-4">

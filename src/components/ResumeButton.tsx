@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { resume } from '../data/resume'
 import { useI18n } from '../i18n'
 
@@ -23,42 +22,9 @@ function DownloadIcon() {
 
 function ResumeButton({ className = '' }) {
   const { messages } = useI18n()
-  const [isAvailable, setIsAvailable] = useState(Boolean(resume.href))
+  const classes = ['site-resume-button', className].filter(Boolean).join(' ')
 
-  useEffect(() => {
-    if (typeof window === 'undefined' || !resume.href) {
-      setIsAvailable(false)
-      return
-    }
-
-    let isMounted = true
-
-    window
-      .fetch(resume.href, { method: 'HEAD' })
-      .then((response) => {
-        if (isMounted) {
-          setIsAvailable(response.ok)
-        }
-      })
-      .catch(() => {
-        if (isMounted) {
-          setIsAvailable(Boolean(resume.href))
-        }
-      })
-
-    return () => {
-      isMounted = false
-    }
-  }, [])
-
-  const classes = [
-    'site-resume-button',
-    className,
-  ]
-    .filter(Boolean)
-    .join(' ')
-
-  if (!isAvailable) {
+  if (!resume.href) {
     return (
       <button type="button" disabled className={`${classes} cursor-not-allowed opacity-60`}>
         <DownloadIcon />

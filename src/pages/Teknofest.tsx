@@ -6,6 +6,7 @@ import uavBg0 from '../assets/teknofest/uav-1.svg'
 import uavBg1 from '../assets/teknofest/uav-2.svg'
 import uavBg2 from '../assets/teknofest/uav-3.svg'
 import { useNavigate } from 'react-router-dom'
+import { useI18n } from '../i18n'
 import { teknofestSections } from '../data/teknofestSections'
 
 const BACKGROUNDS = [uavBg0, uavBg1, uavBg2] as const
@@ -41,10 +42,14 @@ function usePrefersReducedMotion() {
 
 function Teknofest() {
   const navigate = useNavigate()
+  const { language, messages } = useI18n()
   const prefersReducedMotion = usePrefersReducedMotion()
   const contentRef = useRef<HTMLElement | null>(null)
   const firstRenderRef = useRef(true)
-  const sections = useMemo(() => teknofestSections, [])
+  const sections = useMemo(
+    () => teknofestSections[language] ?? teknofestSections.en,
+    [language],
+  )
 
   const sectionMap = useMemo(
     () => new Map(sections.map((section) => [section.id, section])),
@@ -230,7 +235,7 @@ function Teknofest() {
         href="#teknofest-content"
         className="sr-only z-[60] rounded-md bg-[color:var(--ed-ink)] px-4 py-2 text-sm text-[color:var(--ed-paper)] no-underline focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
       >
-        Skip to case study content
+        {messages.teknofest.skip}
       </a>
 
       <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
@@ -280,7 +285,7 @@ function Teknofest() {
                 >
                   {isHero ? (
                     <>
-                      <p className="ed-eyebrow">Case study · ECOFUAV</p>
+                      <p className="ed-eyebrow">{messages.teknofest.eyebrow}</p>
                       <h1
                         id={`${section.id}-heading`}
                         className="ed-display mt-5 text-3xl font-semibold leading-[1.06] sm:text-4xl md:text-[3.1rem]"

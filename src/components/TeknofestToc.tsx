@@ -1,3 +1,5 @@
+import { useI18n } from '../i18n'
+
 type TocItem = {
   id: string
   title: string
@@ -11,6 +13,8 @@ type TeknofestTocProps = {
 }
 
 function TeknofestToc({ items, activeId, onNavigate, variant }: TeknofestTocProps) {
+  const { messages } = useI18n()
+
   if (variant === 'mobile') {
     return (
       <nav aria-label="Case study sections" className="lg:hidden">
@@ -48,7 +52,7 @@ function TeknofestToc({ items, activeId, onNavigate, variant }: TeknofestTocProp
   return (
     <aside className="hidden lg:block">
       <nav aria-label="Case study sections" className="sticky top-24">
-        <p className="ed-eyebrow">On this page</p>
+        <p className="ed-eyebrow">{messages.teknofest.onThisPage}</p>
         <ul className="mt-4 border-l pl-4" style={{ borderColor: 'var(--ed-line)' }}>
           {items.map((item) => {
             const isActive = item.id === activeId
