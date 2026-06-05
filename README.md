@@ -44,6 +44,21 @@ npm run preview  # preview the production build
 npm run lint     # run ESLint
 ```
 
+## Contact form
+
+The Contact section submits through [Web3Forms](https://web3forms.com) (no backend
+required). A working public-safe access key already ships in `src/data/contact.js`
+(`web3formsKey`), so the form delivers out of the box — in dev and production — with
+no extra setup.
+
+To route submissions to a different inbox, override the key with an env var:
+`cp .env.example .env`, set `VITE_WEB3FORMS_ACCESS_KEY`, and restart. The env var
+takes precedence over the committed default.
+
+The key is public by design (it ships in the client bundle). A honeypot field guards
+against bots; to harden further, restrict allowed domains or enable a CAPTCHA in your
+Web3Forms dashboard. If no key resolves at all, the form falls back to a `mailto:` draft.
+
 ## Project Structure
 
 ```

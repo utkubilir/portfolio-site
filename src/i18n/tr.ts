@@ -85,8 +85,7 @@ export const tr = {
     title: 'İletişime Geçelim',
     cta: 'Staj pozisyonu veya proje iş birliği için iletişime geçebiliriz.',
     ready: 'Bağlantı Kurmaya Hazır mısın?',
-    helper:
-      'Kısa bir not bırak; sana gönderebileceğin önceden doldurulmuş bir e-posta taslağı açayım.',
+    helper: 'Kısa bir not bırak; mesajın doğrudan bana ulaşır.',
     locationLabel: 'Konum:',
     timezoneLabel: 'Saat Dilimi:',
     languagesLabel: 'Diller:',
@@ -110,6 +109,14 @@ export const tr = {
       message: 'Lütfen kısa bir mesaj yaz.',
     },
     submit: 'Mesaj Gönder',
+    subject: 'Portfolyo üzerinden mesaj',
+    status: {
+      sending: 'Gönderiliyor…',
+      success: 'Teşekkürler! Mesajın bana ulaştı, en kısa sürede döneceğim.',
+      error: 'Bir şeyler ters gitti. Doğrudan e-posta gönderebilirsin:',
+    },
+    copyEmail: 'E-postayı kopyala',
+    copied: 'Kopyalandı',
   },
 } as const
 

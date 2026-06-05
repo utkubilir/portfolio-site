@@ -85,8 +85,7 @@ export const en = {
     title: 'Let’s connect',
     cta: 'Could we connect about an internship role or a project collaboration?',
     ready: 'Ready to connect?',
-    helper:
-      'Send a short note and I will open a prefilled email draft so you can send it directly from your mail client.',
+    helper: 'Send a short note and it reaches me directly.',
     locationLabel: 'Location:',
     timezoneLabel: 'Timezone:',
     languagesLabel: 'Languages:',
@@ -110,6 +109,14 @@ export const en = {
       message: 'Please add a short message.',
     },
     submit: 'Send Message',
+    subject: 'Portfolio inquiry',
+    status: {
+      sending: 'Sending…',
+      success: 'Thanks! Your message reached me. I’ll get back to you soon.',
+      error: 'Something went wrong. You can email me directly:',
+    },
+    copyEmail: 'Copy email',
+    copied: 'Copied',
   },
 } as const
 
