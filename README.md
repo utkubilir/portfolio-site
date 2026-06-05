@@ -1,16 +1,65 @@
-# React + Vite
+# Utku Bilir — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio of **Utku Bilir**, a Computer Engineering student in İzmir
+working on UAV/autonomy software and practical student tools. Bilingual
+(Turkish / English), light & dark themes, built around an editorial,
+typography-led design system.
 
-Currently, two official plugins are available:
+**Live site → https://utkubilir.com**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## About
 
-## React Compiler
+A single-page portfolio plus an in-depth case study of the **ECOFUAV
+TEKNOFEST** project. The design is editorial and content-first: large Fraunces
+serif headlines, generous whitespace, and hairline rules instead of heavy cards.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🌐 **Website:** https://utkubilir.com
+- 🧑‍💻 **Focus:** UAV software integration, simulation (ROS 2 / PX4 SITL / Gazebo), Java & React tools
+- 🌍 **Bilingual:** Turkish & English, with a persistent light/dark theme
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Editorial design system (Fraunces + Manrope) with a single restrained accent
+- Home sections: Hero, Selected Work, Experience & Education, Skills, Contact
+- `/teknofest` case study with a sticky table of contents, scroll-spy, and reading progress
+- Fully responsive; light/dark theme follows system preference and is remembered
+- Accessibility: skip links, reduced-motion support, semantic landmarks
+- SEO: per-route titles, Open Graph tags, and canonical URLs
+
+## Tech Stack
+
+- **React 19** + **Vite 7**
+- **Tailwind CSS 3**
+- **React Router 7**
+- Lightweight custom i18n (TR/EN) via React context
+- Type: Fraunces (display) + Manrope (body)
+
+## Getting Started
+
+```bash
+npm install      # install dependencies
+npm run dev      # start the dev server (http://localhost:5173)
+npm run build    # production build
+npm run preview  # preview the production build
+npm run lint     # run ESLint
+```
+
+## Project Structure
+
+```
+src/
+├─ components/   # Navbar, Footer, Container, theme/language toggles…
+├─ sections/     # Home sections (Hero, Projects, Skills, …)
+├─ pages/        # HomePage, Teknofest case study
+├─ data/         # Content (projects, experience, skills, contact…)
+├─ i18n/         # en / tr dictionaries + provider
+└─ index.css     # Editorial design tokens & components (.ed-*)
+```
+
+## Deployment
+
+Static site built with Vite and served at **https://utkubilir.com**.
+
+---
+
+© Utku Bilir
